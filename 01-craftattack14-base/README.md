@@ -1,87 +1,124 @@
 # 01 – Craft Attack 14: Base-Ideen
 
-Ziel: eine Base, bei der man beim ersten Anblick „Boah!“ sagt, die gut funktioniert (Lager, Farmen, Shop) und eine kleine Story hat.
+**Ziel:** kein normales Haus, sondern ein **Megabau**, in dem die Base drinsteckt.
+Von außen sieht man ein riesiges Monument, innen liegen Lager, Farmen, Wohnbereich und Werkstatt.
 
 ---
 
-## Die Konzepte
+## Die Megabau-Konzepte
 
-### 1. Wolkenwerft – Hafen für Luftschiffe
-Eine Base hoch über den Wolken mit Holz-Stegen und Laternen. Daran legen Luftschiffe an, die wie Segelschiffe gebaut sind und Ballons aus Wolle haben.
-- **Wow-Faktor:** Man sieht sie schon von weitem. Wenn es Happy Ghasts in der Version gibt, kann man sie als „Lufttaxis“ an den Stegen anbinden.
-- **Innen:** Der Rumpf des Hauptschiffs ist das Lager, die Kapitänskajüte ist der Wohnraum, die Werft ist die Werkstatt.
-- **Farmen:** Unter der Werft hängen „Frachtcontainer“. Darin sind die Farmen versteckt.
-- **Aufwand:** hoch, weil man viel Gerüst und Fallschutz braucht.
+### 1. Der gefallene Titan
+Ein riesiger Stein-Golem oder Ritter (50–80 Blöcke lang) liegt halb versunken in der Landschaft, so als hätte er vor tausend Jahren eine Schlacht verloren. Aus seinem Körper wachsen Moos, Bäume und Ranken.
+- **Eingang:** Man geht über die ausgestreckte Hand und den Arm bis zur Schulter. Alternativ öffnet sich eine Tür in der Brustplatte.
+- **Base im Körper:**
+  - Kopf: Wohnbereich, die leuchtenden Augen sind die Fenster.
+  - Brustkorb: große Halle mit dem „Herz“, einem Beacon oder einem Kern aus Glowstone.
+  - Bauch: Lager.
+  - Beine: Farmen.
+- **Nachts:** Augen und Herz leuchten, Risse in der Rüstung glühen.
+- **Aufwand:** hoch, aber die Form ist eher kantig und deshalb machbar.
 
-### 2. Die Schmiede im Berg – Zwergenhalle
-Ein Berg wird ausgehöhlt und bekommt eine riesige Halle mit Säulen. Lavafälle kommen hinter Glas herunter, und Lorenbahnen fahren durch die Halle.
-- **Wow-Faktor:** Das Tor sieht von außen unauffällig aus. Innen öffnet sich dann eine gigantische Halle.
-- **Innen:** Eine Schmiede mit Amboss und Hochöfen, ein Lager als „Schatzkammer“ und ein Bahnhof.
-- **Farmen:** Sie liegen in Nebenstollen, sodass man sie nicht sieht.
-- **Aufwand:** mittel. Ausgraben ist leichter als hoch zu bauen, und man bekommt dabei viele Ressourcen.
+### 2. Die Riesenschildkröte
+Eine gigantische Schildkröte steht im Meer oder schwimmt darin und trägt auf ihrem Panzer eine kleine Insel mit Bäumen und Wasserfall.
+- **Eingang:** Man läuft über den Hals in den Kopf. Das Maul ist das Tor.
+- **Base im Körper:**
+  - Panzer: mehrstöckige Base mit Kuppelhalle.
+  - Insel oben: Garten und Felder.
+  - Beine: Treppen und Aufzüge zum Meeresboden.
+  - Unter Wasser: Fisch- und Guardian-Farm.
+- **Nachts:** Laternen auf der Insel, und die Augen leuchten über dem Wasser.
+- **Aufwand:** hoch, weil die Panzerkuppel rund ist.
 
-### 3. Tiefsee-Forschungsstation
-Glaskuppeln am Meeresgrund sind mit Röhrentunneln verbunden. Dazu gibt es eine U-Boot-Garage und ein Aquarium.
-- **Wow-Faktor:** Unter Wasser bauen nur wenige, und nachts leuchten die Kuppeln.
-- **Innen:** Jede Kuppel hat eine Aufgabe, zum Beispiel Labor (Brauen), Lager, Schlafraum oder Shop-Zugang.
-- **Farmen:** Fisch- und Guardian-Farm sowie eine Kelp-Farm passen gut zum Thema.
-- **Aufwand:** hoch, weil man Wasser trockenlegen muss (Schwämme, Sand).
+### 3. Der Drachenschädel und das Skelett
+Das riesige Skelett eines Drachen windet sich um einen Berg oder liegt in einer Schlucht. Der Schädel bildet den Eingang.
+- **Eingang:** Das offene Maul hat Zähne aus Bone Blocks und Calcit, und man geht über die Zunge hinein.
+- **Base im Körper:**
+  - Schädel: Eingangshalle.
+  - Rippen: überdachte Halle, mit Glas oder Netzen dazwischen.
+  - Wirbelsäule: langer Gang mit Lorenbahn.
+  - Flügel: Aussichtsplattformen.
+- **Nachts:** Seelenfeuer in den Augenhöhlen und blaues Licht zwischen den Rippen.
+- **Aufwand:** mittel. Knochen sind Linien statt voller Körper, und das spart Blöcke.
 
-### 4. Riesenbaum-Dorf
-Ein selbst gebauter Mega-Baum trägt Baumhäuser auf mehreren Ebenen. Hängebrücken verbinden sie, und es gibt Wendeltreppen um den Stamm.
-- **Wow-Faktor:** Organische Form, viele Details und gemütliche Stimmung.
-- **Innen:** Jede Ebene ist ein Raum. In den Wurzeln liegt ein Keller als Lager.
-- **Farmen:** Unter dem Baum liegt ein Garten mit Feldern und Bienen.
-- **Aufwand:** mittel bis hoch, weil eine gute Baumform Übung braucht.
+### 4. Das Schwert, das die Welt spaltete
+Ein gigantisches Schwert (über 100 Blöcke hoch) steckt im Boden. Bei seinem Einschlag ist die Erde aufgerissen, und eine Schlucht mit Lava zieht sich durch die Landschaft.
+- **Eingang:** Man steigt über eine Treppe in die Schlucht hinab, und dort ist ein Tor in der Felswand.
+- **Base:**
+  - Griff und Parierstange: Wohnbereich und Aussicht ganz oben.
+  - Klinge: Aufzug (zum Beispiel ein Wassertunnel).
+  - Schlucht: Lager, Werkstatt und Farmen in den Wänden.
+- **Nachts:** Die Klinge leuchtet mit Lichtquellen hinter Glas, und die Lava glüht in den Rissen.
+- **Aufwand:** mittel. Das Schwert ist simpel geformt, die Schlucht ist hauptsächlich Graben.
 
-### 5. Gestrandetes Riesenwrack
-Ein gewaltiges, schief liegendes Schiff ist am Strand oder an Klippen zerschellt. Vielleicht hat sich ein Krake aus Blöcken darum gewickelt.
-- **Wow-Faktor:** Schräge Bauweise und eine Story („Was ist passiert?“).
-- **Innen:** Die schiefen Decks sind bewusst schräg eingerichtet. Im Laderaum liegt das Lager.
-- **Farmen:** Sie sind im Kraken oder im Felsen darunter versteckt.
-- **Aufwand:** mittel. Schräg bauen ist kniffliger, als es aussieht.
+### 5. Der springende Wal
+Ein riesiger Wal ist mitten im Sprung aus dem Meer eingefroren. Die Hälfte ragt in die Luft, und gewaltige Wasserfontänen spritzen um ihn herum.
+- **Eingang:** Über ein Boot und das Maul, oder über einen Unterwasser-Tunnel.
+- **Base im Körper:**
+  - Bauch: große Halle, ähnlich wie bei Pinocchio, mit einem Wrack darin.
+  - Kopf: Wohnbereich.
+  - Schwanzflosse: Aussichtspunkt.
+  - Unter Wasser: Farmen.
+- **Nachts:** Leuchtende Punkte wie bei Biolumineszenz (Sea Lanterns, Froglights).
+- **Aufwand:** sehr hoch, weil der Körper rund, schräg und teils über Wasser ist.
 
-### 6. Kupfer-Steampunk-Fabrik
-Eine Fabrik aus Kupfer, Ziegeln und Eisen mit Schornsteinen, Rohren und Zahnrädern. Das Kupfer altert mit der Zeit sichtbar, und die Base wird immer grüner.
-- **Wow-Faktor:** Farbverlauf durch oxidiertes Kupfer, Rauch (Lagerfeuer) und bewegliche Teile mit Redstone und Kolben.
-- **Innen:** Auto-Sortier-Lager als „Fließband“ und Crafter-Automatik.
-- **Farmen:** Die Fabrik ist praktisch die Farm. Die Farmen sind Teil des Designs statt versteckt.
-- **Aufwand:** hoch, weil man viel Kupfer und Redstone braucht.
+### 6. Der Koloss über dem Hafen
+Eine gigantische Statue steht breitbeinig über einer Bucht, wie der Koloss von Rhodos, und Schiffe fahren zwischen ihren Beinen durch. Sie hält eine Fackel oder eine Laterne hoch.
+- **Eingang:** Über den Hafen und die Füße, dann mit einem Aufzug durch die Beine nach oben.
+- **Base im Körper:**
+  - Beine: Lager.
+  - Körper: Werkstatt.
+  - Kopf: Wohnbereich.
+  - Fackel: Leuchtfeuer, das man von weit sieht.
+  - Hafen unten: Platz für den Shop.
+- **Nachts:** Die Fackel ist von überall zu sehen.
+- **Aufwand:** sehr hoch, weil eine Figur mit Proportionen schwer ist.
 
 ---
 
 ## Vergleich
 
-| Konzept | Wow | Aufwand | Ressourcen | Farm-Integration |
-|---------|-----|---------|------------|------------------|
-| 1. Wolkenwerft | ⭐⭐⭐⭐⭐ | hoch | Holz, Wolle | mittel |
-| 2. Schmiede im Berg | ⭐⭐⭐⭐ | mittel | Stein, Deepslate, Lava | gut |
-| 3. Tiefseestation | ⭐⭐⭐⭐ | hoch | Glas, Schwämme, Prismarin | gut |
-| 4. Riesenbaum-Dorf | ⭐⭐⭐⭐ | mittel–hoch | Holz, Laub | mittel |
-| 5. Riesenwrack | ⭐⭐⭐⭐ | mittel | Holz, Wolle, Stein | gut |
-| 6. Kupfer-Fabrik | ⭐⭐⭐⭐⭐ | hoch | Kupfer, Ziegel, Redstone | sehr gut |
+| Konzept | Wow | Aufwand | Platz für Base | Besonderheit |
+|---------|-----|---------|----------------|--------------|
+| 1. Gefallener Titan | ⭐⭐⭐⭐⭐ | hoch | sehr viel | Story + Natur überwuchert |
+| 2. Riesenschildkröte | ⭐⭐⭐⭐⭐ | hoch | viel | Insel auf dem Rücken |
+| 3. Drachenskelett | ⭐⭐⭐⭐ | mittel | mittel | spart Blöcke, sehr düster |
+| 4. Schwert + Schlucht | ⭐⭐⭐⭐⭐ | mittel | sehr viel | von weit sichtbar |
+| 5. Springender Wal | ⭐⭐⭐⭐⭐ | sehr hoch | viel | einzigartig |
+| 6. Koloss | ⭐⭐⭐⭐ | sehr hoch | mittel | Hafen + Shop |
+
+**Tipp:** Das **Schwert** und das **Drachenskelett** bringen am meisten Wow für den Aufwand. Den **Titan** kann man klein starten (nur Kopf und Arm) und später erweitern.
 
 ---
 
-## Was jede Craft-Attack-Base braucht
+## So baut man einen Megabau
 
-- [ ] **Eingang mit Wow-Effekt:** Das ist der erste Eindruck für Besucher und in Videos.
-- [ ] **Lager:** gut erreichbar, am besten mit Sortiersystem.
-- [ ] **Farmen:** Eisen, Essen, XP und Holz. Sie sollten ins Thema passen.
-- [ ] **Shop-Idee:** Was verkaufst du, und passt der Shop optisch zur Base?
-- [ ] **Story / Lore:** Ein kleiner Hintergrund macht die Base besonders.
-- [ ] **Prank-Schutz:** Wichtiges absichern, aber trotzdem „Besucher-freundlich“ bauen.
-- [ ] **Ausbaubar:** In der ersten Woche klein starten und später erweitern.
+1. **Skizze:** Die Form auf Karopapier oder in einem Tool zeichnen (z. B. Seitenansicht und Draufsicht).
+2. **Rohform:** Die Umrisse mit billigen Blöcken (Wolle, Erde) abstecken und von weitem prüfen.
+3. **Hülle:** Das richtige Material verwenden und mit 3–4 ähnlichen Blöcken mischen, damit es nicht flach aussieht.
+4. **Innenausbau:** Die Räume in die Hülle einpassen.
+5. **Details:** Moos, Ranken, Risse, Licht und Partikel (Lagerfeuer, Seelenfeuer) hinzufügen.
+
+---
+
+## Was in den Megabau rein muss
+
+- [ ] **Eingang mit Wow-Effekt**
+- [ ] **Lager** (am besten mit Sortiersystem)
+- [ ] **Farmen** (Eisen, Essen, XP, Holz), gut versteckt oder ins Thema eingebaut
+- [ ] **Wohnbereich / Bett**
+- [ ] **Werkstatt** (Verzaubern, Amboss, Brauen)
+- [ ] **Shop-Idee**
+- [ ] **Story:** Was ist hier passiert?
+- [ ] **Prank-Schutz**
 
 ---
 
 ## Offene Fragen
 
-1. Welcher Stil gefällt dir am meisten: Fantasy, Steampunk, Natur oder Modern?
-2. Wo soll die Base hin: Berg, Meer, Himmel, Wald oder Wüste?
-3. Baust du alleine oder im Team?
-4. Wie groß soll sie werden: kompakt und detailliert oder riesig und episch?
-5. Soll es einen Shop geben, und was soll er verkaufen?
+1. Welcher Megabau gefällt dir am besten, oder soll es eine Kombination sein?
+2. Wo soll er stehen: Meer, Berg, Ebene oder Schlucht?
+3. Soll es eher episch und düster sein (Drache, Titan) oder freundlich und magisch (Schildkröte, Wal)?
+4. Wie groß darf es werden, und baust du alleine?
 
 ## Entscheidung
 
