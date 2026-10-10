@@ -1,124 +1,128 @@
 # 01 – Craft Attack 14: Base-Ideen
 
-**Ziel:** kein normales Haus, sondern ein **Megabau**, in dem die Base drinsteckt.
-Von außen sieht man ein riesiges Monument, innen liegen Lager, Farmen, Wohnbereich und Werkstatt.
+**Ziel:** kein Gebäude, sondern eine **eigene, besondere Landschaft**: ein Gelände, das so in keiner normalen Minecraft-Welt vorkommt.
+Die Base ist in die Landschaft eingebaut: Lager in Höhlen, Farmen hinter Wasserfällen, Wohnbereich in Felswänden und so weiter.
 
 ---
 
-## Die Megabau-Konzepte
+## Die Landschafts-Konzepte
 
-### 1. Der gefallene Titan
-Ein riesiger Stein-Golem oder Ritter (50–80 Blöcke lang) liegt halb versunken in der Landschaft, so als hätte er vor tausend Jahren eine Schlacht verloren. Aus seinem Körper wachsen Moos, Bäume und Ranken.
-- **Eingang:** Man geht über die ausgestreckte Hand und den Arm bis zur Schulter. Alternativ öffnet sich eine Tür in der Brustplatte.
-- **Base im Körper:**
-  - Kopf: Wohnbereich, die leuchtenden Augen sind die Fenster.
-  - Brustkorb: große Halle mit dem „Herz“, einem Beacon oder einem Kern aus Glowstone.
-  - Bauch: Lager.
-  - Beine: Farmen.
-- **Nachts:** Augen und Herz leuchten, Risse in der Rüstung glühen.
-- **Aufwand:** hoch, aber die Form ist eher kantig und deshalb machbar.
+### 1. Das versteckte Tal
+Ein Tal ist ringsum von hohen Klippen eingeschlossen, und von außen sieht man nur Berge. Man kommt **nur durch einen Wasserfall oder einen Höhlengang** hinein. Innen öffnet sich eine Traumlandschaft mit See, Inseln, Felsbögen und mehreren Wasserfällen von den Klippen.
+- **Was alles reinpasst:**
+  - Wohnbereich in einer Felsnische mit Blick auf den See
+  - Lager in der Höhle hinter dem Hauptwasserfall
+  - Farmen in den Klippenwänden, von außen nicht sichtbar
+  - Garten und Felder auf Terrassen am Hang
+  - kleine Insel im See als Verzauberungs-Ecke
+  - Hängebrücken zwischen den Klippen
+- **Besonders:** der Moment, wenn man durch den Wasserfall tritt und das Tal sieht.
 
-### 2. Die Riesenschildkröte
-Eine gigantische Schildkröte steht im Meer oder schwimmt darin und trägt auf ihrem Panzer eine kleine Insel mit Bäumen und Wasserfall.
-- **Eingang:** Man läuft über den Hals in den Kopf. Das Maul ist das Tor.
-- **Base im Körper:**
-  - Panzer: mehrstöckige Base mit Kuppelhalle.
-  - Insel oben: Garten und Felder.
-  - Beine: Treppen und Aufzüge zum Meeresboden.
-  - Unter Wasser: Fisch- und Guardian-Farm.
-- **Nachts:** Laternen auf der Insel, und die Augen leuchten über dem Wasser.
-- **Aufwand:** hoch, weil die Panzerkuppel rund ist.
+### 2. Die Felsnadeln (wie in „Avatar“)
+Dutzende hohe, schmale Felstürme ragen aus einem nebligen Wald oder See. Oben auf den Türmen wachsen Bäume, und Hängebrücken und Lianen verbinden sie.
+- **Was alles reinpasst:**
+  - jeder Turm hat eine Aufgabe: Wohnturm, Lagerturm, Farmturm, Werkstattturm, Aussichtsturm
+  - Aufzüge im Inneren der Türme
+  - Höhlen in den Felsen
+  - Wasserfälle, die von den Türmen herabfallen
+- **Besonders:** sieht von jedem Blickwinkel spektakulär aus und ist beliebig erweiterbar (einfach noch einen Turm bauen).
 
-### 3. Der Drachenschädel und das Skelett
-Das riesige Skelett eines Drachen windet sich um einen Berg oder liegt in einer Schlucht. Der Schädel bildet den Eingang.
-- **Eingang:** Das offene Maul hat Zähne aus Bone Blocks und Calcit, und man geht über die Zunge hinein.
-- **Base im Körper:**
-  - Schädel: Eingangshalle.
-  - Rippen: überdachte Halle, mit Glas oder Netzen dazwischen.
-  - Wirbelsäule: langer Gang mit Lorenbahn.
-  - Flügel: Aussichtsplattformen.
-- **Nachts:** Seelenfeuer in den Augenhöhlen und blaues Licht zwischen den Rippen.
-- **Aufwand:** mittel. Knochen sind Linien statt voller Körper, und das spart Blöcke.
+### 3. Die Riesen-Doline (Cenote)
+Ein gigantisches, rundes Loch im Boden, 40–60 Blöcke breit und tief. Unten liegt ein türkiser See. Wasserfälle stürzen hinein, Lianen hängen herab, und durch die Öffnung fällt Licht.
+- **Was alles reinpasst:**
+  - ein Spiralweg an der Wand nach unten mit Räumen auf jeder Ebene
+  - Lager, Werkstatt und Wohnbereich in den Höhlen der Wände
+  - Unterwasser-Bereich im See
+  - Farmen in Seitenstollen
+  - Insel mit Baum in der Mitte des Sees
+- **Besonders:** von oben ist es ein mystisches Loch, unten eine eigene Welt.
 
-### 4. Das Schwert, das die Welt spaltete
-Ein gigantisches Schwert (über 100 Blöcke hoch) steckt im Boden. Bei seinem Einschlag ist die Erde aufgerissen, und eine Schlucht mit Lava zieht sich durch die Landschaft.
-- **Eingang:** Man steigt über eine Treppe in die Schlucht hinab, und dort ist ein Tor in der Felswand.
-- **Base:**
-  - Griff und Parierstange: Wohnbereich und Aussicht ganz oben.
-  - Klinge: Aufzug (zum Beispiel ein Wassertunnel).
-  - Schlucht: Lager, Werkstatt und Farmen in den Wänden.
-- **Nachts:** Die Klinge leuchtet mit Lichtquellen hinter Glas, und die Lava glüht in den Rissen.
-- **Aufwand:** mittel. Das Schwert ist simpel geformt, die Schlucht ist hauptsächlich Graben.
+### 4. Die schwebenden Inseln
+Ein Archipel aus schwebenden Inseln in verschiedenen Größen und Höhen. Wasserfälle fallen ins Leere, und Wurzeln und Felsbrocken hängen unten heraus.
+- **Was alles reinpasst:**
+  - Hauptinsel mit dem Wohnbereich
+  - eine Insel nur für Farmen, eine für das Lager und eine für den Shop
+  - kleine Mini-Inseln als Deko oder Sprungpfad
+  - Brücken, Ketten und Lianen dazwischen
+- **Besonders:** von weit sichtbar und magisch.
 
-### 5. Der springende Wal
-Ein riesiger Wal ist mitten im Sprung aus dem Meer eingefroren. Die Hälfte ragt in die Luft, und gewaltige Wasserfontänen spritzen um ihn herum.
-- **Eingang:** Über ein Boot und das Maul, oder über einen Unterwasser-Tunnel.
-- **Base im Körper:**
-  - Bauch: große Halle, ähnlich wie bei Pinocchio, mit einem Wrack darin.
-  - Kopf: Wohnbereich.
-  - Schwanzflosse: Aussichtspunkt.
-  - Unter Wasser: Farmen.
-- **Nachts:** Leuchtende Punkte wie bei Biolumineszenz (Sea Lanterns, Froglights).
-- **Aufwand:** sehr hoch, weil der Körper rund, schräg und teils über Wasser ist.
+### 5. Die leuchtende Unterwelt
+Eine riesige unterirdische Kaverne mit eigenem See, leuchtenden Pilzen, Glow Berries, Tropfsteinen und einem Lichtschacht von der Oberfläche. Oben ist nur ein unauffälliges Loch.
+- **Was alles reinpasst:**
+  - Base an und in den Höhlenwänden
+  - Farmen tief in Nebenhöhlen
+  - Boote oder Lorenbahn über den unterirdischen See
+  - riesige Riesenpilze als Deko oder Räume
+- **Besonders:** nachts und tags gleich magisch, und keiner erwartet so etwas.
 
-### 6. Der Koloss über dem Hafen
-Eine gigantische Statue steht breitbeinig über einer Bucht, wie der Koloss von Rhodos, und Schiffe fahren zwischen ihren Beinen durch. Sie hält eine Fackel oder eine Laterne hoch.
-- **Eingang:** Über den Hafen und die Füße, dann mit einem Aufzug durch die Beine nach oben.
-- **Base im Körper:**
-  - Beine: Lager.
-  - Körper: Werkstatt.
-  - Kopf: Wohnbereich.
-  - Fackel: Leuchtfeuer, das man von weit sieht.
-  - Hafen unten: Platz für den Shop.
-- **Nachts:** Die Fackel ist von überall zu sehen.
-- **Aufwand:** sehr hoch, weil eine Figur mit Proportionen schwer ist.
+### 6. Die Vulkaninsel
+Eine eigene Insel im Meer mit einem Vulkan, aus dem Lava fließt. Dazu kommen ein Dschungel, eine Lagune mit Strand und schwarzer Basalt.
+- **Was alles reinpasst:**
+  - Wohnbereich in der Lagune oder am Strand
+  - Werkstatt und Schmiede im Vulkan, mit Lava hinter Glas
+  - Lager in Lavahöhlen
+  - Farmen im Dschungel versteckt
+  - Hafen für den Shop
+- **Besonders:** Feuer, Wasser und Dschungel an einem Ort.
 
 ---
 
 ## Vergleich
 
-| Konzept | Wow | Aufwand | Platz für Base | Besonderheit |
-|---------|-----|---------|----------------|--------------|
-| 1. Gefallener Titan | ⭐⭐⭐⭐⭐ | hoch | sehr viel | Story + Natur überwuchert |
-| 2. Riesenschildkröte | ⭐⭐⭐⭐⭐ | hoch | viel | Insel auf dem Rücken |
-| 3. Drachenskelett | ⭐⭐⭐⭐ | mittel | mittel | spart Blöcke, sehr düster |
-| 4. Schwert + Schlucht | ⭐⭐⭐⭐⭐ | mittel | sehr viel | von weit sichtbar |
-| 5. Springender Wal | ⭐⭐⭐⭐⭐ | sehr hoch | viel | einzigartig |
-| 6. Koloss | ⭐⭐⭐⭐ | sehr hoch | mittel | Hafen + Shop |
+| Konzept | Wow | Aufwand | Platz für Sachen | Erweiterbar |
+|---------|-----|---------|------------------|-------------|
+| 1. Verstecktes Tal | ⭐⭐⭐⭐⭐ | mittel–hoch | sehr viel | gut |
+| 2. Felsnadeln | ⭐⭐⭐⭐⭐ | mittel | viel | sehr gut |
+| 3. Riesen-Doline | ⭐⭐⭐⭐ | mittel (viel Graben) | viel | gut |
+| 4. Schwebende Inseln | ⭐⭐⭐⭐⭐ | hoch | mittel | sehr gut |
+| 5. Leuchtende Unterwelt | ⭐⭐⭐⭐ | mittel (viel Graben) | sehr viel | gut |
+| 6. Vulkaninsel | ⭐⭐⭐⭐⭐ | hoch | sehr viel | gut |
 
-**Tipp:** Das **Schwert** und das **Drachenskelett** bringen am meisten Wow für den Aufwand. Den **Titan** kann man klein starten (nur Kopf und Arm) und später erweitern.
-
----
-
-## So baut man einen Megabau
-
-1. **Skizze:** Die Form auf Karopapier oder in einem Tool zeichnen (z. B. Seitenansicht und Draufsicht).
-2. **Rohform:** Die Umrisse mit billigen Blöcken (Wolle, Erde) abstecken und von weitem prüfen.
-3. **Hülle:** Das richtige Material verwenden und mit 3–4 ähnlichen Blöcken mischen, damit es nicht flach aussieht.
-4. **Innenausbau:** Die Räume in die Hülle einpassen.
-5. **Details:** Moos, Ranken, Risse, Licht und Partikel (Lagerfeuer, Seelenfeuer) hinzufügen.
+**Kombi-Idee:** Ein **verstecktes Tal mit Felsnadeln** darin, und unter dem See liegt eine **leuchtende Höhle**. Dann gibt es drei Welten in einer.
 
 ---
 
-## Was in den Megabau rein muss
+## Highlights, die überall reinpassen
+
+- Wasserfall mit Geheimgang dahinter
+- Felsbogen über dem Wasser
+- Kirschbäume oder Azaleen für Farbe
+- Lianen, Moos und Glow Berries an Felswänden
+- spiegelglatter See mit Seerosen
+- Hängebrücken und Holzstege
+- Lagerfeuer-Rauch als Nebel-Effekt
+- Lichtschacht in eine Höhle
+
+---
+
+## So baut man eine Landschaft
+
+1. **Gebiet aussuchen:** Möglichst flach oder schon passend, zum Beispiel ein Berg für das Tal.
+2. **Grobe Form:** Zuerst die großen Formen (Klippen, Türme, Löcher) mit einem Material bauen.
+3. **Natürliche Kanten:** Nie gerade Linien. Überhänge, Stufen und Unregelmäßigkeiten einbauen.
+4. **Materialmix:** Stein, Andesit, Tuff, Moos und Erde gemischt, damit es echt aussieht.
+5. **Wasser und Pflanzen:** Am Ende Wasserfälle, Bäume, Lianen und Blumen hinzufügen.
+6. **Base einbauen:** Räume in Felsen und Höhlen, sodass sie Teil der Landschaft sind.
+
+---
+
+## Was in die Landschaft rein muss
 
 - [ ] **Eingang mit Wow-Effekt**
-- [ ] **Lager** (am besten mit Sortiersystem)
-- [ ] **Farmen** (Eisen, Essen, XP, Holz), gut versteckt oder ins Thema eingebaut
+- [ ] **Lager**
+- [ ] **Farmen** (Eisen, Essen, XP, Holz), versteckt
 - [ ] **Wohnbereich / Bett**
 - [ ] **Werkstatt** (Verzaubern, Amboss, Brauen)
 - [ ] **Shop-Idee**
-- [ ] **Story:** Was ist hier passiert?
 - [ ] **Prank-Schutz**
 
 ---
 
 ## Offene Fragen
 
-1. Welcher Megabau gefällt dir am besten, oder soll es eine Kombination sein?
-2. Wo soll er stehen: Meer, Berg, Ebene oder Schlucht?
-3. Soll es eher episch und düster sein (Drache, Titan) oder freundlich und magisch (Schildkröte, Wal)?
-4. Wie groß darf es werden, und baust du alleine?
+1. Welche Landschaft gefällt dir, oder soll es die Kombi sein?
+2. Eher magisch und leuchtend, oder eher natürlich und realistisch?
+3. Was ist dir am wichtigsten, das unbedingt reinmuss?
 
 ## Entscheidung
 
