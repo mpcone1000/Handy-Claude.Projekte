@@ -1,0 +1,380 @@
+{
+ "slug": "verstecktes-tal",
+ "nr": 1,
+ "title": "Das versteckte Tal",
+ "tagline": "Rundum Felswände, rein kommt man nur durch einen Wasserfall.",
+ "story": [
+  "Von außen sieht man nur einen wilden Bergkamm mit Schneegipfeln. Der einzige Weg hinein führt durch einen Tunnel hinter einem Wasserfall.",
+  "Drinnen öffnet sich ein rund 180 × 470 Blöcke großes Tal mit Kirschwiese, Bach, Fichtenwald und einem großen See. Über den See spannt sich ein Felsbogen. Von den Wänden stürzen fünf Wasserfälle.",
+  "Die ganze Base steckt im Fels: Das Lager liegt hinter dem Hauptwasserfall, der Wohnbereich hat eine Glasfront zum See, die Farmen sind in der Ostwand versteckt."
+ ],
+ "ground_y": 57,
+ "water_level": 50,
+ "paste_y": 6,
+ "paste_note": "Dann liegt der Boden rund um die Berge auf normaler Höhe (Y 63), und die Gipfel reichen bis Y 174.",
+ "water_color": "#2f7fc4",
+ "sky": "day",
+ "camera": {
+  "target": [
+   150,
+   58,
+   330
+  ],
+  "pos": [
+   250,
+   250,
+   650
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Geheimer Eingang",
+   "typ": "eingang",
+   "pos": [
+    150,
+    60,
+    557
+   ],
+   "text": "An der Außenwand stürzt ein 75 Blöcke hoher Wasserfall herab. Direkt dahinter beginnt ein 9 Blöcke breiter Tunnel. Er führt 34 Blöcke durch den Fels ins Tal und ist mit Laternen beleuchtet."
+  },
+  {
+   "name": "Shop-Platz",
+   "typ": "shop",
+   "pos": [
+    123,
+    57,
+    563
+   ],
+   "text": "Ein kleiner Platz aus Steinziegeln vor dem Wasserfall mit Marktständen aus Fässern. Hier können Besucher handeln, ohne dass sie dein Tal sehen."
+  },
+  {
+   "name": "Lager hinter dem Wasserfall",
+   "innen": true,
+   "typ": "lager",
+   "pos": [
+    150,
+    54,
+    53
+   ],
+   "text": "Eine 36 × 25 Blöcke große Höhle hinter dem Hauptwasserfall im Norden. Man geht durch den Wasservorhang hinein. Drinnen stehen Regalreihen aus Fässern, Platz für ein Sortiersystem ist genug da."
+  },
+  {
+   "name": "Wohnbereich in der Felswand",
+   "innen": true,
+   "typ": "wohnen",
+   "pos": [
+    61,
+    68,
+    339
+   ],
+   "text": "Zwei Stockwerke sind in die Westwand gehauen, mit einer 23 Blöcke breiten Glasfront zum See. Davor liegt ein Balkon auf Stelzen, und eine Hängebrücke führt zum Felsbogen."
+  },
+  {
+   "name": "Werkstatt",
+   "innen": true,
+   "typ": "werkstatt",
+   "pos": [
+    88,
+    57,
+    176
+   ],
+   "text": "Eine gewölbte Kammer in der Westwand mit Werkbank, Schmiedetisch, Amboss und Schmelzöfen. Sie liegt nah am Lager."
+  },
+  {
+   "name": "Farm-Kammer 1",
+   "innen": true,
+   "typ": "farm",
+   "pos": [
+    226,
+    64,
+    158
+   ],
+   "text": "22 × 17 × 25 Blöcke im Fels der Ostwand. Gut geeignet für eine Eisenfarm. Von außen sieht man nur schmale Glasschlitze."
+  },
+  {
+   "name": "Farm-Kammer 2",
+   "innen": true,
+   "typ": "farm",
+   "pos": [
+    236,
+    64,
+    190
+   ],
+   "text": "Gleiche Größe wie Kammer 1. Hier passen Tierfarmen hin, zum Beispiel Kühe, Schafe und Hühner."
+  },
+  {
+   "name": "Farm-Kammer 3",
+   "innen": true,
+   "typ": "farm",
+   "pos": [
+    233,
+    64,
+    222
+   ],
+   "text": "Hier passt eine XP-Farm hin, zum Beispiel ein Mob-Spawner-Raum mit Wasserrinne. Sie liegt direkt hinter den Feldern."
+  },
+  {
+   "name": "Reisterrassen",
+   "typ": "farm",
+   "pos": [
+    206,
+    59,
+    192
+   ],
+   "text": "Vier Terrassen mit Stützmauern aus bemoosten Steinziegeln. Wasserrinnen versorgen den Weizen. Zwei schmale Schleierfälle kommen von der Ostwand."
+  },
+  {
+   "name": "Felsbogen",
+   "typ": "highlight",
+   "pos": [
+    109,
+    76,
+    358
+   ],
+   "text": "Ein natürlicher Steinbogen spannt sich 27 Blöcke hoch über den See. Oben wächst Gras. Hängebrücken verbinden ihn mit dem Wohnbereich und der Verzauberungsinsel."
+  },
+  {
+   "name": "Verzauberungsinsel",
+   "typ": "werkstatt",
+   "pos": [
+    176,
+    58,
+    410
+   ],
+   "text": "Ein Ring aus Bücherregalen auf der Insel im See, mit einem Kirschbaum daneben. In die Mitte kommt der Zaubertisch."
+  },
+  {
+   "name": "Hauptwasserfall",
+   "typ": "highlight",
+   "pos": [
+    150,
+    95,
+    69
+   ],
+   "text": "Er fällt aus einer Felsspalte 78 Blöcke tief in eine Gumpe. Von dort fließt ein Bach durch die Kirschwiese zum See."
+  },
+  {
+   "name": "Aussichtspunkt",
+   "typ": "highlight",
+   "pos": [
+    241,
+    153,
+    298
+   ],
+   "text": "Eine Plattform auf dem höchsten Gipfel der Ostwand. Von hier sieht man das ganze Tal."
+  }
+ ],
+ "phasen": [
+  [
+   "Abstecken",
+   "Den Umriss des Tals (Ellipse, ca. 180 × 470) und die Lage von Tunnel, See und Wasserfällen mit Wolle markieren."
+  ],
+  [
+   "Wände hochziehen",
+   "Den Bergring rundum aufbauen, außen flacher und innen steil mit kleinen Simsen. Hier werden die meisten Blöcke verbaut."
+  ],
+  [
+   "Tal ausheben",
+   "See (bis 14 tief), Bachbett und Gumpe ausgraben. Was dabei abgebaut wird, geht direkt in die Wände."
+  ],
+  [
+   "Wasser",
+   "Quellen in die Felsspalten setzen. Fallendes Wasser fließt nicht seitlich, deshalb bleibt der Höhleneingang hinter dem Vorhang frei."
+  ],
+  [
+   "Base einbauen",
+   "Lager, Werkstatt, Wohnbereich und Farm-Kammern in den Fels hauen und dann Fensterfronten und Balkon bauen."
+  ],
+  [
+   "Natur",
+   "Bäume, Büsche, Terrassen, Wege mit Laternen. Zuletzt Schnee auf die Gipfel."
+  ]
+ ],
+ "tipps": [
+  "Die Wände mit 3–4 Gesteinsarten in Schichten bauen (Stein, Andesit, Tuff, Calcit). Dann sehen sie aus wie echte Felsen.",
+  "Damit Laub nicht zerfällt, entweder mit Schere abgebautes Laub benutzen oder es nah an Stämmen platzieren. In der Schematic ist es als dauerhaft markiert.",
+  "Den Tunnel-Eingang erst ganz zum Schluss öffnen. So bleibt das Tal bis zur Enthüllung geheim."
+ ],
+ "size": [
+  300,
+  175,
+  599
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 164054,
+    "gesamt": 2477632
+   },
+   "andesite": {
+    "sichtbar": 73485,
+    "gesamt": 1392506
+   },
+   "diorite": {
+    "sichtbar": 91742,
+    "gesamt": 350047
+   },
+   "tuff": {
+    "sichtbar": 39676,
+    "gesamt": 904152
+   },
+   "calcite": {
+    "sichtbar": 3132,
+    "gesamt": 36238
+   },
+   "cobblestone": {
+    "sichtbar": 5277,
+    "gesamt": 96146
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 129,
+    "gesamt": 766
+   },
+   "mossy_stone_bricks": {
+    "sichtbar": 518,
+    "gesamt": 1071
+   },
+   "stone_bricks": {
+    "sichtbar": 2737,
+    "gesamt": 3123
+   },
+   "polished_andesite": {
+    "sichtbar": 49,
+    "gesamt": 49
+   },
+   "gravel": {
+    "sichtbar": 7183,
+    "gesamt": 7184
+   },
+   "dirt": {
+    "sichtbar": 13162,
+    "gesamt": 223175
+   },
+   "coarse_dirt": {
+    "sichtbar": 7700,
+    "gesamt": 7741
+   },
+   "grass": {
+    "sichtbar": 34747,
+    "gesamt": 35583
+   },
+   "moss": {
+    "sichtbar": 7733,
+    "gesamt": 7797
+   },
+   "clay": {
+    "sichtbar": 4010,
+    "gesamt": 4012
+   },
+   "sand": {
+    "sichtbar": 13496,
+    "gesamt": 26820
+   },
+   "dirt_path": {
+    "sichtbar": 1259,
+    "gesamt": 1260
+   },
+   "snow": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "farmland": {
+    "sichtbar": 2949,
+    "gesamt": 2949
+   },
+   "oak_log": {
+    "sichtbar": 78,
+    "gesamt": 117
+   },
+   "oak_leaves": {
+    "sichtbar": 1046,
+    "gesamt": 1465
+   },
+   "spruce_log": {
+    "sichtbar": 1143,
+    "gesamt": 4026
+   },
+   "spruce_leaves": {
+    "sichtbar": 44351,
+    "gesamt": 61510
+   },
+   "birch_log": {
+    "sichtbar": 111,
+    "gesamt": 160
+   },
+   "birch_leaves": {
+    "sichtbar": 1242,
+    "gesamt": 1681
+   },
+   "cherry_log": {
+    "sichtbar": 654,
+    "gesamt": 778
+   },
+   "cherry_leaves": {
+    "sichtbar": 6008,
+    "gesamt": 8715
+   },
+   "azalea_leaves": {
+    "sichtbar": 1507,
+    "gesamt": 1657
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 808,
+    "gesamt": 871
+   },
+   "spruce_planks": {
+    "sichtbar": 2605,
+    "gesamt": 2837
+   },
+   "stripped_spruce_log": {
+    "sichtbar": 6,
+    "gesamt": 6
+   },
+   "spruce_fence": {
+    "sichtbar": 336,
+    "gesamt": 336
+   },
+   "lantern": {
+    "sichtbar": 146,
+    "gesamt": 146
+   },
+   "glass": {
+    "sichtbar": 545,
+    "gesamt": 545
+   },
+   "barrel": {
+    "sichtbar": 622,
+    "gesamt": 622
+   },
+   "bookshelf": {
+    "sichtbar": 173,
+    "gesamt": 173
+   },
+   "wheat": {
+    "sichtbar": 2950,
+    "gesamt": 2950
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 737033,
+  "gesamt": 5666852,
+  "sichtbar": 537375
+ },
+ "bin_bytes": 1168546
+}

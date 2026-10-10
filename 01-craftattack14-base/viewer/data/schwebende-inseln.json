@@ -1,0 +1,328 @@
+{
+ "slug": "schwebende-inseln",
+ "nr": 4,
+ "title": "Die schwebenden Inseln",
+ "tagline": "Über 20 Inseln im Himmel. In der Mitte steht ein riesiger Kirschbaum.",
+ "story": [
+  "Hoch über dem Boden schweben über 20 Inseln. Die Hauptinsel ist 145 × 170 Blöcke groß, die kleinsten sind nur ein paar Blöcke breit.",
+  "Auf der Hauptinsel wächst ein riesiger Kirschbaum. Seine Wurzeln hängen unten aus dem Fels. Ein See läuft über die Kante und stürzt als Wasserfall in die Tiefe.",
+  "Jede große Insel hat eine Aufgabe: Wohnen, Farmen, Lager, Werkstatt, Shop, Verzaubern. Hängebrücken verbinden sie, Ketten und Lianen hängen unter ihnen."
+ ],
+ "ground_y": -27,
+ "water_level": null,
+ "paste_y": 90,
+ "paste_note": "Dann schweben die Inseln hoch über dem Boden (Y 63). Den Blasen-Aufzug bis zum Boden verlängern.",
+ "water_color": "#3d8ad8",
+ "sky_color": "#b4d4ee",
+ "surround": {
+  "kind": "grass",
+  "y": -27,
+  "color": "#6f9e4a",
+  "full": true
+ },
+ "camera": {
+  "target": [
+   158,
+   118,
+   244
+  ],
+  "pos": [
+   408,
+   220,
+   574
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Blasen-Aufzug",
+   "typ": "eingang",
+   "pos": [
+    186,
+    4,
+    424
+   ],
+   "text": "Ein gläserner Wasser-Aufzug mit Seelensand am Boden bringt dich in Sekunden vom Erdboden zur Shopinsel. Mit Elytren landest du auch direkt auf dem Marktplatz."
+  },
+  {
+   "name": "Shopinsel",
+   "typ": "shop",
+   "pos": [
+    164,
+    126,
+    424
+   ],
+   "text": "Ein Marktplatz aus Steinziegeln mit acht Ständen. Er ist die Ankunftsinsel für Besucher und über eine Hängebrücke mit der Hauptinsel verbunden."
+  },
+  {
+   "name": "Weltenbaum",
+   "typ": "highlight",
+   "pos": [
+    140,
+    181,
+    246
+   ],
+   "text": "Ein 58 Blöcke hoher Kirschbaum mit über 50 Blöcke breiter Krone. Seine Wurzeln wachsen durch die Insel und hängen unten frei in der Luft."
+  },
+  {
+   "name": "Wohnbereich im Hügel",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    144,
+    160,
+    182
+   ],
+   "cut": 7,
+   "text": "Eine gewölbte Halle im Hügel der Hauptinsel. Die Glasfront schaut direkt auf den Weltenbaum und den See."
+  },
+  {
+   "name": "See mit Wasserfall ins Leere",
+   "typ": "highlight",
+   "pos": [
+    182,
+    152,
+    246
+   ],
+   "text": "Ein kleiner See auf der Hauptinsel. Sein Abfluss stürzt über die Inselkante in die Tiefe."
+  },
+  {
+   "name": "Farminsel",
+   "typ": "farm",
+   "pos": [
+    286,
+    139,
+    112
+   ],
+   "text": "Weizenfelder mit Wasserrinnen und zwei eingezäunte Weiden für Tiere."
+  },
+  {
+   "name": "Lagerinsel",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    32,
+    145,
+    134
+   ],
+   "cut": 8,
+   "text": "Die ganze Insel ist innen hohl. In der 32 × 36 Blöcke großen Halle stehen Regalreihen aus Fässern. Eine Treppe führt von oben hinein."
+  },
+  {
+   "name": "Werkstatt unter dem Überhang",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    292,
+    161,
+    324
+   ],
+   "cut": 7,
+   "text": "In die Werkstattinsel gehauen, mit einer offenen Terrasse. Darunter geht es 187 Blöcke tief bis zum Boden."
+  },
+  {
+   "name": "Verzauberungsinsel",
+   "typ": "werkstatt",
+   "pos": [
+    26,
+    187,
+    324
+   ],
+   "text": "Die zweithöchste Insel, mit einem Ring aus Bücherregalen und einem Kirschbaum. Eine Brücke führt zur Lagerinsel."
+  },
+  {
+   "name": "Sprungpfad und Aussichtsinsel",
+   "typ": "highlight",
+   "pos": [
+    204,
+    208,
+    48
+   ],
+   "text": "Vier Mini-Inseln bilden einen Sprungpfad hinauf zur höchsten Insel. Oben ist eine Plattform mit Laternen."
+  }
+ ],
+ "phasen": [
+  [
+   "Gerüst",
+   "Die Mittelpunkte der Inseln mit Säulen aus Gerüst oder Wolle in der richtigen Höhe markieren."
+  ],
+  [
+   "Hauptinsel",
+   "Zuerst die flache Oberseite bauen, dann die kegelförmige Unterseite Schicht für Schicht nach unten. So hat man immer eine Fläche zum Stehen."
+  ],
+  [
+   "Weltenbaum",
+   "Stamm, Äste und Krone, dann die Wurzeln, die durch die Insel nach unten wachsen."
+  ],
+  [
+   "Weitere Inseln",
+   "Shop-, Farm-, Lager-, Werkstatt- und Verzauberungsinsel bauen und mit Brücken verbinden."
+  ],
+  [
+   "Aufzug",
+   "Den Blasen-Aufzug vom Boden bis zur Shopinsel bauen: Seelensand unten, Wassersäule, Glas außen herum."
+  ],
+  [
+   "Details",
+   "Deko-Inseln, Ketten, Lianen, Wasserfälle und Gerüst wieder abbauen."
+  ]
+ ],
+ "tipps": [
+  "Die Schematic so einfügen, dass ihre Unterkante auf Y 90 liegt. Die höchste Insel reicht dann bis Y 310. Den Aufzug unten bis zum Boden verlängern.",
+  "Der Wasserfall fällt in Minecraft bis zum Boden. Unten ein Becken bauen, sonst fließt das Wasser breit auseinander.",
+  "Unterseiten aus Stein, Andesit und Tuff in Schichten bauen. Hängende Wurzeln und Ketten verstärken den Schwebe-Effekt."
+ ],
+ "size": [
+  331,
+  227,
+  454
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 38764,
+    "gesamt": 420444
+   },
+   "andesite": {
+    "sichtbar": 18239,
+    "gesamt": 193553
+   },
+   "granite": {
+    "sichtbar": 14555,
+    "gesamt": 150075
+   },
+   "tuff": {
+    "sichtbar": 18672,
+    "gesamt": 207521
+   },
+   "stone_bricks": {
+    "sichtbar": 1758,
+    "gesamt": 1800
+   },
+   "gravel": {
+    "sichtbar": 158,
+    "gesamt": 158
+   },
+   "dirt": {
+    "sichtbar": 8474,
+    "gesamt": 112965
+   },
+   "grass": {
+    "sichtbar": 32953,
+    "gesamt": 33782
+   },
+   "sand": {
+    "sichtbar": 708,
+    "gesamt": 708
+   },
+   "farmland": {
+    "sichtbar": 858,
+    "gesamt": 858
+   },
+   "oak_log": {
+    "sichtbar": 45,
+    "gesamt": 62
+   },
+   "oak_leaves": {
+    "sichtbar": 446,
+    "gesamt": 624
+   },
+   "birch_log": {
+    "sichtbar": 36,
+    "gesamt": 52
+   },
+   "birch_leaves": {
+    "sichtbar": 552,
+    "gesamt": 737
+   },
+   "cherry_log": {
+    "sichtbar": 2370,
+    "gesamt": 5893
+   },
+   "cherry_leaves": {
+    "sichtbar": 30423,
+    "gesamt": 67871
+   },
+   "azalea_leaves": {
+    "sichtbar": 1767,
+    "gesamt": 1838
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 6053,
+    "gesamt": 11000
+   },
+   "mangrove_roots": {
+    "sichtbar": 1615,
+    "gesamt": 1615
+   },
+   "spruce_planks": {
+    "sichtbar": 2538,
+    "gesamt": 2814
+   },
+   "stripped_spruce_log": {
+    "sichtbar": 18,
+    "gesamt": 18
+   },
+   "spruce_fence": {
+    "sichtbar": 396,
+    "gesamt": 396
+   },
+   "chain": {
+    "sichtbar": 345,
+    "gesamt": 345
+   },
+   "lantern": {
+    "sichtbar": 85,
+    "gesamt": 85
+   },
+   "hanging_roots": {
+    "sichtbar": 3005,
+    "gesamt": 3005
+   },
+   "glass": {
+    "sichtbar": 662,
+    "gesamt": 662
+   },
+   "barrel": {
+    "sichtbar": 787,
+    "gesamt": 787
+   },
+   "bookshelf": {
+    "sichtbar": 114,
+    "gesamt": 114
+   },
+   "hay": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "wheat": {
+    "sichtbar": 858,
+    "gesamt": 858
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "soul_sand": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 5227,
+  "gesamt": 1220648,
+  "sichtbar": 187262
+ },
+ "bin_bytes": 246515
+}

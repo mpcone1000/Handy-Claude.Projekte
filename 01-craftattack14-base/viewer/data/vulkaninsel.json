@@ -1,0 +1,335 @@
+{
+ "slug": "vulkaninsel",
+ "nr": 6,
+ "title": "Die Vulkaninsel",
+ "tagline": "Feuer, Wasser und Dschungel auf einer eigenen Insel im Meer.",
+ "story": [
+  "Mitten im Meer liegt eine Insel von rund 260 × 380 Blöcken. In ihrem Norden ragt ein Vulkan 136 Blöcke hoch auf, mit Lavasee im Krater und zwei Lavaströmen, die bis zum schwarzen Strand fließen.",
+  "An den Hängen wächst Dschungel. Im Süden liegt eine türkise Lagune mit Sandriff, Palmen und einem Wasserfall. An der Ostküste gibt es einen Hafen mit Leuchtfeuer und Markt.",
+  "Die Base nutzt die Insel: Wohnen in der Klippe an der Lagune, Schmiede mit Blick in die Magmakammer, Lager in einer Lavaröhre, Farmen in einer Dschungel-Lichtung."
+ ],
+ "ground_y": 40,
+ "water_level": 40,
+ "paste_y": 23,
+ "paste_note": "Dann liegt der Meeresspiegel auf Y 63, und der Kraterrand reicht bis Y 176.",
+ "water_color": "#1f9fc4",
+ "sky_color": "#a9d3ee",
+ "surround": {
+  "kind": "water",
+  "y": 40.9,
+  "color": "#1f9fc4",
+  "floor": "#c9b98a",
+  "floor_y": 24
+ },
+ "camera": {
+  "target": [
+   163,
+   62,
+   240
+  ],
+  "pos": [
+   398,
+   215,
+   565
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Hafen",
+   "typ": "eingang",
+   "pos": [
+    316,
+    42,
+    290
+   ],
+   "text": "Ein 35 Blöcke langer Steg mit Querplattform. Ein Leuchtfeuer aus Steinziegeln und Leuchtstein zeigt Booten nachts den Weg."
+  },
+  {
+   "name": "Strand-Markt",
+   "typ": "shop",
+   "pos": [
+    264,
+    45,
+    290
+   ],
+   "text": "Ein Marktplatz aus Tropenholz direkt am Hafen, mit acht Ständen unter Palmen."
+  },
+  {
+   "name": "Wohnhöhle an der Lagune",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    170,
+    44,
+    329
+   ],
+   "cut": 7,
+   "text": "Zwei Stockwerke in der Klippe am Nordufer der Lagune mit einer 40 Blöcke breiten Glasfront und einer Holzterrasse auf Pfählen über dem Wasser."
+  },
+  {
+   "name": "Lagune mit Wasserfall",
+   "typ": "highlight",
+   "pos": [
+    170,
+    41,
+    388
+   ],
+   "text": "Eine flache, türkise Lagune hinter einem Sandriff, nur im Süden offen. Von der Klippe fällt ein Wasserfall hinein."
+  },
+  {
+   "name": "Schmiede mit Lavafenster",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    184,
+    87,
+    174
+   ],
+   "cut": 7,
+   "text": "Eine Halle in der Vulkanflanke. Durch eine Glaswand blickt man in die glühende Magmakammer. Ein Gang führt hinaus auf den Osthang."
+  },
+  {
+   "name": "Lager in der Lavaröhre",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    80,
+    55,
+    202
+   ],
+   "cut": 9,
+   "text": "Eine alte Lavaröhre aus glattem Basalt, rund 60 Blöcke lang, mit Fässern an beiden Seiten. Pilzlichter hängen in der Decke."
+  },
+  {
+   "name": "Dschungel-Farm",
+   "typ": "farm",
+   "pos": [
+    70,
+    70,
+    140
+   ],
+   "text": "Eine versteckte Lichtung mitten im Dschungel mit Weizenfeldern und Weiden für Tiere."
+  },
+  {
+   "name": "Krater mit Lavasee",
+   "typ": "highlight",
+   "pos": [
+    150,
+    153,
+    172
+   ],
+   "text": "Der Krater ist 48 Blöcke breit, darin brodelt ein Lavasee. Zwei Lavaströme fließen in Basaltrinnen bis zum schwarzen Strand."
+  },
+  {
+   "name": "Aussicht am Kraterrand",
+   "typ": "highlight",
+   "pos": [
+    173,
+    146,
+    185
+   ],
+   "text": "Der höchste Punkt der Insel, eine Plattform mit Seelenlaternen direkt am Kraterrand."
+  }
+ ],
+ "phasen": [
+  [
+   "Insel aufschütten",
+   "Die Küstenlinie mit Sand abstecken und die Insel bis knapp über den Meeresspiegel aufschütten."
+  ],
+  [
+   "Vulkan",
+   "Den Kegel in Ringen hochziehen, unten Stein, oben Basalt und Schwarzstein. Krater aussparen, Magmakammer innen hohl lassen."
+  ],
+  [
+   "Lava",
+   "Lava zuletzt einfüllen, nachdem die Rinnen aus Basalt und Obsidian fertig sind. Bäume mindestens 6 Blöcke entfernt halten, sonst brennt der Dschungel."
+  ],
+  [
+   "Lagune und Küste",
+   "Lagune ausheben, Riff aus Sand, Strände, schwarzer Strand aus schwarzem Trockenbeton."
+  ],
+  [
+   "Base",
+   "Wohnhöhle, Schmiede, Lavaröhre, Farm-Lichtung, Hafen mit Markt und Leuchtfeuer."
+  ],
+  [
+   "Dschungel",
+   "Tropenbäume, Palmen und Büsche. Zuletzt die Aussicht am Kraterrand."
+  ]
+ ],
+ "tipps": [
+  "Lava entzündet Holz und Laub in der Nähe. Lavaströme deshalb mit Stein einfassen und Abstand zum Dschungel halten. Feuerausbreitung lässt sich nur per Serverregel abschalten.",
+  "Schwarzer Trockenbeton sieht aus wie Vulkansand. Er darf nicht nass werden, sonst wird er zu Beton.",
+  "Die Schematic so einfügen, dass der Meeresspiegel auf Y 63 liegt (Unterkante auf Y 23)."
+ ],
+ "size": [
+  323,
+  160,
+  473
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 62570,
+    "gesamt": 918167
+   },
+   "andesite": {
+    "sichtbar": 44412,
+    "gesamt": 361719
+   },
+   "granite": {
+    "sichtbar": 2676,
+    "gesamt": 204213
+   },
+   "tuff": {
+    "sichtbar": 7276,
+    "gesamt": 635794
+   },
+   "mossy_stone_bricks": {
+    "sichtbar": 168,
+    "gesamt": 294
+   },
+   "stone_bricks": {
+    "sichtbar": 206,
+    "gesamt": 323
+   },
+   "polished_andesite": {
+    "sichtbar": 523,
+    "gesamt": 529
+   },
+   "gravel": {
+    "sichtbar": 9510,
+    "gesamt": 9525
+   },
+   "smooth_basalt": {
+    "sichtbar": 3692,
+    "gesamt": 375832
+   },
+   "basalt": {
+    "sichtbar": 7636,
+    "gesamt": 767090
+   },
+   "blackstone": {
+    "sichtbar": 20128,
+    "gesamt": 414785
+   },
+   "obsidian": {
+    "sichtbar": 260,
+    "gesamt": 260
+   },
+   "magma_block": {
+    "sichtbar": 512,
+    "gesamt": 1574
+   },
+   "black_sand": {
+    "sichtbar": 1480,
+    "gesamt": 4878
+   },
+   "dirt": {
+    "sichtbar": 2206,
+    "gesamt": 117975
+   },
+   "coarse_dirt": {
+    "sichtbar": 2909,
+    "gesamt": 2930
+   },
+   "grass": {
+    "sichtbar": 36264,
+    "gesamt": 38560
+   },
+   "clay": {
+    "sichtbar": 4079,
+    "gesamt": 4080
+   },
+   "sand": {
+    "sichtbar": 48488,
+    "gesamt": 202364
+   },
+   "farmland": {
+    "sichtbar": 720,
+    "gesamt": 720
+   },
+   "lava": {
+    "sichtbar": 4046,
+    "gesamt": 12173
+   },
+   "spruce_log": {
+    "sichtbar": 125,
+    "gesamt": 125
+   },
+   "jungle_log": {
+    "sichtbar": 15450,
+    "gesamt": 17352
+   },
+   "jungle_leaves": {
+    "sichtbar": 63472,
+    "gesamt": 89888
+   },
+   "azalea_leaves": {
+    "sichtbar": 3300,
+    "gesamt": 3645
+   },
+   "spruce_planks": {
+    "sichtbar": 687,
+    "gesamt": 758
+   },
+   "jungle_planks": {
+    "sichtbar": 2352,
+    "gesamt": 2632
+   },
+   "spruce_fence": {
+    "sichtbar": 169,
+    "gesamt": 169
+   },
+   "lantern": {
+    "sichtbar": 39,
+    "gesamt": 39
+   },
+   "soul_lantern": {
+    "sichtbar": 4,
+    "gesamt": 4
+   },
+   "shroomlight": {
+    "sichtbar": 5,
+    "gesamt": 5
+   },
+   "glowstone": {
+    "sichtbar": 36,
+    "gesamt": 63
+   },
+   "glass": {
+    "sichtbar": 567,
+    "gesamt": 567
+   },
+   "barrel": {
+    "sichtbar": 61,
+    "gesamt": 61
+   },
+   "wheat": {
+    "sichtbar": 720,
+    "gesamt": 720
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 1564084,
+  "gesamt": 4189818,
+  "sichtbar": 346753
+ },
+ "bin_bytes": 462134
+}

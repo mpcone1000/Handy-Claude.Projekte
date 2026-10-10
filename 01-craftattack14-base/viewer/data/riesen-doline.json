@@ -1,0 +1,315 @@
+{
+ "slug": "riesen-doline",
+ "nr": 3,
+ "title": "Die Riesen-Doline",
+ "tagline": "Ein riesiges Loch im Dschungel. Unten liegt eine eigene Welt.",
+ "story": [
+  "Von weitem sieht man nur Dschungel. Dann öffnet sich der Boden: Ein 120 Blöcke breites Loch fällt 78 Blöcke tief ab. Darunter weitet es sich wie eine Glocke auf über 160 Blöcke.",
+  "Unten liegt ein türkiser See mit einer Insel, auf der ein Urwaldriese dem Licht entgegenwächst. Lianen und Wurzeln hängen von der Decke, drei Wasserfälle stürzen hinab.",
+  "Die Base hängt an der Wand: Ein Spiralweg führt hinunter. Von ihm gehen Wohnbereich, Werkstatt, Lager und Farmen ab, und ganz unten liegt ein Raum mit Glaswand unter Wasser."
+ ],
+ "ground_y": 104,
+ "water_level": 26,
+ "paste_y": -41,
+ "paste_note": "Dann liegt das Plateau auf Y 63 und der See unten auf Y -15.",
+ "water_color": "#27b3b0",
+ "sky_color": "#a8cfe3",
+ "surround": {
+  "kind": "grass",
+  "color": "#4a8a2c"
+ },
+ "camera": {
+  "target": [
+   165,
+   40,
+   231
+  ],
+  "pos": [
+   275,
+   270,
+   451
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Einstieg zum Spiralweg",
+   "typ": "eingang",
+   "pos": [
+    216,
+    105,
+    199
+   ],
+   "text": "Am Rand des Lochs beginnt ein 6 Blöcke breiter Holzweg. Er schraubt sich in 1,35 Runden an der Wand entlang 78 Blöcke tief bis zum See. Laternen hängen an Ketten über dem Abgrund."
+  },
+  {
+   "name": "Glasboden-Plattform",
+   "typ": "highlight",
+   "pos": [
+    165,
+    105,
+    271
+   ],
+   "text": "Eine Plattform mit Glasboden ragt 20 Blöcke weit über den Abgrund. Darunter geht es fast 80 Blöcke in die Tiefe."
+  },
+  {
+   "name": "Shop am Rand",
+   "typ": "shop",
+   "pos": [
+    165,
+    106,
+    296
+   ],
+   "text": "Ein Marktplatz aus Steinziegeln direkt hinter der Plattform. Besucher sehen das Loch, kommen aber nicht hinein."
+  },
+  {
+   "name": "Wohnbereich",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    223,
+    95,
+    273
+   ],
+   "cut": 8,
+   "text": "Ein großer Raum in der Wand, kurz unter dem Rand, mit einem Holzbalkon über dem Abgrund."
+  },
+  {
+   "name": "Werkstatt",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    102,
+    77,
+    249
+   ],
+   "text": "Eine Kammer auf halber Höhe des Spiralwegs, mit Steinboden für Amboss und Schmelzöfen."
+  },
+  {
+   "name": "Lagerhalle",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    144,
+    61,
+    127
+   ],
+   "cut": 8,
+   "text": "Die größte Kammer (26 × 26, 10 hoch) liegt tief im Fels. Hier ist viel Platz für ein Sortiersystem."
+  },
+  {
+   "name": "Farm-Stollen",
+   "typ": "farm",
+   "innen": true,
+   "pos": [
+    263,
+    46,
+    212
+   ],
+   "cut": 10,
+   "text": "Eine 14 Blöcke hohe Halle kurz über dem See. Hier passen Eisen- und Mobfarmen hin, die man von oben nicht sieht."
+  },
+  {
+   "name": "Unterwasser-Raum",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    165,
+    14,
+    221
+   ],
+   "cut": 9,
+   "text": "Er liegt 12 Blöcke unter dem Seespiegel. Durch die Glaswand sieht man in den türkisen See. Eine Treppe führt vom Ende des Spiralwegs hinunter."
+  },
+  {
+   "name": "Insel mit Riesenbaum",
+   "typ": "highlight",
+   "pos": [
+    173,
+    30,
+    233
+   ],
+   "text": "Ein 50 Blöcke hoher Urwaldriese wächst aus der Insel in der Seemitte dem Licht entgegen."
+  },
+  {
+   "name": "Kleine Doline und Höhlenfluss",
+   "typ": "highlight",
+   "pos": [
+    93,
+    28,
+    67
+   ],
+   "text": "Ein zweites, kleineres Loch im Norden. Ein unterirdischer Fluss verbindet es mit dem großen See. Mit dem Boot kann man hindurchfahren."
+  },
+  {
+   "name": "Wasserfälle",
+   "typ": "highlight",
+   "pos": [
+    165,
+    84,
+    159
+   ],
+   "text": "Drei Bäche stürzen über den Rand frei bis in den See, fast 80 Blöcke tief."
+  }
+ ],
+ "phasen": [
+  [
+   "Umriss markieren",
+   "Den oberen Rand des Lochs (ca. 120 Blöcke Durchmesser) auf dem Boden abstecken, ebenso die kleine Doline im Norden."
+  ],
+  [
+   "Ausheben",
+   "Das Loch Schicht für Schicht ausgraben und dabei die Glockenform beachten: unten breiter als oben. Das sind Millionen Blöcke, also mit Spitzhacke Effizienz V, Eile und Beacon arbeiten."
+  ],
+  [
+   "See und Insel",
+   "Den Boden als Schüssel formen, mit Wasser füllen und die Insel aufschütten."
+  ],
+  [
+   "Spiralweg",
+   "Den Weg von oben nach unten an der Wand entlang bauen. Er dient gleichzeitig als Gerüst für alles Weitere."
+  ],
+  [
+   "Räume",
+   "Wohnbereich, Werkstatt, Lager, Farm-Stollen und Unterwasser-Raum vom Weg aus in den Fels graben."
+  ],
+  [
+   "Leben",
+   "Riesenbaum, Lianen, Wurzeln, Tropfsteine, Wasserfälle und die Glasplattform."
+  ]
+ ],
+ "tipps": [
+  "Beim Ausheben fällt extrem viel Stein an. Damit kannst du die Farmen und den Rand des Plateaus bauen.",
+  "Damit der See türkis aussieht, die Doline in ein warmes Biom bauen (Dschungel oder warmer Ozean). Die Wasserfarbe hängt vom Biom ab.",
+  "Glasboden über dem Abgrund: Mit getöntem Glas darunter wirkt es noch tiefer."
+ ],
+ "size": [
+  326,
+  139,
+  407
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 111281,
+    "gesamt": 2600230
+   },
+   "andesite": {
+    "sichtbar": 56165,
+    "gesamt": 1938387
+   },
+   "diorite": {
+    "sichtbar": 41245,
+    "gesamt": 1227787
+   },
+   "tuff": {
+    "sichtbar": 15903,
+    "gesamt": 722319
+   },
+   "calcite": {
+    "sichtbar": 25927,
+    "gesamt": 316680
+   },
+   "cobblestone": {
+    "sichtbar": 5393,
+    "gesamt": 139637
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 3861,
+    "gesamt": 168935
+   },
+   "stone_bricks": {
+    "sichtbar": 1842,
+    "gesamt": 1843
+   },
+   "gravel": {
+    "sichtbar": 2482,
+    "gesamt": 2483
+   },
+   "dripstone_block": {
+    "sichtbar": 4711,
+    "gesamt": 128727
+   },
+   "dirt": {
+    "sichtbar": 6005,
+    "gesamt": 263597
+   },
+   "podzol": {
+    "sichtbar": 9995,
+    "gesamt": 10418
+   },
+   "grass": {
+    "sichtbar": 72614,
+    "gesamt": 75509
+   },
+   "moss": {
+    "sichtbar": 8848,
+    "gesamt": 380648
+   },
+   "clay": {
+    "sichtbar": 4853,
+    "gesamt": 4853
+   },
+   "sand": {
+    "sichtbar": 7048,
+    "gesamt": 7048
+   },
+   "dirt_path": {
+    "sichtbar": 222,
+    "gesamt": 222
+   },
+   "jungle_log": {
+    "sichtbar": 14810,
+    "gesamt": 16951
+   },
+   "jungle_leaves": {
+    "sichtbar": 64778,
+    "gesamt": 93494
+   },
+   "azalea_leaves": {
+    "sichtbar": 7556,
+    "gesamt": 10973
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 125,
+    "gesamt": 133
+   },
+   "spruce_planks": {
+    "sichtbar": 6051,
+    "gesamt": 6091
+   },
+   "spruce_fence": {
+    "sichtbar": 801,
+    "gesamt": 801
+   },
+   "chain": {
+    "sichtbar": 267,
+    "gesamt": 267
+   },
+   "lantern": {
+    "sichtbar": 93,
+    "gesamt": 93
+   },
+   "cave_vines": {
+    "sichtbar": 523,
+    "gesamt": 523
+   },
+   "hanging_roots": {
+    "sichtbar": 514,
+    "gesamt": 514
+   },
+   "glass": {
+    "sichtbar": 242,
+    "gesamt": 242
+   },
+   "barrel": {
+    "sichtbar": 15,
+    "gesamt": 15
+   }
+  },
+  "wasser": 269148,
+  "gesamt": 8119420,
+  "sichtbar": 474170
+ },
+ "bin_bytes": 1931392
+}

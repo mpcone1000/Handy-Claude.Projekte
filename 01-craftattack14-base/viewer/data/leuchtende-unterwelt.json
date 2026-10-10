@@ -1,0 +1,355 @@
+{
+ "slug": "leuchtende-unterwelt",
+ "nr": 5,
+ "title": "Die leuchtende Unterwelt",
+ "tagline": "Oben eine normale Wiese, darunter eine riesige leuchtende Höhle.",
+ "story": [
+  "Von oben sieht alles normal aus: Wiese, ein paar Bäume, ein bemooster Steinring. Darin führt eine Wendeltreppe 90 Blöcke tief in eine Höhle von 280 × 390 Blöcken, die bis zu 75 Blöcke hoch ist.",
+  "Unten leuchtet alles: Riesenpilze mit Pilzlicht, Hunderte Leuchtbeeren-Ranken, Froschlichter in der Decke, Tropfsteinsäulen und ein unterirdischer See. Ein Lichtschacht lässt Tageslicht auf die Insel fallen.",
+  "Die Base ist in die Höhlenwände gebaut, dazu kommen eine Werkstatt im Pilzhut und eine Amethyst-Geode als Verzauberungsraum."
+ ],
+ "ground_y": 112,
+ "water_level": 20,
+ "paste_y": -49,
+ "paste_note": "Dann liegt die Wiese auf Y 63, und der Höhlensee liegt auf Y -29.",
+ "water_color": "#2a9fc0",
+ "sky_color": "#a6c8e2",
+ "ao": 0.55,
+ "surround": {
+  "kind": "grass",
+  "color": "#6a9a3e"
+ },
+ "camera": {
+  "target": [
+   160,
+   24,
+   239
+  ],
+  "pos": [
+   310,
+   190,
+   479
+  ]
+ },
+ "clip": 58,
+ "zones": [
+  {
+   "name": "Wendelschacht (Eingang)",
+   "typ": "eingang",
+   "pos": [
+    92,
+    113,
+    91
+   ],
+   "text": "Auf der Wiese liegt nur ein bemooster Steinring. Darin führt eine Wendeltreppe 90 Blöcke in die Tiefe, dann geht ein Gang mit Laternen in die Höhle."
+  },
+  {
+   "name": "Shop an der Oberfläche",
+   "typ": "shop",
+   "pos": [
+    120,
+    112,
+    69
+   ],
+   "text": "Ein kleiner Marktplatz neben dem Schacht. Besucher handeln hier oben und ahnen nicht, was darunter liegt."
+  },
+  {
+   "name": "Lichtschacht und Pilzinsel",
+   "typ": "highlight",
+   "pos": [
+    182,
+    24,
+    295
+   ],
+   "text": "Ein 13 Blöcke breiter Schacht lässt Tageslicht auf die Insel im See fallen. Darauf steht ein türkiser Riesenpilz mit grünen Froschlichtern."
+  },
+  {
+   "name": "Wohnbereich mit Höhlenbalkon",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    160,
+    47,
+    42
+   ],
+   "cut": 8,
+   "text": "Zwei Stockwerke in der Nordwand mit Glasfront und einem Balkon auf Stelzen. Man blickt über die ganze leuchtende Höhle."
+  },
+  {
+   "name": "Lager",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    33,
+    18,
+    229
+   ],
+   "cut": 8,
+   "text": "Eine gewölbte Halle (27 × 32) in der Westwand mit zehn Regalreihen aus Fässern."
+  },
+  {
+   "name": "Farm-Höhlen",
+   "typ": "farm",
+   "innen": true,
+   "pos": [
+    278,
+    27,
+    197
+   ],
+   "cut": 12,
+   "text": "Drei 15 Blöcke hohe Kammern in der Ostwand, gut geeignet für Eisen-, Mob- und Tierfarmen. Höhlen eignen sich besonders für Mobfarmen."
+  },
+  {
+   "name": "Pilz-Werkstatt",
+   "typ": "werkstatt",
+   "pos": [
+    104,
+    41,
+    299
+   ],
+   "text": "Ein riesiger roter Pilz mit hohlem Hut. Darin liegt die Werkstatt, und eine Leiter führt durch den Stiel hinauf."
+  },
+  {
+   "name": "Amethyst-Geode",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    44,
+    39,
+    189
+   ],
+   "cut": 8,
+   "text": "Eine echte Geode, außen glatter Basalt, dann Calcit, innen Amethyst. Ein Ring aus Bücherregalen macht sie zum Verzauberungsraum."
+  },
+  {
+   "name": "Steinbrücke über den See",
+   "typ": "highlight",
+   "pos": [
+    179,
+    37,
+    291
+   ],
+   "text": "Ein natürlicher Bogen aus Tropfstein spannt sich über den unterirdischen See. Am Ufer liegt ein Bootssteg."
+  }
+ ],
+ "phasen": [
+  [
+   "Höhle ausheben",
+   "Mit Effizienz-V-Spitzhacke, Eile II und Beacon die Höhle von oben nach unten aushöhlen. Die Decke als Gewölbe stehen lassen, mindestens 15 Blöcke dick."
+  ],
+  [
+   "Säulen und Tropfsteine",
+   "Sieben Säulen stützen die Decke. Danach Hunderte Tropfsteine an Decke und Boden setzen."
+  ],
+  [
+   "See",
+   "Den See ausheben und mit Wasser füllen. Danach Insel und Lichtschacht bauen."
+  ],
+  [
+   "Licht",
+   "Froschlichter und Amethyst in die Decke einsetzen und Leuchtbeeren-Ranken (Höhlenranken) hängen lassen."
+  ],
+  [
+   "Base",
+   "Wohnbereich, Lager, Farm-Höhlen, Pilz-Werkstatt und Geode bauen."
+  ],
+  [
+   "Eingang tarnen",
+   "Den Wendelschacht und den Shop oben bauen. Die Wiese darüber bleibt fast unberührt."
+  ]
+ ],
+ "tipps": [
+  "Diese Landschaft liegt komplett unter der Erde. Sie lässt sich überall bauen, ohne die Oberfläche zu verändern.",
+  "Moosblöcke mit Knochenmehl lassen den Boden schnell zuwachsen, Höhlenranken tragen Leuchtbeeren.",
+  "Für Mobfarmen ist eine Höhle ideal, aber die Haupthöhle hell halten (Lichtlevel über 0), sonst spawnen dort Monster."
+ ],
+ "size": [
+  320,
+  130,
+  439
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 85695,
+    "gesamt": 2544053
+   },
+   "andesite": {
+    "sichtbar": 53139,
+    "gesamt": 1493054
+   },
+   "tuff": {
+    "sichtbar": 26967,
+    "gesamt": 919263
+   },
+   "calcite": {
+    "sichtbar": 30,
+    "gesamt": 2755
+   },
+   "deepslate": {
+    "sichtbar": 164346,
+    "gesamt": 2864551
+   },
+   "mossy_stone_bricks": {
+    "sichtbar": 205,
+    "gesamt": 211
+   },
+   "stone_bricks": {
+    "sichtbar": 1850,
+    "gesamt": 1859
+   },
+   "polished_andesite": {
+    "sichtbar": 1070,
+    "gesamt": 1070
+   },
+   "dripstone_block": {
+    "sichtbar": 37484,
+    "gesamt": 56038
+   },
+   "smooth_basalt": {
+    "sichtbar": 1284,
+    "gesamt": 3362
+   },
+   "dirt": {
+    "sichtbar": 3421,
+    "gesamt": 323586
+   },
+   "rooted_dirt": {
+    "sichtbar": 9253,
+    "gesamt": 9546
+   },
+   "grass": {
+    "sichtbar": 106457,
+    "gesamt": 107383
+   },
+   "moss": {
+    "sichtbar": 50607,
+    "gesamt": 52510
+   },
+   "clay": {
+    "sichtbar": 4331,
+    "gesamt": 4345
+   },
+   "sand": {
+    "sichtbar": 4363,
+    "gesamt": 4374
+   },
+   "oak_log": {
+    "sichtbar": 269,
+    "gesamt": 386
+   },
+   "oak_leaves": {
+    "sichtbar": 3701,
+    "gesamt": 4879
+   },
+   "spruce_log": {
+    "sichtbar": 208,
+    "gesamt": 735
+   },
+   "spruce_leaves": {
+    "sichtbar": 9287,
+    "gesamt": 11792
+   },
+   "dark_oak_log": {
+    "sichtbar": 45,
+    "gesamt": 45
+   },
+   "azalea_leaves": {
+    "sichtbar": 2847,
+    "gesamt": 3049
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 805,
+    "gesamt": 857
+   },
+   "spruce_planks": {
+    "sichtbar": 3623,
+    "gesamt": 3867
+   },
+   "stripped_spruce_log": {
+    "sichtbar": 22,
+    "gesamt": 22
+   },
+   "spruce_fence": {
+    "sichtbar": 51,
+    "gesamt": 51
+   },
+   "lantern": {
+    "sichtbar": 95,
+    "gesamt": 95
+   },
+   "shroomlight": {
+    "sichtbar": 61,
+    "gesamt": 61
+   },
+   "ochre_froglight": {
+    "sichtbar": 259,
+    "gesamt": 272
+   },
+   "verdant_froglight": {
+    "sichtbar": 277,
+    "gesamt": 284
+   },
+   "pearlescent_froglight": {
+    "sichtbar": 218,
+    "gesamt": 226
+   },
+   "cave_vines": {
+    "sichtbar": 9282,
+    "gesamt": 9282
+   },
+   "glass": {
+    "sichtbar": 279,
+    "gesamt": 279
+   },
+   "red_mushroom_block": {
+    "sichtbar": 2904,
+    "gesamt": 3355
+   },
+   "brown_mushroom_block": {
+    "sichtbar": 2020,
+    "gesamt": 2594
+   },
+   "mushroom_stem": {
+    "sichtbar": 3801,
+    "gesamt": 6083
+   },
+   "warped_wart": {
+    "sichtbar": 3824,
+    "gesamt": 4898
+   },
+   "amethyst": {
+    "sichtbar": 1167,
+    "gesamt": 2240
+   },
+   "barrel": {
+    "sichtbar": 616,
+    "gesamt": 616
+   },
+   "bookshelf": {
+    "sichtbar": 112,
+    "gesamt": 112
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 97572,
+  "gesamt": 8444044,
+  "sichtbar": 596279
+ },
+ "bin_bytes": 683813
+}

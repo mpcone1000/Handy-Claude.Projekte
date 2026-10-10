@@ -1,129 +1,52 @@
-# 01 – Craft Attack 14: Base-Ideen
+# 01 – Craft Attack 14: Base-Landschaften
 
-**Ziel:** kein Gebäude, sondern eine **eigene, besondere Landschaft**: ein Gelände, das so in keiner normalen Minecraft-Welt vorkommt.
-Die Base ist in die Landschaft eingebaut: Lager in Höhlen, Farmen hinter Wasserfällen, Wohnbereich in Felswänden und so weiter.
+Keine Häuser, sondern **sechs riesige, besondere Landschaften**. In jede ist die ganze Base eingebaut: Lager, Farmen, Wohnbereich, Werkstatt, Shop und Eingang.
+Jede Landschaft ist Block für Block als 3D-Modell geplant und kann direkt in Minecraft geladen werden.
 
----
+## Die sechs Landschaften
 
-## Die Landschafts-Konzepte
+| Nr. | Landschaft | Idee | Größe (B × L × H) | Sichtbare Blöcke |
+|---|---|---|---|---|
+| 1 | [Das versteckte Tal](landschaften/01-verstecktes-tal/) | Rundum Felswände, rein kommt man nur durch einen Tunnel hinter einem Wasserfall. Innen liegen See, Felsbogen, Kirschwiese und Terrassen. | 300 × 599 × 175 | 537.375 |
+| 2 | [Die Felsnadeln](landschaften/02-felsnadeln/) | 45 Felstürme bis 188 Blöcke hoch im Urwald. Die Base verteilt sich auf fünf Türme, verbunden durch Hängebrücken. Dazu ein gläserner Wasser-Aufzug und schwebende Felsen. | 347 × 525 × 228 | 632.462 |
+| 3 | [Die Riesen-Doline](landschaften/03-riesen-doline/) | Ein 120 Blöcke breites, 78 Blöcke tiefes Loch im Dschungel. Ein Spiralweg führt hinab zu einem türkisen See mit Riesenbaum, unten liegt ein Raum unter Wasser. | 326 × 407 × 139 | 474.170 |
+| 4 | [Die schwebenden Inseln](landschaften/04-schwebende-inseln/) | Fast 30 Inseln im Himmel. Auf der Hauptinsel steht ein riesiger Kirschbaum, dessen Wurzeln unten heraushängen. Ein Wasserfall stürzt ins Leere, ein Blasen-Aufzug führt hinauf. | 331 × 454 × 227 | 187.262 |
+| 5 | [Die leuchtende Unterwelt](landschaften/05-leuchtende-unterwelt/) | Oben eine normale Wiese, darunter eine riesige Höhle mit Riesenpilzen, Leuchtbeeren, unterirdischem See und Amethyst-Geode. | 320 × 439 × 130 | 596.279 |
+| 6 | [Die Vulkaninsel](landschaften/06-vulkaninsel/) | Vulkan mit Lavasee, Lavaströme, Dschungel, türkise Lagune, schwarzer Strand und ein Hafen mit Leuchtfeuer. | 323 × 473 × 160 | 346.753 |
 
-### 1. Das versteckte Tal
-Ein Tal ist ringsum von hohen Klippen eingeschlossen, und von außen sieht man nur Berge. Man kommt **nur durch einen Wasserfall oder einen Höhlengang** hinein. Innen öffnet sich eine Traumlandschaft mit See, Inseln, Felsbögen und mehreren Wasserfällen von den Klippen.
-- **Was alles reinpasst:**
-  - Wohnbereich in einer Felsnische mit Blick auf den See
-  - Lager in der Höhle hinter dem Hauptwasserfall
-  - Farmen in den Klippenwänden, von außen nicht sichtbar
-  - Garten und Felder auf Terrassen am Hang
-  - kleine Insel im See als Verzauberungs-Ecke
-  - Hängebrücken zwischen den Klippen
-- **Besonders:** der Moment, wenn man durch den Wasserfall tritt und das Tal sieht.
+In jedem Landschafts-Ordner liegen:
+- `README.md`: genaue Beschreibung mit allen Orten (Koordinaten), Bau-Reihenfolge, Tipps und vollständiger Materialliste
+- `*.litematic`: für die Mod **Litematica**. Die Landschaft wird als Geisterblöcke in die Welt projiziert, und du baust sie Block für Block nach.
+- `*.schem`: für **WorldEdit** (mit `//paste -a` einfügen, damit Luft nichts überschreibt)
+- `draufsicht.png`: Draufsicht als Bild
 
-### 2. Die Felsnadeln (wie in „Avatar“)
-Dutzende hohe, schmale Felstürme ragen aus einem nebligen Wald oder See. Oben auf den Türmen wachsen Bäume, und Hängebrücken und Lianen verbinden sie.
-- **Was alles reinpasst:**
-  - jeder Turm hat eine Aufgabe: Wohnturm, Lagerturm, Farmturm, Werkstattturm, Aussichtsturm
-  - Aufzüge im Inneren der Türme
-  - Höhlen in den Felsen
-  - Wasserfälle, die von den Türmen herabfallen
-- **Besonders:** sieht von jedem Blickwinkel spektakulär aus und ist beliebig erweiterbar (einfach noch einen Turm bauen).
+## 3D-Viewer
 
-### 3. Die Riesen-Doline (Cenote)
-Ein gigantisches, rundes Loch im Boden, 40–60 Blöcke breit und tief. Unten liegt ein türkiser See. Wasserfälle stürzen hinein, Lianen hängen herab, und durch die Öffnung fällt Licht.
-- **Was alles reinpasst:**
-  - ein Spiralweg an der Wand nach unten mit Räumen auf jeder Ebene
-  - Lager, Werkstatt und Wohnbereich in den Höhlen der Wände
-  - Unterwasser-Bereich im See
-  - Farmen in Seitenstollen
-  - Insel mit Baum in der Mitte des Sees
-- **Besonders:** von oben ist es ein mystisches Loch, unten eine eigene Welt.
+**Online ansehen:** https://claude.ai/artifact/8tPwBeG1DqBeGZPsFD8EQr
 
-### 4. Die schwebenden Inseln
-Ein Archipel aus schwebenden Inseln in verschiedenen Größen und Höhen. Wasserfälle fallen ins Leere, und Wurzeln und Felsbrocken hängen unten heraus.
-- **Was alles reinpasst:**
-  - Hauptinsel mit dem Wohnbereich
-  - eine Insel nur für Farmen, eine für das Lager und eine für den Shop
-  - kleine Mini-Inseln als Deko oder Sprungpfad
-  - Brücken, Ketten und Lianen dazwischen
-- **Besonders:** von weit sichtbar und magisch.
+In `viewer/index.html` kannst du jede Landschaft in 3D drehen und zoomen, auch auf dem Handy. Der Viewer kann:
+- alle Orte der Base als nummerierte Punkte anzeigen; antippen fliegt hin und erklärt den Ort
+- die Landschaft mit dem **Schnitt-Regler** von oben abschneiden, um in Höhlen und Räume im Fels zu schauen
+- auf **Nacht** umschalten, dann leuchten Laternen, Lava, Pilzlichter und Leuchtbeeren
+- einen **Rundflug** zeigen
 
-### 5. Die leuchtende Unterwelt
-Eine riesige unterirdische Kaverne mit eigenem See, leuchtenden Pilzen, Glow Berries, Tropfsteinen und einem Lichtschacht von der Oberfläche. Oben ist nur ein unauffälliges Loch.
-- **Was alles reinpasst:**
-  - Base an und in den Höhlenwänden
-  - Farmen tief in Nebenhöhlen
-  - Boote oder Lorenbahn über den unterirdischen See
-  - riesige Riesenpilze als Deko oder Räume
-- **Besonders:** nachts und tags gleich magisch, und keiner erwartet so etwas.
+## Selbst verändern
 
-### 6. Die Vulkaninsel
-Eine eigene Insel im Meer mit einem Vulkan, aus dem Lava fließt. Dazu kommen ein Dschungel, eine Lagune mit Strand und schwarzer Basalt.
-- **Was alles reinpasst:**
-  - Wohnbereich in der Lagune oder am Strand
-  - Werkstatt und Schmiede im Vulkan, mit Lava hinter Glas
-  - Lager in Lavahöhlen
-  - Farmen im Dschungel versteckt
-  - Hafen für den Shop
-- **Besonders:** Feuer, Wasser und Dschungel an einem Ort.
+Alle Landschaften werden von Python-Skripten erzeugt (`generator/`). Man kann sie anpassen, zum Beispiel Größe, Lage der Räume oder Baumarten, und neu erzeugen:
 
----
+```bash
+cd generator
+python3 build.py              # alle sechs Landschaften
+python3 build.py tal vulkan   # nur einzelne
+python3 verify.py             # prüft, ob .schem/.litematic korrekt lesbar sind
+```
 
-## Vergleich
+Benötigt wird nur Python 3 mit `numpy` und `Pillow`.
 
-| Konzept | Wow | Aufwand | Platz für Sachen | Erweiterbar |
-|---------|-----|---------|------------------|-------------|
-| 1. Verstecktes Tal | ⭐⭐⭐⭐⭐ | mittel–hoch | sehr viel | gut |
-| 2. Felsnadeln | ⭐⭐⭐⭐⭐ | mittel | viel | sehr gut |
-| 3. Riesen-Doline | ⭐⭐⭐⭐ | mittel (viel Graben) | viel | gut |
-| 4. Schwebende Inseln | ⭐⭐⭐⭐⭐ | hoch | mittel | sehr gut |
-| 5. Leuchtende Unterwelt | ⭐⭐⭐⭐ | mittel (viel Graben) | sehr viel | gut |
-| 6. Vulkaninsel | ⭐⭐⭐⭐⭐ | hoch | sehr viel | gut |
-
-**Kombi-Idee:** Ein **verstecktes Tal mit Felsnadeln** darin, und unter dem See liegt eine **leuchtende Höhle**. Dann gibt es drei Welten in einer.
-
----
-
-## Highlights, die überall reinpassen
-
-- Wasserfall mit Geheimgang dahinter
-- Felsbogen über dem Wasser
-- Kirschbäume oder Azaleen für Farbe
-- Lianen, Moos und Glow Berries an Felswänden
-- spiegelglatter See mit Seerosen
-- Hängebrücken und Holzstege
-- Lagerfeuer-Rauch als Nebel-Effekt
-- Lichtschacht in eine Höhle
-
----
-
-## So baut man eine Landschaft
-
-1. **Gebiet aussuchen:** Möglichst flach oder schon passend, zum Beispiel ein Berg für das Tal.
-2. **Grobe Form:** Zuerst die großen Formen (Klippen, Türme, Löcher) mit einem Material bauen.
-3. **Natürliche Kanten:** Nie gerade Linien. Überhänge, Stufen und Unregelmäßigkeiten einbauen.
-4. **Materialmix:** Stein, Andesit, Tuff, Moos und Erde gemischt, damit es echt aussieht.
-5. **Wasser und Pflanzen:** Am Ende Wasserfälle, Bäume, Lianen und Blumen hinzufügen.
-6. **Base einbauen:** Räume in Felsen und Höhlen, sodass sie Teil der Landschaft sind.
-
----
-
-## Was in die Landschaft rein muss
-
-- [ ] **Eingang mit Wow-Effekt**
-- [ ] **Lager**
-- [ ] **Farmen** (Eisen, Essen, XP, Holz), versteckt
-- [ ] **Wohnbereich / Bett**
-- [ ] **Werkstatt** (Verzaubern, Amboss, Brauen)
-- [ ] **Shop-Idee**
-- [ ] **Prank-Schutz**
-
----
-
-## Offene Fragen
-
-1. Welche Landschaft gefällt dir, oder soll es die Kombi sein?
-2. Eher magisch und leuchtend, oder eher natürlich und realistisch?
-3. Was ist dir am wichtigsten, das unbedingt reinmuss?
-
-## Entscheidung
-
-_Noch offen._
+| Datei | Inhalt |
+|---|---|
+| `generator/mclib.py` | Bausteine: Blöcke, Gelände-Rauschen, Bäume, Felsnadeln, Inseln, Brücken, Export |
+| `generator/tal.py` … `vulkan.py` | je eine Landschaft |
+| `generator/build.py` | erzeugt Schematics, Viewer-Daten, Draufsichten und READMEs |
+| `generator/verify.py` | liest die Schematics zurück und vergleicht sie Block für Block |
+| `generator/preview.py` | Draufsicht- und Schnittbilder zum Prüfen |
