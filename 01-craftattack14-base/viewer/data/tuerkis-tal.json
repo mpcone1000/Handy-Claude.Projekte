@@ -1,0 +1,370 @@
+{
+ "slug": "tuerkis-tal",
+ "nr": 7,
+ "title": "Das Türkis-Tal",
+ "tagline": "Ein verstecktes Tal mit türkisem See, Inseln darin und Inseln darüber.",
+ "story": [
+  "Kombination aus verstecktem Tal, türkisem See und schwebenden Inseln. Von außen sieht man nur Berge. Durch einen Tunnel hinter dem Wasserfall kommt man hinein.",
+  "Drinnen füllt ein türkiser See fast das ganze Tal. Im Wasser liegen eine große Wohninsel, eine Farminsel, ein Felsturm mit dem Lager und kleine Palmeninseln. Darüber schweben vier Inseln, von einer stürzt ein Wasserfall in den See.",
+  "Hängebrücken, Stege und ein gläserner Blasen-Aufzug verbinden alles. Im Norden liegen eine Kirschwiese und ein Fichtenwald, von den Wänden fallen Wasserfälle."
+ ],
+ "ground_y": 58,
+ "water_level": 53,
+ "paste_y": 5,
+ "paste_note": "Dann liegt der Boden rund um die Berge auf Y 63 und der Seespiegel auf Y 58.",
+ "water_color": "#38cfe0",
+ "sky_color": "#a7d2ec",
+ "camera": {
+  "target": [
+   164,
+   52,
+   310
+  ],
+  "pos": [
+   234,
+   290,
+   560
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Geheimer Eingang",
+   "typ": "eingang",
+   "pos": [
+    164,
+    61,
+    518
+   ],
+   "text": "Hinter einem 72 Blöcke hohen Wasserfall an der Außenwand beginnt ein 47 Blöcke langer Tunnel. Am Ende öffnet sich der Blick auf den türkisen See."
+  },
+  {
+   "name": "Shop-Platz",
+   "typ": "shop",
+   "pos": [
+    137,
+    58,
+    524
+   ],
+   "text": "Ein Marktplatz vor dem Wasserfall. Besucher handeln hier draußen und sehen den See nicht."
+  },
+  {
+   "name": "Türkiser See",
+   "typ": "highlight",
+   "pos": [
+    184,
+    54,
+    340
+   ],
+   "text": "Der See füllt fast das ganze Tal, rund 160 × 300 Blöcke. Durch den hellen Grund aus weißem Sand und Calcit leuchtet er türkis. Am Rand ist er nur 2–4 Blöcke tief, in der Mitte bis 12."
+  },
+  {
+   "name": "Wohninsel",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    149,
+    59,
+    287
+   ],
+   "cut": 8,
+   "text": "Die größte Insel im See. Im Hügel liegt eine gewölbte Wohnhöhle mit Glasfront zum See und einer Terrasse. Davor führt ein Steg aufs Wasser."
+  },
+  {
+   "name": "Lager im Felsturm",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    219,
+    56,
+    384
+   ],
+   "cut": 8,
+   "text": "Ein 36 Blöcke hoher Felsturm im See. Unten liegt eine runde Lagerhalle mit Fässern rundum, eine Wendeltreppe führt nach oben."
+  },
+  {
+   "name": "Farminsel",
+   "typ": "farm",
+   "pos": [
+    107,
+    57,
+    402
+   ],
+   "text": "Eine flache Insel voller Weizenfelder mit Wasserrinnen. Eine Hängebrücke führt zur Wohninsel."
+  },
+  {
+   "name": "Farmhöhle",
+   "typ": "farm",
+   "innen": true,
+   "pos": [
+    249,
+    57,
+    160
+   ],
+   "cut": 12,
+   "text": "Eine 16 Blöcke hohe Halle in der Ostwand für Eisen- oder Mobfarm."
+  },
+  {
+   "name": "Werkstatt am Ufer",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    69,
+    57,
+    200
+   ],
+   "cut": 7,
+   "text": "Eine Höhle in der Westwand direkt am Wasser, mit Holzsteg davor."
+  },
+  {
+   "name": "Verzauberungsinsel",
+   "typ": "werkstatt",
+   "pos": [
+    201,
+    127,
+    248
+   ],
+   "text": "Sie schwebt 72 Blöcke über dem See. Ein gläserner Blasen-Aufzug fährt von der Wohninsel hinauf."
+  },
+  {
+   "name": "Wasserfallinsel",
+   "typ": "highlight",
+   "pos": [
+    177,
+    111,
+    432
+   ],
+   "text": "Eine schwebende Insel mit eigenem kleinen See. Sein Abfluss stürzt über die Kante in den großen See. Eine lange Hängebrücke kommt vom Felsturm herauf."
+  },
+  {
+   "name": "Aussichtsinsel",
+   "typ": "highlight",
+   "pos": [
+    125,
+    153,
+    198
+   ],
+   "text": "Die höchste schwebende Insel, fast 100 Blöcke über dem Wasser."
+  }
+ ],
+ "phasen": [
+  [
+   "Abstecken",
+   "Talumriss, Seeufer, Inseln und Tunnel mit Wolle markieren."
+  ],
+  [
+   "Berge",
+   "Den Bergring hochziehen: innen steil, außen flacher, oben Schnee."
+  ],
+  [
+   "See ausheben",
+   "Den See flach ausheben (am Rand 2–4 tief, Mitte bis 12) und den Grund mit weißem Sand und Calcit auslegen. Das macht das Wasser türkis."
+  ],
+  [
+   "Inseln",
+   "Wohninsel mit Hügel, Farminsel, Felsturm und Palmeninseln aufschütten. Dann die schwebenden Inseln mit Gerüst bauen."
+  ],
+  [
+   "Wasser",
+   "See füllen, Wasserfälle setzen, Blasen-Aufzug bauen."
+  ],
+  [
+   "Base und Natur",
+   "Räume, Brücken, Stege, Bäume, Wege mit Laternen."
+  ]
+ ],
+ "tipps": [
+  "Richtig türkis wird Wasser in Minecraft nur in warmen Biomen. Am stärksten im warmen Ozean, hellblau im Kirschhain. Ein heller Grund (Sand, Calcit) hilft überall.",
+  "Flaches Wasser über hellem Sand sieht viel türkiser aus als tiefes. Deshalb ist der See am Rand nur 2–4 Blöcke tief.",
+  "Den Tunnel erst zum Schluss öffnen, damit das Tal bis zur Enthüllung geheim bleibt."
+ ],
+ "size": [
+  323,
+  162,
+  540
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 202383,
+    "gesamt": 1884468
+   },
+   "andesite": {
+    "sichtbar": 71653,
+    "gesamt": 1224139
+   },
+   "granite": {
+    "sichtbar": 760,
+    "gesamt": 5347
+   },
+   "diorite": {
+    "sichtbar": 22764,
+    "gesamt": 439276
+   },
+   "tuff": {
+    "sichtbar": 48365,
+    "gesamt": 930107
+   },
+   "calcite": {
+    "sichtbar": 10505,
+    "gesamt": 10505
+   },
+   "cobblestone": {
+    "sichtbar": 4202,
+    "gesamt": 73778
+   },
+   "mossy_stone_bricks": {
+    "sichtbar": 159,
+    "gesamt": 159
+   },
+   "stone_bricks": {
+    "sichtbar": 1708,
+    "gesamt": 1721
+   },
+   "dirt": {
+    "sichtbar": 13919,
+    "gesamt": 120220
+   },
+   "coarse_dirt": {
+    "sichtbar": 7419,
+    "gesamt": 7460
+   },
+   "grass": {
+    "sichtbar": 22936,
+    "gesamt": 23906
+   },
+   "moss": {
+    "sichtbar": 7265,
+    "gesamt": 7319
+   },
+   "clay": {
+    "sichtbar": 8454,
+    "gesamt": 8455
+   },
+   "sand": {
+    "sichtbar": 26271,
+    "gesamt": 154634
+   },
+   "dirt_path": {
+    "sichtbar": 499,
+    "gesamt": 499
+   },
+   "snow": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "farmland": {
+    "sichtbar": 639,
+    "gesamt": 639
+   },
+   "spruce_log": {
+    "sichtbar": 1081,
+    "gesamt": 3897
+   },
+   "spruce_leaves": {
+    "sichtbar": 44166,
+    "gesamt": 59959
+   },
+   "birch_log": {
+    "sichtbar": 18,
+    "gesamt": 25
+   },
+   "birch_leaves": {
+    "sichtbar": 172,
+    "gesamt": 222
+   },
+   "jungle_log": {
+    "sichtbar": 279,
+    "gesamt": 282
+   },
+   "jungle_leaves": {
+    "sichtbar": 950,
+    "gesamt": 951
+   },
+   "cherry_log": {
+    "sichtbar": 578,
+    "gesamt": 790
+   },
+   "cherry_leaves": {
+    "sichtbar": 4235,
+    "gesamt": 6871
+   },
+   "dark_oak_log": {
+    "sichtbar": 3,
+    "gesamt": 5
+   },
+   "azalea_leaves": {
+    "sichtbar": 1656,
+    "gesamt": 1810
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 1019,
+    "gesamt": 1107
+   },
+   "mangrove_roots": {
+    "sichtbar": 147,
+    "gesamt": 147
+   },
+   "spruce_planks": {
+    "sichtbar": 2432,
+    "gesamt": 2888
+   },
+   "stripped_spruce_log": {
+    "sichtbar": 11,
+    "gesamt": 34
+   },
+   "spruce_fence": {
+    "sichtbar": 276,
+    "gesamt": 276
+   },
+   "lantern": {
+    "sichtbar": 77,
+    "gesamt": 77
+   },
+   "hanging_roots": {
+    "sichtbar": 189,
+    "gesamt": 189
+   },
+   "glass": {
+    "sichtbar": 446,
+    "gesamt": 446
+   },
+   "barrel": {
+    "sichtbar": 36,
+    "gesamt": 52
+   },
+   "bookshelf": {
+    "sichtbar": 106,
+    "gesamt": 106
+   },
+   "wheat": {
+    "sichtbar": 639,
+    "gesamt": 639
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "soul_sand": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 2129023,
+  "gesamt": 4973412,
+  "sichtbar": 508424
+ },
+ "bin_bytes": 1001310
+}

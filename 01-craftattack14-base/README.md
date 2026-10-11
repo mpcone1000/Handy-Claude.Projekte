@@ -1,6 +1,6 @@
 # 01 – Craft Attack 14: Base-Landschaften
 
-Keine Häuser, sondern **sechs riesige, besondere Landschaften**. In jede ist die ganze Base eingebaut: Lager, Farmen, Wohnbereich, Werkstatt, Shop und Eingang.
+Keine Häuser, sondern **riesige, besondere Landschaften**: sechs Grundideen und drei Kombinationen. In jede ist die ganze Base eingebaut: Lager, Farmen, Wohnbereich, Werkstatt, Shop und Eingang.
 Jede Landschaft ist Block für Block als 3D-Modell geplant und kann direkt in Minecraft geladen werden.
 
 ## Die sechs Landschaften
@@ -13,6 +13,14 @@ Jede Landschaft ist Block für Block als 3D-Modell geplant und kann direkt in Mi
 | 4 | [Die schwebenden Inseln](landschaften/04-schwebende-inseln/) | Fast 30 Inseln im Himmel. Auf der Hauptinsel steht ein riesiger Kirschbaum, dessen Wurzeln unten heraushängen. Ein Wasserfall stürzt ins Leere, ein Blasen-Aufzug führt hinauf. | 331 × 454 × 227 | 187.262 |
 | 5 | [Die leuchtende Unterwelt](landschaften/05-leuchtende-unterwelt/) | Oben eine normale Wiese, darunter eine riesige Höhle mit Riesenpilzen, Leuchtbeeren, unterirdischem See und Amethyst-Geode. | 320 × 439 × 130 | 596.279 |
 | 6 | [Die Vulkaninsel](landschaften/06-vulkaninsel/) | Vulkan mit Lavasee, Lavaströme, Dschungel, türkise Lagune, schwarzer Strand und ein Hafen mit Leuchtfeuer. | 323 × 473 × 160 | 346.753 |
+
+### Kombinationen mit türkisem See
+
+| Nr. | Landschaft | Kombiniert | Idee | Größe (B × L × H) | Sichtbare Blöcke |
+|---|---|---|---|---|---|
+| 7 | [Das Türkis-Tal](landschaften/07-tuerkis-tal/) | Tal + See + Inseln | Bergring mit geheimem Tunnel. Der Talboden ist ein türkiser See mit Wohninsel, Farminsel, Felsturm-Lager und Palmeninseln. Darüber schweben vier Inseln, eine mit Wasserfall, und ein Blasen-Aufzug führt hinauf. | 323 × 540 × 162 | 508.424 |
+| 8 | [Das Himmelsloch](landschaften/08-himmelsloch/) | Doline + Inseln + See | Riesenloch im Dschungel. In der Glocke schweben vier Inseln mit Kirschbaum über einem flachen türkisen See, verbunden über Hängebrücken mit dem Spiralweg an der Wand. | 340 × 423 × 145 | 482.220 |
+| 9 | [Das Kaskaden-Tal](landschaften/09-kaskaden-tal/) | Tal + See + Doline | Fünf türkise Seen in Stufen in einer Waldschlucht, zwanzig Kaskaden über Sinterdämme, Holzstege im Zickzack. Der Wohnbereich liegt hinter einem großen Wasserfall, am Ende stürzt alles in ein Riesenloch. | 320 × 580 × 138 | 525.746 |
 
 In jedem Landschafts-Ordner liegen:
 - `README.md`: genaue Beschreibung mit allen Orten (Koordinaten), Bau-Reihenfolge, Tipps und vollständiger Materialliste
@@ -36,7 +44,7 @@ Alle Landschaften werden von Python-Skripten erzeugt (`generator/`). Man kann si
 
 ```bash
 cd generator
-python3 build.py              # alle sechs Landschaften
+python3 build.py              # alle neun Landschaften
 python3 build.py tal vulkan   # nur einzelne
 python3 verify.py             # prüft, ob .schem/.litematic korrekt lesbar sind
 ```
@@ -46,7 +54,8 @@ Benötigt wird nur Python 3 mit `numpy` und `Pillow`.
 | Datei | Inhalt |
 |---|---|
 | `generator/mclib.py` | Bausteine: Blöcke, Gelände-Rauschen, Bäume, Felsnadeln, Inseln, Brücken, Export |
-| `generator/tal.py` … `vulkan.py` | je eine Landschaft |
+| `generator/tal.py` … `vulkan.py` | die sechs Grundideen |
+| `generator/kombi_*.py` | die drei Kombinationen |
 | `generator/build.py` | erzeugt Schematics, Viewer-Daten, Draufsichten und READMEs |
 | `generator/verify.py` | liest die Schematics zurück und vergleicht sie Block für Block |
 | `generator/preview.py` | Draufsicht- und Schnittbilder zum Prüfen |

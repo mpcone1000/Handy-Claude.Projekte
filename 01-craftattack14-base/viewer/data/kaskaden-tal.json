@@ -1,0 +1,364 @@
+{
+ "slug": "kaskaden-tal",
+ "nr": 9,
+ "title": "Das Kaskaden-Tal",
+ "tagline": "Fünf türkise Seen in Stufen, zwanzig Wasserfälle und ganz unten ein Riesenloch.",
+ "story": [
+  "Kombination aus Tal, türkisen Seen und Doline. In eine bewaldete Hochebene ist eine 550 Blöcke lange Schlucht geschnitten. Darin liegen fünf türkise Seen hintereinander, jeder etwa 10 Blöcke tiefer als der vorige.",
+  "Über moosige Sinterdämme stürzen zwanzig Kaskaden von See zu See. Von der Hochebene fällt ein großer Wasserfall in den vierten See. Am Südende verschwindet alles in einem runden Doline-Loch.",
+  "Holzstege führen im Zickzack über die Seen. Der Wohnbereich liegt hinter dem großen Wasserfall, das Lager im Damm hinter einer Kaskade."
+ ],
+ "ground_y": 112,
+ "water_level": 100,
+ "paste_y": -49,
+ "paste_note": "Dann liegt die Hochebene auf Y 63, und die Seen liegen darunter in der Schlucht.",
+ "water_color": "#38cfe0",
+ "sky_color": "#a9d0e8",
+ "surround": {
+  "kind": "grass",
+  "color": "#4f8a32"
+ },
+ "camera": {
+  "target": [
+   165,
+   62,
+   300
+  ],
+  "pos": [
+   250,
+   230,
+   660
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Treppentunnel (Eingang)",
+   "typ": "eingang",
+   "pos": [
+    45,
+    113,
+    470
+   ],
+   "text": "Auf der Hochebene führt ein Treppentunnel mit Laternen 56 Blöcke hinab und kommt am untersten See aus der Felswand."
+  },
+  {
+   "name": "Shop auf der Hochebene",
+   "typ": "shop",
+   "pos": [
+    19,
+    0,
+    488
+   ],
+   "text": "Ein Marktplatz im Wald direkt neben dem Tunneleingang."
+  },
+  {
+   "name": "Fünf türkise Seen",
+   "typ": "highlight",
+   "pos": [
+    180,
+    91,
+    165
+   ],
+   "text": "Fünf Seen liegen in Stufen hintereinander, von Y 100 bis Y 56 (Schematic). Heller Sand- und Calcitgrund macht sie türkis. Über die Dämme stürzen zwanzig Kaskaden."
+  },
+  {
+   "name": "Wohnbereich hinter dem großen Wasserfall",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    240,
+    72,
+    355
+   ],
+   "cut": 10,
+   "text": "Ein Fluss von der Hochebene stürzt 44 Blöcke tief in den vierten See. Direkt dahinter liegt der Wohnbereich mit zwei Stockwerken. Durch die Glaswand sieht man den Wasservorhang."
+  },
+  {
+   "name": "Lager im Sinterdamm",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    173,
+    81,
+    202
+   ],
+   "cut": 6,
+   "text": "Eine lange Halle im Damm zwischen zweitem und drittem See, hinter einer Kaskade. Fassregale auf 44 Blöcken Länge."
+  },
+  {
+   "name": "Werkstatt am ersten See",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    107,
+    103,
+    81
+   ],
+   "cut": 7,
+   "text": "Eine Höhle in der Westwand, direkt neben dem Nordfall."
+  },
+  {
+   "name": "Verzauberungsinsel",
+   "typ": "werkstatt",
+   "pos": [
+    170,
+    84,
+    259
+   ],
+   "text": "Eine kleine Insel im mittleren See mit Bücherregal-Ring und Kirschbaum. Der Holzsteg führt daran vorbei."
+  },
+  {
+   "name": "Holzstege",
+   "typ": "highlight",
+   "pos": [
+    162,
+    81,
+    247
+   ],
+   "text": "Zickzack-Stege aus Fichtenholz führen knapp über dem Wasser quer über drei Seen, wie in den Plitvicer Seen."
+  },
+  {
+   "name": "Felder auf der Hochebene",
+   "typ": "farm",
+   "pos": [
+    274,
+    113,
+    160
+   ],
+   "text": "Eine Lichtung im Wald östlich der Schlucht mit Weizenfeldern und Wasserrinnen."
+  },
+  {
+   "name": "Farmhöhle",
+   "typ": "farm",
+   "innen": true,
+   "pos": [
+    62,
+    59,
+    440
+   ],
+   "cut": 12,
+   "text": "Eine 15 Blöcke hohe Halle in der Westwand am untersten See für Eisen- oder Mobfarmen."
+  },
+  {
+   "name": "Doline am Südende",
+   "typ": "highlight",
+   "pos": [
+    156,
+    30,
+    522
+   ],
+   "text": "Der unterste See läuft in ein rundes Loch und stürzt 27 Blöcke tief in einen türkisen Teich. Lianen hängen am Rand."
+  },
+  {
+   "name": "Aussicht am Westrand",
+   "typ": "highlight",
+   "pos": [
+    121,
+    113,
+    212
+   ],
+   "text": "Eine Holzplattform ragt über die Schlucht. Von hier sieht man alle Kaskaden."
+  }
+ ],
+ "phasen": [
+  [
+   "Schlucht ausheben",
+   "Die Schlucht Stufe für Stufe von Norden nach Süden ausheben. Jede Stufe etwa 10 Blöcke tiefer."
+  ],
+  [
+   "Seen und Dämme",
+   "Seen flach ausheben, Grund mit weißem Sand und Calcit auslegen. Die Dämme dazwischen aus Moos, Calcit und Tropfstein bauen."
+  ],
+  [
+   "Wasser",
+   "Seen von oben nach unten füllen. In jeden Damm 4–5 Rinnen schneiden, aus denen Wasser als Kaskade nach unten fällt."
+  ],
+  [
+   "Großer Wasserfall",
+   "Den Fluss auf der Hochebene bauen und über die Kante fallen lassen. Dahinter den Wohnbereich mit Glaswand aushöhlen."
+  ],
+  [
+   "Doline",
+   "Am Südende das runde Loch graben, Teich unten füllen."
+  ],
+  [
+   "Base und Natur",
+   "Lager im Damm, Werkstatt, Farmen, Stege, Treppentunnel, Shop, Wald."
+  ]
+ ],
+ "tipps": [
+  "Wasser fließt in Minecraft nur 7 Blöcke weit. Für breite Kaskaden in jede Rinne mehrere Quellblöcke setzen.",
+  "Türkis wird das Wasser in warmen Biomen am stärksten. Der helle Grund aus Sand und Calcit hilft überall.",
+  "Die Seen sind am Rand nur 2–4 Blöcke tief. Flaches Wasser über hellem Grund leuchtet am schönsten."
+ ],
+ "size": [
+  320,
+  138,
+  580
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 141321,
+    "gesamt": 4404742
+   },
+   "andesite": {
+    "sichtbar": 33201,
+    "gesamt": 2081857
+   },
+   "diorite": {
+    "sichtbar": 24862,
+    "gesamt": 1688357
+   },
+   "tuff": {
+    "sichtbar": 22207,
+    "gesamt": 1453021
+   },
+   "calcite": {
+    "sichtbar": 93229,
+    "gesamt": 1095062
+   },
+   "cobblestone": {
+    "sichtbar": 3336,
+    "gesamt": 209268
+   },
+   "mossy_stone_bricks": {
+    "sichtbar": 49,
+    "gesamt": 49
+   },
+   "stone_bricks": {
+    "sichtbar": 1438,
+    "gesamt": 1448
+   },
+   "gravel": {
+    "sichtbar": 1370,
+    "gesamt": 1370
+   },
+   "dripstone_block": {
+    "sichtbar": 7621,
+    "gesamt": 178242
+   },
+   "dirt": {
+    "sichtbar": 6724,
+    "gesamt": 261622
+   },
+   "grass": {
+    "sichtbar": 80236,
+    "gesamt": 82380
+   },
+   "moss": {
+    "sichtbar": 9353,
+    "gesamt": 136998
+   },
+   "clay": {
+    "sichtbar": 7503,
+    "gesamt": 7506
+   },
+   "sand": {
+    "sichtbar": 21848,
+    "gesamt": 132469
+   },
+   "dirt_path": {
+    "sichtbar": 6,
+    "gesamt": 6
+   },
+   "farmland": {
+    "sichtbar": 812,
+    "gesamt": 812
+   },
+   "oak_log": {
+    "sichtbar": 1051,
+    "gesamt": 1537
+   },
+   "oak_leaves": {
+    "sichtbar": 15791,
+    "gesamt": 22166
+   },
+   "spruce_log": {
+    "sichtbar": 992,
+    "gesamt": 2877
+   },
+   "spruce_leaves": {
+    "sichtbar": 31202,
+    "gesamt": 40550
+   },
+   "birch_log": {
+    "sichtbar": 683,
+    "gesamt": 984
+   },
+   "birch_leaves": {
+    "sichtbar": 9178,
+    "gesamt": 12483
+   },
+   "jungle_leaves": {
+    "sichtbar": 427,
+    "gesamt": 428
+   },
+   "cherry_log": {
+    "sichtbar": 29,
+    "gesamt": 29
+   },
+   "cherry_leaves": {
+    "sichtbar": 229,
+    "gesamt": 315
+   },
+   "azalea_leaves": {
+    "sichtbar": 3950,
+    "gesamt": 4207
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 1864,
+    "gesamt": 2026
+   },
+   "spruce_planks": {
+    "sichtbar": 3513,
+    "gesamt": 3932
+   },
+   "spruce_fence": {
+    "sichtbar": 271,
+    "gesamt": 271
+   },
+   "lantern": {
+    "sichtbar": 55,
+    "gesamt": 55
+   },
+   "glass": {
+    "sichtbar": 135,
+    "gesamt": 135
+   },
+   "barrel": {
+    "sichtbar": 307,
+    "gesamt": 307
+   },
+   "bookshelf": {
+    "sichtbar": 137,
+    "gesamt": 138
+   },
+   "wheat": {
+    "sichtbar": 812,
+    "gesamt": 812
+   },
+   "crafting_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "smithing_table": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "blast_furnace": {
+    "sichtbar": 1,
+    "gesamt": 1
+   },
+   "anvil": {
+    "sichtbar": 1,
+    "gesamt": 1
+   }
+  },
+  "wasser": 829990,
+  "gesamt": 11828465,
+  "sichtbar": 525746
+ },
+ "bin_bytes": 1966034
+}

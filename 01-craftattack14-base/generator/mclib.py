@@ -1142,3 +1142,71 @@ def tunnel_out(w, start, toward, width=3, height=4, floor="spruce_planks", max_l
             outside_run = 0
         last = (cx, sy - 1, cz)
     return last
+
+
+# --------------------------------------------------------------------------
+# Bergring um ein Tal (gemeinsam für Tal-Landschaften)
+# --------------------------------------------------------------------------
+def ring_valley(w, cx, cz, rx, rz, floor_h, ground, peak_lo=112, peak_amp=62, send_base=46, gate_x=None,
+                seed=0):
+    """Höhenkarte eines Tals mit zerklüftetem Bergring und organischem Außenrand.
+    gate_x: optional steile Torwand im Süden (für einen Tunnel hinter einem Wasserfall).
+    Gibt (h, d, s, foot, fore) zurück: d = normierter Talabstand, s = Abstand nach außen in Blöcken,
+    foot = Grundfläche, fore = flacher Vorplatz vor der Torwand."""
+    X, Z = w.X, w.Z
+    wx = X + fbm2(X, Z, 70, 3, seed + 1) * 14
+    wz = Z + fbm2(X, Z, 70, 3, seed + 2) * 22
+    d = np.sqrt(((wx - cx) / rx) ** 2 + ((wz - cz) / rz) ** 2)
+    gdz, gdx = np.gradient(d)
+    s = (d - 0.985) / np.maximum(np.hypot(gdx, gdz), 1e-4)
+    sp = np.maximum(s, 0)
+    peak = peak_lo + ridged2(X, Z, 60, 5, seed + 4) * peak_amp
+    rid = ridged2(X, Z, 34, 4, seed + 12)
+    mtn = ground + 4 + (peak - ground - 4) * (0.6 * np.exp(-sp / 26) + 0.4 * rid * np.exp(-sp / 55))
+    mtn = np.minimum(mtn, w.H - 5)
+    t = smoothstep(0.885, 0.985, d + fbm2(X, Z, 22, 3, seed + 5) * 0.022)
+    tq = np.floor(t * 7) / 7
+    t2 = 0.55 * t + 0.45 * tq
+    inner = floor_h + (mtn - floor_h) * t2
+    h = np.where(s <= 0, inner, mtn)
+    bd = np.minimum(np.minimum(X, w.W - 1 - X), np.minimum(Z, w.D - 1 - Z))
+    send = send_base + fbm2(X, Z, 45, 3, seed + 6) * 12
+    fade = (1 - smoothstep(0.4, 1.0, sp / send)) * smoothstep(2, 12, bd)
+    if gate_x is not None:
+        gate = (1 - smoothstep(30, 50, np.abs(X - gate_x))) * (Z > cz) * smoothstep(0.7, 0.95, (Z - cz) / rz)
+        fade = fade * (1 - gate) + (1 - smoothstep(29, 34, sp)) * gate
+        foot = ((sp < send) | ((gate > 0.5) & (sp < 50))) & (bd > 1)
+        fore = (gate > 0.5) & (sp >= 33) & (sp < 50)
+    else:
+        foot = (sp < send) & (bd > 1)
+        fore = np.zeros_like(foot)
+    h = np.where(s > 0, ground + (h - ground) * fade, h)
+    h = np.where(fore, np.minimum(h, ground - 1), h)
+    return h, d, s, foot, fore
+
+
+def surface_layers(w, h, rng, snow_at=None, extra=None):
+    """Oberflächen nach Steilheit: flach Gras, mittel Moos/grobe Erde, steil Fels (255)."""
+    gz, gx = np.gradient(h)
+    slope = np.hypot(gx, gz)
+    surf = np.full(h.shape, B("grass"), np.uint8)
+    sub = np.full(h.shape, B("dirt"), np.uint8)
+    r = rng.random(h.shape)
+    mid = (slope > 0.9) & (slope <= 1.7)
+    surf[mid & (r < 0.5)] = B("moss")
+    surf[mid & (r >= 0.5)] = B("coarse_dirt")
+    steep = slope > 1.7
+    surf[steep] = 255
+    sub[steep] = 255
+    if snow_at is not None:
+        snow = (h > snow_at + fbm2(w.X, w.Z, 15, 2, 8) * 6) & (slope < 1.9)
+        surf[snow] = B("snow")
+    return surf, sub, slope, r
+
+
+def lake_bed(surf, sub, mask, r, white=True):
+    """Heller Seegrund (weißer Sand, Calcit, Ton) – lässt das Wasser türkis wirken."""
+    surf[mask & (r < 0.55)] = B("sand")
+    surf[mask & (r >= 0.55) & (r < 0.8)] = B("calcite") if white else B("gravel")
+    surf[mask & (r >= 0.8)] = B("clay")
+    sub[mask] = B("sand")

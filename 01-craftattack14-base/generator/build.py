@@ -15,7 +15,8 @@ from mclib import BLOCKS, export_litematic, export_palette_json, export_schem, e
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-LANDS = ["tal", "felsnadeln", "doline", "inseln", "unterwelt", "vulkan"]
+LANDS = ["tal", "felsnadeln", "doline", "inseln", "unterwelt", "vulkan", "kombi_tuerkistal", "kombi_himmelsloch",
+         "kombi_kaskaden"]
 
 
 def crop(w, info, margin=1):

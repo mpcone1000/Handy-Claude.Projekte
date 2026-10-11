@@ -1,0 +1,352 @@
+{
+ "slug": "himmelsloch",
+ "nr": 8,
+ "title": "Das Himmelsloch",
+ "tagline": "Ein Riesenloch im Dschungel mit schwebenden Inseln über einem türkisen See.",
+ "story": [
+  "Kombination aus Riesen-Doline, schwebenden Inseln und türkisem See. Oben öffnet sich im Dschungel ein 120 Blöcke breites Loch, darunter weitet es sich zu einer Glocke von 180 Blöcken.",
+  "In der Glocke schweben vier Inseln über einem flachen, türkisen See. Auf der größten wächst ein Kirschbaum dem Licht entgegen, von ihr läuft ein Wasserfall in den See.",
+  "Ein Spiralweg führt an der Wand hinunter. Hängebrücken gehen von ihm zu den Inseln: Lager, Farm, Verzauberung und die Hauptinsel mit dem Wohnraum."
+ ],
+ "ground_y": 110,
+ "water_level": 30,
+ "paste_y": -47,
+ "paste_note": "Dann liegt der Dschungel auf Y 63 und der türkise See auf Y -17.",
+ "water_color": "#38cfe0",
+ "sky_color": "#a8cfe3",
+ "surround": {
+  "kind": "grass",
+  "color": "#4a8a2c"
+ },
+ "camera": {
+  "target": [
+   172,
+   50,
+   238
+  ],
+  "pos": [
+   272,
+   280,
+   448
+  ]
+ },
+ "clip": null,
+ "zones": [
+  {
+   "name": "Einstieg zum Spiralweg",
+   "typ": "eingang",
+   "pos": [
+    225,
+    111,
+    205
+   ],
+   "text": "Am Rand beginnt der Holzweg an der Wand. Von ihm zweigen Hängebrücken zu den schwebenden Inseln ab, unten endet er am türkisen See."
+  },
+  {
+   "name": "Glasplattform und Shop",
+   "typ": "shop",
+   "pos": [
+    172,
+    112,
+    362
+   ],
+   "text": "Eine Glasplattform ragt 22 Blöcke über den Abgrund. Dahinter liegt der Marktplatz für Besucher."
+  },
+  {
+   "name": "Hauptinsel mit Kirschbaum",
+   "typ": "highlight",
+   "pos": [
+    162,
+    89,
+    226
+   ],
+   "text": "Die größte Insel schwebt mitten im Loch, 38 Blöcke über dem See. Ein Kirschbaum wächst zur Öffnung hinauf, Wurzeln hängen nach unten, ein Teich läuft als Wasserfall in den See."
+  },
+  {
+   "name": "Wohnraum in der Hauptinsel",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    164,
+    60,
+    226
+   ],
+   "cut": 6,
+   "text": "Ein Raum im Inselkörper unter dem Kirschbaum, mit Glasfenstern zur Seite. Eine Leiter führt nach oben auf die Insel."
+  },
+  {
+   "name": "Lagerinsel",
+   "typ": "lager",
+   "innen": true,
+   "pos": [
+    114,
+    67,
+    228
+   ],
+   "cut": 7,
+   "text": "Eine hohle Insel an der Westseite mit Fassregalen. Eine Brücke kommt vom Spiralweg, eine zweite führt zur Hauptinsel."
+  },
+  {
+   "name": "Farminsel",
+   "typ": "farm",
+   "pos": [
+    172,
+    65,
+    172
+   ],
+   "text": "Weizenfelder auf einer schwebenden Insel an der Nordseite, verbunden mit Wand und Hauptinsel."
+  },
+  {
+   "name": "Verzauberungsinsel",
+   "typ": "werkstatt",
+   "pos": [
+    172,
+    95,
+    279
+   ],
+   "text": "Eine kleine Insel mit Bücherregal-Ring an der Südseite, direkt unter der Glasplattform."
+  },
+  {
+   "name": "Werkstatt in der Wand",
+   "typ": "werkstatt",
+   "innen": true,
+   "pos": [
+    145,
+    90,
+    315
+   ],
+   "cut": 7,
+   "text": "Eine Kammer am oberen Teil des Spiralwegs."
+  },
+  {
+   "name": "Farmhöhle",
+   "typ": "farm",
+   "innen": true,
+   "pos": [
+    252,
+    43,
+    291
+   ],
+   "cut": 10,
+   "text": "Eine 13 Blöcke hohe Halle kurz über dem See, für Eisen- oder Mobfarmen."
+  },
+  {
+   "name": "Türkiser See",
+   "typ": "highlight",
+   "pos": [
+    206,
+    32,
+    258
+   ],
+   "text": "Ein flacher See mit weißem Sand- und Calcitgrund, eine Sandinsel mit Palmen. Hier landen alle Wasserfälle."
+  },
+  {
+   "name": "Unterwasser-Raum",
+   "typ": "wohnen",
+   "innen": true,
+   "pos": [
+    151,
+    20,
+    316
+   ],
+   "cut": 8,
+   "text": "Am Ende des Spiralwegs geht es hinunter in einen Raum mit Glaswand zum türkisen See."
+  }
+ ],
+ "phasen": [
+  [
+   "Loch ausheben",
+   "Oben 120 Blöcke Durchmesser, darunter breiter (Glocke). Den Boden flach lassen, er wird zum See."
+  ],
+  [
+   "See",
+   "Grund mit weißem Sand und Calcit auslegen, 2–14 Blöcke tief füllen. Eine Sandinsel mit Palmen aufschütten."
+  ],
+  [
+   "Spiralweg",
+   "Den Weg an der Wand von oben nach unten bauen. Er dient als Gerüst für alles Weitere."
+  ],
+  [
+   "Schwebende Inseln",
+   "Vom Spiralweg aus Brücken ins Leere bauen und daran die Inseln aufhängen: erst die Oberseite, dann die Unterseite nach unten."
+  ],
+  [
+   "Base",
+   "Wohnraum, Lager, Farm, Verzauberung, Werkstatt, Unterwasser-Raum."
+  ],
+  [
+   "Leben",
+   "Kirschbaum, Lianen, Wasserfälle, Glasplattform und Dschungel oben."
+  ]
+ ],
+ "tipps": [
+  "Türkis wird das Wasser am stärksten in warmen Biomen (warmer Ozean). Ein heller, flacher Grund hilft überall.",
+  "In der Glocke ist es schattig. Laternen an Ketten unter den Inseln und Seelaternen im See machen es nachts magisch.",
+  "Beim Bau der Inseln über dem Abgrund: Gerüst nutzen und Feder-Fall-Stiefel anziehen."
+ ],
+ "size": [
+  340,
+  145,
+  423
+ ],
+ "materials": {
+  "bloecke": {
+   "stone": {
+    "sichtbar": 89175,
+    "gesamt": 2459392
+   },
+   "andesite": {
+    "sichtbar": 92253,
+    "gesamt": 2023312
+   },
+   "granite": {
+    "sichtbar": 601,
+    "gesamt": 2296
+   },
+   "diorite": {
+    "sichtbar": 30318,
+    "gesamt": 1174359
+   },
+   "tuff": {
+    "sichtbar": 19679,
+    "gesamt": 1004110
+   },
+   "calcite": {
+    "sichtbar": 17686,
+    "gesamt": 619237
+   },
+   "cobblestone": {
+    "sichtbar": 4779,
+    "gesamt": 143147
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 3698,
+    "gesamt": 181336
+   },
+   "stone_bricks": {
+    "sichtbar": 1586,
+    "gesamt": 1603
+   },
+   "gravel": {
+    "sichtbar": 1802,
+    "gesamt": 1804
+   },
+   "dripstone_block": {
+    "sichtbar": 2783,
+    "gesamt": 136295
+   },
+   "dirt": {
+    "sichtbar": 7647,
+    "gesamt": 296786
+   },
+   "podzol": {
+    "sichtbar": 11060,
+    "gesamt": 11434
+   },
+   "grass": {
+    "sichtbar": 82750,
+    "gesamt": 85807
+   },
+   "moss": {
+    "sichtbar": 8157,
+    "gesamt": 407953
+   },
+   "clay": {
+    "sichtbar": 3197,
+    "gesamt": 3197
+   },
+   "sand": {
+    "sichtbar": 14008,
+    "gesamt": 23558
+   },
+   "dirt_path": {
+    "sichtbar": 120,
+    "gesamt": 120
+   },
+   "farmland": {
+    "sichtbar": 264,
+    "gesamt": 264
+   },
+   "jungle_log": {
+    "sichtbar": 13150,
+    "gesamt": 14435
+   },
+   "jungle_leaves": {
+    "sichtbar": 57569,
+    "gesamt": 80893
+   },
+   "cherry_log": {
+    "sichtbar": 680,
+    "gesamt": 1293
+   },
+   "cherry_leaves": {
+    "sichtbar": 2944,
+    "gesamt": 5884
+   },
+   "azalea_leaves": {
+    "sichtbar": 4133,
+    "gesamt": 4349
+   },
+   "flowering_azalea_leaves": {
+    "sichtbar": 2369,
+    "gesamt": 4833
+   },
+   "mangrove_roots": {
+    "sichtbar": 226,
+    "gesamt": 226
+   },
+   "spruce_planks": {
+    "sichtbar": 6141,
+    "gesamt": 6295
+   },
+   "stripped_spruce_log": {
+    "sichtbar": 10,
+    "gesamt": 10
+   },
+   "spruce_fence": {
+    "sichtbar": 1062,
+    "gesamt": 1062
+   },
+   "lantern": {
+    "sichtbar": 76,
+    "gesamt": 76
+   },
+   "sea_lantern": {
+    "sichtbar": 2,
+    "gesamt": 2
+   },
+   "cave_vines": {
+    "sichtbar": 552,
+    "gesamt": 552
+   },
+   "hanging_roots": {
+    "sichtbar": 366,
+    "gesamt": 366
+   },
+   "glass": {
+    "sichtbar": 520,
+    "gesamt": 520
+   },
+   "dark_prismarine": {
+    "sichtbar": 321,
+    "gesamt": 323
+   },
+   "barrel": {
+    "sichtbar": 240,
+    "gesamt": 240
+   },
+   "bookshelf": {
+    "sichtbar": 34,
+    "gesamt": 34
+   },
+   "wheat": {
+    "sichtbar": 262,
+    "gesamt": 262
+   }
+  },
+  "wasser": 261630,
+  "gesamt": 8697665,
+  "sichtbar": 482220
+ },
+ "bin_bytes": 1862498
+}
