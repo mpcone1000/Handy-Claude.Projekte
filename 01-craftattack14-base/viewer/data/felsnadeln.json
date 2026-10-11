@@ -11,23 +11,23 @@
  "ground_y": 30,
  "water_level": 29,
  "paste_y": 33,
- "paste_note": "Dann liegt der Waldboden auf Y 63, und die höchste Nadel reicht bis Y 254.",
+ "paste_note": "Dann liegt der Waldboden auf Y 63, und die höchste Nadel reicht bis Y 260.",
  "water_color": "#2f86a8",
  "sky_color": "#a9cbe0",
  "surround": {
   "kind": "grass",
-  "color": "#4f7f30"
+  "color": "#5f9a3c"
  },
  "camera": {
   "target": [
-   172,
+   170,
    110,
-   283
+   279
   ],
   "pos": [
-   472,
+   470,
    230,
-   633
+   629
   ]
  },
  "clip": null,
@@ -36,9 +36,9 @@
    "name": "Tor am Fuß des Hauptturms",
    "typ": "eingang",
    "pos": [
-    172,
+    170,
     33,
-    259
+    255
    ],
    "text": "Ein 5 Blöcke breites Tor führt in den Fels. Von hier geht es mit dem Wasser-Aufzug nach oben, oder außen über die Wendeltreppe."
   },
@@ -46,9 +46,9 @@
    "name": "Wendeltreppe",
    "typ": "highlight",
    "pos": [
-    198,
+    196,
     48,
-    255
+    251
    ],
    "text": "Eine 4 Blöcke breite Holztreppe windet sich 1,6-mal um den Hauptturm, vom Waldboden bis zur Eingangshalle 30 Blöcke darüber. Alle paar Meter hängt eine Laterne."
   },
@@ -57,9 +57,9 @@
    "innen": true,
    "typ": "wohnen",
    "pos": [
-    172,
+    170,
     58,
-    255
+    251
    ],
    "text": "Die erste runde Halle im Hauptturm hat sechs Panoramafenster. Durch die Mitte läuft der gläserne Wasser-Aufzug. Eine Hängebrücke führt zum Farmturm."
   },
@@ -68,9 +68,9 @@
    "innen": true,
    "typ": "wohnen",
    "pos": [
-    172,
+    170,
     90,
-    255
+    251
    ],
    "text": "Die zweite Halle liegt 62 Blöcke über dem Boden. Von hier gehen Brücken zum Lagerturm und zum Aussichtsturm."
   },
@@ -79,9 +79,9 @@
    "innen": true,
    "typ": "wohnen",
    "pos": [
-    172,
+    170,
     122,
-    255
+    251
    ],
    "text": "Die dritte Halle mit Blick über den Urwald. Eine Brücke führt zur Werkstatt."
   },
@@ -90,9 +90,9 @@
    "innen": true,
    "typ": "werkstatt",
    "pos": [
-    172,
+    170,
     154,
-    255
+    251
    ],
    "text": "Die oberste Halle mit Bücherregalen in der Mitte. Gut geeignet zum Verzaubern. Darüber liegt der Gipfelgarten."
   },
@@ -101,9 +101,9 @@
    "innen": true,
    "typ": "lager",
    "pos": [
-    96,
+    94,
     91,
-    205
+    201
    ],
    "text": "Eine runde Halle 62 Blöcke über dem Boden mit Regalreihen aus Fässern. Sie ist per Hängebrücke mit dem Wohnbereich verbunden."
   },
@@ -112,9 +112,9 @@
    "innen": true,
    "typ": "farm",
    "pos": [
-    250,
+    248,
     75,
-    207
+    203
    ],
    "text": "Drei übereinanderliegende Farm-Etagen (je 11 hoch), zum Beispiel für Eisen, Tiere und Mobs. Die Brücke kommt in der mittleren Etage an."
   },
@@ -123,9 +123,9 @@
    "innen": true,
    "typ": "werkstatt",
    "pos": [
-    228,
+    226,
     128,
-    331
+    327
    ],
    "text": "Die Werkstatt liegt direkt unter dem Gipfel des Werkstattturms. Daneben spannt sich die Himmelsbrücke, ein natürlicher Felsbogen."
   },
@@ -133,9 +133,9 @@
    "name": "Aussichtsturm",
    "typ": "highlight",
    "pos": [
-    104,
+    102,
     217,
-    319
+    315
    ],
    "text": "Die dünnste und höchste Nadel: 187 Blöcke über dem Wald. Oben ist eine Plattform mit Laternen."
   },
@@ -143,9 +143,9 @@
    "name": "Bootssteg und Shop",
    "typ": "shop",
    "pos": [
-    188,
+    186,
     31,
-    359
+    355
    ],
    "text": "Ein Marktplatz aus Holz am See mit einem Steg. Besucher kommen mit dem Boot über den Fluss."
   },
@@ -153,9 +153,9 @@
    "name": "Schwebende Felsen",
    "typ": "highlight",
    "pos": [
-    277,
+    275,
     178,
-    143
+    139
    ],
    "text": "Sechs Felsbrocken schweben zwischen den Nadeln, mit Bäumen oben und Wurzeln unten."
   }
@@ -192,27 +192,31 @@
   "Für den Wasser-Aufzug unten Seelensand setzen (nach oben) oder Magmablock (nach unten)."
  ],
  "size": [
-  347,
-  228,
-  525
+  343,
+  232,
+  522
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 156348,
-    "gesamt": 1412237
+    "sichtbar": 140677,
+    "gesamt": 1395588
    },
    "andesite": {
-    "sichtbar": 153839,
-    "gesamt": 763678
+    "sichtbar": 138378,
+    "gesamt": 748786
    },
    "granite": {
-    "sichtbar": 306,
-    "gesamt": 1323
+    "sichtbar": 385,
+    "gesamt": 1884
    },
    "tuff": {
-    "sichtbar": 60624,
-    "gesamt": 702325
+    "sichtbar": 50392,
+    "gesamt": 692029
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 8021,
+    "gesamt": 8021
    },
    "stone_bricks": {
     "sichtbar": 1694,
@@ -223,67 +227,67 @@
     "gesamt": 8336
    },
    "dirt": {
-    "sichtbar": 10772,
-    "gesamt": 290017
+    "sichtbar": 10858,
+    "gesamt": 290810
    },
    "podzol": {
-    "sichtbar": 8080,
-    "gesamt": 8459
+    "sichtbar": 8096,
+    "gesamt": 8444
    },
    "grass": {
-    "sichtbar": 77320,
-    "gesamt": 80997
+    "sichtbar": 88001,
+    "gesamt": 91567
    },
    "moss": {
-    "sichtbar": 26254,
-    "gesamt": 178799
+    "sichtbar": 49979,
+    "gesamt": 202485
    },
    "mud": {
-    "sichtbar": 434,
-    "gesamt": 436
+    "sichtbar": 436,
+    "gesamt": 437
    },
    "dirt_path": {
-    "sichtbar": 214,
-    "gesamt": 214
+    "sichtbar": 217,
+    "gesamt": 219
    },
    "spruce_log": {
-    "sichtbar": 108,
-    "gesamt": 336
+    "sichtbar": 89,
+    "gesamt": 270
    },
    "spruce_leaves": {
-    "sichtbar": 3050,
-    "gesamt": 3840
+    "sichtbar": 2288,
+    "gesamt": 2876
    },
    "jungle_log": {
-    "sichtbar": 17492,
-    "gesamt": 20302
+    "sichtbar": 18546,
+    "gesamt": 21300
    },
    "jungle_leaves": {
-    "sichtbar": 68442,
-    "gesamt": 99750
+    "sichtbar": 65872,
+    "gesamt": 95724
    },
    "dark_oak_log": {
-    "sichtbar": 837,
-    "gesamt": 1222
+    "sichtbar": 2029,
+    "gesamt": 2608
    },
    "dark_oak_leaves": {
-    "sichtbar": 12590,
-    "gesamt": 17831
+    "sichtbar": 11123,
+    "gesamt": 14149
    },
    "azalea_leaves": {
-    "sichtbar": 13622,
-    "gesamt": 16612
+    "sichtbar": 12659,
+    "gesamt": 15582
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 3577,
-    "gesamt": 4006
+    "sichtbar": 3568,
+    "gesamt": 3980
    },
    "mangrove_roots": {
-    "sichtbar": 116,
-    "gesamt": 116
+    "sichtbar": 145,
+    "gesamt": 145
    },
    "spruce_planks": {
-    "sichtbar": 5533,
+    "sichtbar": 5534,
     "gesamt": 6281
    },
    "spruce_fence": {
@@ -295,8 +299,8 @@
     "gesamt": 135
    },
    "hanging_roots": {
-    "sichtbar": 177,
-    "gesamt": 177
+    "sichtbar": 136,
+    "gesamt": 136
    },
    "glass": {
     "sichtbar": 1551,
@@ -331,9 +335,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 277568,
-  "gesamt": 3621870,
-  "sichtbar": 632462
+  "wasser": 276569,
+  "gesamt": 3643745,
+  "sichtbar": 630156
  },
- "bin_bytes": 1035184
+ "bin_bytes": 1122050
 }

@@ -359,7 +359,7 @@ def generate():
         ground_y=GROUND, water_level=WATER, paste_y=63 - GROUND,
         paste_note="Dann liegt der Waldboden auf Y 63, und die höchste Nadel reicht bis Y {welt_max}.",
         water_color="#2f86a8", sky_color="#a9cbe0",
-        surround=dict(kind="grass", color="#4f7f30"),
+        surround=dict(kind="grass", color="#5f9a3c"),
         camera=dict(target=(CX, 110, 290), pos=(CX + 300, 230, 640)),
         clip=None,
         zones=zones,

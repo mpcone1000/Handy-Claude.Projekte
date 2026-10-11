@@ -78,7 +78,7 @@ def generate():
     isl_beach = ((e_wohn < 1) | (e_farm < 1)) & (h <= LAKE + 1.2) & (h >= LAKE - 0.5)
     surf[isl_beach] = B("sand")
     surf[(e_lager < 1) & (h > LAKE + 3)] = 255
-    rock = w.strata(["stone", "stone", "andesite", "stone", "tuff", "stone", "diorite", "andesite", "stone",
+    rock = w.strata(["stone", "stone", "andesite", "stone", "tuff", "stone", "andesite", "andesite", "stone",
                      "tuff"], band=3, seed=9, warp=7)
     w.fill_heightmap(np.where(foot, h, -1), surf, sub, 3, rock_fn=rock, bottom=np.full(h.shape, 34.0))
     retexture(w, 0, 40, 0, W, H, D, ["stone"], [("andesite", 0.12), ("cobblestone", 0.04), ("tuff", 0.05)])

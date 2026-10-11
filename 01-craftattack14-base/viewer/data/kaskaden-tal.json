@@ -16,7 +16,7 @@
  "sky_color": "#a9d0e8",
  "surround": {
   "kind": "grass",
-  "color": "#4f8a32"
+  "color": "#5f9a3c"
  },
  "camera": {
   "target": [
@@ -194,34 +194,38 @@
  ],
  "size": [
   320,
-  138,
+  139,
   580
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 141321,
-    "gesamt": 4404742
+    "sichtbar": 130603,
+    "gesamt": 4391659
    },
    "andesite": {
-    "sichtbar": 33201,
-    "gesamt": 2081857
+    "sichtbar": 28359,
+    "gesamt": 2076699
    },
    "diorite": {
-    "sichtbar": 24862,
-    "gesamt": 1688357
+    "sichtbar": 20995,
+    "gesamt": 1683941
    },
    "tuff": {
-    "sichtbar": 22207,
-    "gesamt": 1453021
+    "sichtbar": 20096,
+    "gesamt": 1450527
    },
    "calcite": {
-    "sichtbar": 93229,
-    "gesamt": 1095062
+    "sichtbar": 89443,
+    "gesamt": 1096642
    },
    "cobblestone": {
-    "sichtbar": 3336,
-    "gesamt": 209268
+    "sichtbar": 2850,
+    "gesamt": 208421
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 6130,
+    "gesamt": 6130
    },
    "mossy_stone_bricks": {
     "sichtbar": 49,
@@ -236,20 +240,20 @@
     "gesamt": 1370
    },
    "dripstone_block": {
-    "sichtbar": 7621,
-    "gesamt": 178242
+    "sichtbar": 7576,
+    "gesamt": 177332
    },
    "dirt": {
-    "sichtbar": 6724,
+    "sichtbar": 6731,
     "gesamt": 261622
    },
    "grass": {
-    "sichtbar": 80236,
-    "gesamt": 82380
+    "sichtbar": 83779,
+    "gesamt": 85943
    },
    "moss": {
-    "sichtbar": 9353,
-    "gesamt": 136998
+    "sichtbar": 25532,
+    "gesamt": 152626
    },
    "clay": {
     "sichtbar": 7503,
@@ -260,36 +264,36 @@
     "gesamt": 132469
    },
    "dirt_path": {
-    "sichtbar": 6,
-    "gesamt": 6
+    "sichtbar": 11,
+    "gesamt": 11
    },
    "farmland": {
     "sichtbar": 812,
     "gesamt": 812
    },
    "oak_log": {
-    "sichtbar": 1051,
-    "gesamt": 1537
+    "sichtbar": 2074,
+    "gesamt": 2689
    },
    "oak_leaves": {
-    "sichtbar": 15791,
-    "gesamt": 22166
+    "sichtbar": 11208,
+    "gesamt": 13987
    },
    "spruce_log": {
-    "sichtbar": 992,
-    "gesamt": 2877
+    "sichtbar": 1041,
+    "gesamt": 3049
    },
    "spruce_leaves": {
-    "sichtbar": 31202,
-    "gesamt": 40550
+    "sichtbar": 33512,
+    "gesamt": 43157
    },
    "birch_log": {
-    "sichtbar": 683,
-    "gesamt": 984
+    "sichtbar": 1545,
+    "gesamt": 1949
    },
    "birch_leaves": {
-    "sichtbar": 9178,
-    "gesamt": 12483
+    "sichtbar": 7548,
+    "gesamt": 9270
    },
    "jungle_leaves": {
     "sichtbar": 427,
@@ -304,15 +308,15 @@
     "gesamt": 315
    },
    "azalea_leaves": {
-    "sichtbar": 3950,
-    "gesamt": 4207
+    "sichtbar": 3973,
+    "gesamt": 4261
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 1864,
-    "gesamt": 2026
+    "sichtbar": 2056,
+    "gesamt": 2230
    },
    "spruce_planks": {
-    "sichtbar": 3513,
+    "sichtbar": 3511,
     "gesamt": 3932
    },
    "spruce_fence": {
@@ -332,7 +336,7 @@
     "gesamt": 307
    },
    "bookshelf": {
-    "sichtbar": 137,
+    "sichtbar": 138,
     "gesamt": 138
    },
    "wheat": {
@@ -356,9 +360,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 829990,
-  "gesamt": 11828465,
-  "sichtbar": 525746
+  "wasser": 826170,
+  "gesamt": 11847785,
+  "sichtbar": 524000
  },
- "bin_bytes": 1966034
+ "bin_bytes": 2231011
 }

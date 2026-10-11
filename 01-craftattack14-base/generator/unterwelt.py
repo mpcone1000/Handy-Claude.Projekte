@@ -334,7 +334,7 @@ def generate():
         ground_y=SURF, water_level=WATER, paste_y=63 - SURF,
         paste_note="Dann liegt die Wiese auf Y 63, und der Höhlensee liegt auf Y {water_world}.",
         water_color="#2a9fc0", sky_color="#a6c8e2", ao=0.55,
-        surround=dict(kind="grass", color="#6a9a3e"),
+        surround=dict(kind="grass", color="#5f9a3c"),
         camera=dict(target=(CX, 24, CZ + 20), pos=(CX + 150, 190, CZ + 260)),
         clip=58,
         zones=zones,

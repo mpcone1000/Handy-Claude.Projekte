@@ -17,7 +17,7 @@
  "ao": 0.55,
  "surround": {
   "kind": "grass",
-  "color": "#6a9a3e"
+  "color": "#5f9a3c"
  },
  "camera": {
   "target": [
@@ -171,24 +171,28 @@
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 85695,
-    "gesamt": 2544053
+    "sichtbar": 76448,
+    "gesamt": 2530542
    },
    "andesite": {
-    "sichtbar": 53139,
-    "gesamt": 1493054
+    "sichtbar": 47664,
+    "gesamt": 1492340
    },
    "tuff": {
-    "sichtbar": 26967,
-    "gesamt": 919263
+    "sichtbar": 24147,
+    "gesamt": 915752
    },
    "calcite": {
-    "sichtbar": 30,
-    "gesamt": 2755
+    "sichtbar": 25,
+    "gesamt": 2750
    },
    "deepslate": {
-    "sichtbar": 164346,
-    "gesamt": 2864551
+    "sichtbar": 157782,
+    "gesamt": 2858176
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 7320,
+    "gesamt": 7320
    },
    "mossy_stone_bricks": {
     "sichtbar": 205,
@@ -204,11 +208,11 @@
    },
    "dripstone_block": {
     "sichtbar": 37484,
-    "gesamt": 56038
+    "gesamt": 56043
    },
    "smooth_basalt": {
-    "sichtbar": 1284,
-    "gesamt": 3362
+    "sichtbar": 1034,
+    "gesamt": 3112
    },
    "dirt": {
     "sichtbar": 3421,
@@ -219,12 +223,12 @@
     "gesamt": 9546
    },
    "grass": {
-    "sichtbar": 106457,
+    "sichtbar": 106496,
     "gesamt": 107383
    },
    "moss": {
-    "sichtbar": 50607,
-    "gesamt": 52510
+    "sichtbar": 67648,
+    "gesamt": 69551
    },
    "clay": {
     "sichtbar": 4331,
@@ -235,28 +239,28 @@
     "gesamt": 4374
    },
    "oak_log": {
-    "sichtbar": 269,
-    "gesamt": 386
+    "sichtbar": 560,
+    "gesamt": 704
    },
    "oak_leaves": {
-    "sichtbar": 3701,
-    "gesamt": 4879
+    "sichtbar": 2728,
+    "gesamt": 3261
    },
    "spruce_log": {
-    "sichtbar": 208,
-    "gesamt": 735
+    "sichtbar": 202,
+    "gesamt": 738
    },
    "spruce_leaves": {
-    "sichtbar": 9287,
-    "gesamt": 11792
+    "sichtbar": 9168,
+    "gesamt": 11563
    },
    "dark_oak_log": {
     "sichtbar": 45,
     "gesamt": 45
    },
    "azalea_leaves": {
-    "sichtbar": 2847,
-    "gesamt": 3049
+    "sichtbar": 2778,
+    "gesamt": 2963
    },
    "flowering_azalea_leaves": {
     "sichtbar": 805,
@@ -347,9 +351,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 97572,
-  "gesamt": 8444044,
-  "sichtbar": 596279
+  "wasser": 96506,
+  "gesamt": 8480884,
+  "sichtbar": 595442
  },
- "bin_bytes": 683813
+ "bin_bytes": 864892
 }

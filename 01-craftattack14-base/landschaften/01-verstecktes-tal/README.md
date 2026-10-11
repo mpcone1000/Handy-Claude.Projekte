@@ -14,8 +14,8 @@ Die ganze Base steckt im Fels: Das Lager liegt hinter dem Hauptwasserfall, der W
 
 | | |
 |---|---|
-| Größe (B × L × H) | 300 × 599 × 175 Blöcke |
-| Sichtbare Blöcke | 537.375 (≈ 310 Shulker-Kisten) |
+| Größe (B × L × H) | 297 × 599 × 175 Blöcke |
+| Sichtbare Blöcke | 537.730 (≈ 311 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y 6** |
 | Hinweis | Dann liegt der Boden rund um die Berge auf normaler Höhe (Y 63), und die Gipfel reichen bis Y 174. |
 
@@ -60,41 +60,39 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Stein | 164.054 | 2.564 | 94.9 |
-| Diorit | 91.742 | 1.434 | 53.1 |
-| Andesit | 73.485 | 1.149 | 42.5 |
-| Fichtennadeln | 44.351 | 693 | 25.7 |
-| Tuffstein | 39.676 | 620 | 23.0 |
-| Grasblock | 34.747 | 543 | 20.1 |
-| Sand | 13.496 | 211 | 7.8 |
-| Erde | 13.162 | 206 | 7.6 |
-| Moosblock | 7.733 | 121 | 4.5 |
-| Grobe Erde | 7.700 | 121 | 4.5 |
+| Andesit | 151.014 | 2.360 | 87.4 |
+| Stein | 136.930 | 2.140 | 79.2 |
+| Grasblock | 58.758 | 919 | 34.0 |
+| Fichtennadeln | 45.206 | 707 | 26.2 |
+| Moosblock | 34.887 | 546 | 20.2 |
+| Tuffstein | 31.463 | 492 | 18.2 |
+| Sand | 13.488 | 211 | 7.8 |
+| Erde | 13.146 | 206 | 7.6 |
+| Bemooster Bruchstein | 8.533 | 134 | 4.9 |
 | Kies | 7.183 | 113 | 4.2 |
-| Kirschblätter | 6.008 | 94 | 3.5 |
-| Bruchstein | 5.277 | 83 | 3.1 |
+| Kirschblätter | 5.917 | 93 | 3.4 |
+| Bruchstein | 4.212 | 66 | 2.4 |
 | Ton | 4.010 | 63 | 2.3 |
-| Calcit | 3.132 | 49 | 1.8 |
 | Weizen | 2.950 | 47 | 1.7 |
 | Ackerboden | 2.949 | 47 | 1.7 |
-| Steinziegel | 2.737 | 43 | 1.6 |
+| Steinziegel | 2.699 | 43 | 1.6 |
 | Fichtenholzbretter | 2.605 | 41 | 1.5 |
-| Azaleenlaub | 1.507 | 24 | 0.9 |
-| Trampelpfad | 1.259 | 20 | 0.7 |
-| Birkenlaub | 1.242 | 20 | 0.7 |
-| Fichtenstamm | 1.143 | 18 | 0.7 |
-| Eichenlaub | 1.046 | 17 | 0.6 |
-| Blühendes Azaleenlaub | 808 | 13 | 0.5 |
-| Kirschstamm | 654 | 11 | 0.4 |
+| Grobe Erde | 1.876 | 30 | 1.1 |
+| Azaleenlaub | 1.601 | 26 | 0.9 |
+| Trampelpfad | 1.255 | 20 | 0.7 |
+| Fichtenstamm | 1.117 | 18 | 0.6 |
+| Birkenlaub | 1.031 | 17 | 0.6 |
+| Blühendes Azaleenlaub | 694 | 11 | 0.4 |
+| Eichenlaub | 681 | 11 | 0.4 |
+| Kirschstamm | 680 | 11 | 0.4 |
 | Fass | 622 | 10 | 0.4 |
+| Bemooste Steinziegel | 546 | 9 | 0.3 |
 | Glas | 545 | 9 | 0.3 |
-| Bemooste Steinziegel | 518 | 9 | 0.3 |
 | Fichtenholzzaun | 336 | 6 | 0.2 |
+| Birkenstamm | 242 | 4 | 0.1 |
+| Eichenstamm | 174 | 3 | 0.1 |
 | Bücherregal | 173 | 3 | 0.1 |
 | Laterne | 146 | 3 | 0.1 |
-| Bemooster Bruchstein | 129 | 3 | 0.1 |
-| Birkenstamm | 111 | 2 | 0.1 |
-| Eichenstamm | 78 | 2 | 0.0 |
 | Polierter Andesit | 49 | 1 | 0.0 |
 | Entrindeter Fichtenstamm | 6 | 1 | 0.0 |
 | Schmelzofen | 2 | 1 | 0.0 |

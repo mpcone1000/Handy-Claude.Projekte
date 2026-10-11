@@ -62,7 +62,7 @@ reg("dirt", "minecraft:dirt", "#866043", "Erde")
 reg("coarse_dirt", "minecraft:coarse_dirt", "#77553b", "Grobe Erde")
 reg("rooted_dirt", "minecraft:rooted_dirt", "#90674c", "Wurzelerde")
 reg("podzol", "minecraft:podzol", "#5b3f18", "Podsol")
-reg("grass", "minecraft:grass_block", "#6aa33a", "Grasblock")
+reg("grass", "minecraft:grass_block", "#5f9a3c", "Grasblock")
 reg("moss", "minecraft:moss_block", "#5a7a2c", "Moosblock")
 reg("mud", "minecraft:mud", "#3c393d", "Schlamm")
 reg("packed_mud", "minecraft:packed_mud", "#8e6b50", "Festgestampfter Schlamm")
@@ -135,6 +135,25 @@ reg("blast_furnace", "minecraft:blast_furnace[facing=north]", "#5a5a5c", "Schmel
 reg("anvil", "minecraft:anvil[facing=north]", "#444448", "Amboss")
 reg("soul_sand", "minecraft:soul_sand", "#51402f", "Seelensand")
 reg("copper", "minecraft:oxidized_copper", "#52a284", "Oxidierter Kupferblock")
+
+# Pflanzen und Deko (kind 6 = Kreuz-Pflanze, 7 = flach auf dem Boden/Wasser, 8 = Pflanze im Wasser,
+# 9 = Ranke an einer Wand)
+reg("short_grass", "minecraft:short_grass", "#6f9e3c", "Gras", kind=6)
+reg("fern", "minecraft:fern", "#5c8c38", "Farn", kind=6)
+reg("dandelion", "minecraft:dandelion", "#f2d23a", "Löwenzahn", kind=6)
+reg("poppy", "minecraft:poppy", "#d8382e", "Mohn", kind=6)
+reg("cornflower", "minecraft:cornflower", "#5571e0", "Kornblume", kind=6)
+reg("oxeye_daisy", "minecraft:oxeye_daisy", "#f2f2ea", "Margerite", kind=6)
+reg("allium", "minecraft:allium", "#b66fdf", "Sternlauch", kind=6)
+reg("azure_bluet", "minecraft:azure_bluet", "#e4ecf5", "Porzellansternchen", kind=6)
+reg("pink_petals", "minecraft:pink_petals[facing=north,flower_amount=4]", "#f2a6c8", "Rosa Blütenblätter", kind=7)
+reg("lily_pad", "minecraft:lily_pad", "#3f8a2e", "Seerosenblatt", kind=7)
+reg("seagrass", "minecraft:seagrass", "#3f9a4a", "Seegras", kind=8)
+reg("vine_n", "minecraft:vine[north=true]", "#4a7f28", "Ranken", kind=9)
+reg("vine_s", "minecraft:vine[south=true]", "#4a7f28", "Ranken", kind=9)
+reg("vine_w", "minecraft:vine[west=true]", "#4a7f28", "Ranken", kind=9)
+reg("vine_e", "minecraft:vine[east=true]", "#4a7f28", "Ranken", kind=9)
+DECO_KINDS = (6, 7, 8, 9)
 
 KIND = np.array([b["kind"] for b in BLOCKS], np.uint8)
 OCCLUDES = np.isin(KIND, [1, 5])
@@ -431,7 +450,7 @@ class World:
         """Liefert rock_fn(y) mit horizontalen Gesteinsschichten (wellig verzerrt)."""
         off = fbm2(self.X, self.Z, scale, 3, seed) * warp
         ids = np.array([B(p) for p in palette], np.uint8)
-        jitter = fbm2(self.X, self.Z, 9.0, 2, seed + 5) * 1.5
+        jitter = fbm2(self.X, self.Z, 9.0, 2, seed + 5) * 3.0
 
         def fn(y):
             k = np.floor((y + off + jitter) / band).astype(np.int64) % len(ids)
@@ -538,16 +557,20 @@ def leaf_blob(w, cx, cy, cz, r, leaf, ry=None, keep_shell=0.75, seed=None):
 
 
 def tree_round(w, x, y, z, h=None, log="oak_log", leaf="oak_leaves", r=None):
+    """Laubbaum mit lockerer Krone aus mehreren Laubwolken und kurzen Ästen."""
     rng = w.rng
     h = h or int(rng.integers(5, 9))
     r = r or rng.uniform(2.3, 3.4)
     for i in range(h):
         w.set(x, y + i, z, B(log))
-    leaf_blob(w, x, y + h - 0.5, z, r, leaf, ry=r * 0.8)
-    if r > 2.8:
-        for _ in range(2):
-            ox, oz = rng.uniform(-2, 2, 2)
-            leaf_blob(w, x + ox, y + h - 2, z + oz, r * 0.7, leaf)
+    leaf_blob(w, x, y + h - 0.3, z, r * 0.85, leaf, ry=r * 0.7, keep_shell=0.6)
+    for k in range(int(rng.integers(2, 4))):
+        a = rng.uniform(0, 2 * np.pi)
+        L = r * rng.uniform(0.55, 0.85)
+        bx, bz = x + np.cos(a) * L, z + np.sin(a) * L
+        by = y + h - rng.uniform(1.0, 2.5)
+        w.line((x, by - 1, z), (bx, by, bz), B(log))
+        leaf_blob(w, bx, by + 0.6, bz, r * rng.uniform(0.55, 0.75), leaf, ry=r * 0.5, keep_shell=0.55)
 
 
 def tree_spruce(w, x, y, z, h=None, log="spruce_log", leaf="spruce_leaves"):
@@ -868,12 +891,12 @@ def material_list(w):
     exp = w.exposed_surface()
     counts = {}
     vis = np.bincount(w.b[exp].ravel(), minlength=256)
-    small = ~OCCLUDES[w.b] & (w.b != 0) & (KIND[w.b] != 2)
+    small = ~OCCLUDES[w.b] & (w.b != 0) & (KIND[w.b] != 2) & ~np.isin(KIND[w.b], DECO_KINDS)
     sm = np.bincount(w.b[small].ravel(), minlength=256)
     tot = np.bincount(w.b.ravel(), minlength=256)
     for g in range(len(BLOCKS)):
         v = int(vis[g] + sm[g])
-        if v and BLOCKS[g]["kind"] != 2:
+        if v and BLOCKS[g]["kind"] != 2 and BLOCKS[g]["kind"] not in DECO_KINDS:
             counts[BLOCKS[g]["key"]] = dict(sichtbar=v, gesamt=int(tot[g]))
     water = int(tot[ID["water"]])
     return dict(bloecke=counts, wasser=water, gesamt=int(np.count_nonzero(w.b) - water),
@@ -1193,8 +1216,8 @@ def surface_layers(w, h, rng, snow_at=None, extra=None):
     sub = np.full(h.shape, B("dirt"), np.uint8)
     r = rng.random(h.shape)
     mid = (slope > 0.9) & (slope <= 1.7)
-    surf[mid & (r < 0.5)] = B("moss")
-    surf[mid & (r >= 0.5)] = B("coarse_dirt")
+    surf[mid & (r < 0.45)] = B("moss")
+    surf[mid & (r >= 0.88)] = B("coarse_dirt")
     steep = slope > 1.7
     surf[steep] = 255
     sub[steep] = 255
@@ -1210,3 +1233,117 @@ def lake_bed(surf, sub, mask, r, white=True):
     surf[mask & (r >= 0.55) & (r < 0.8)] = B("calcite") if white else B("gravel")
     surf[mask & (r >= 0.8)] = B("clay")
     sub[mask] = B("sand")
+
+
+# --------------------------------------------------------------------------
+# Verschönerung: Moos, Ranken, grüne Simse, Gras, Blumen, Seerosen, Seegras
+# --------------------------------------------------------------------------
+ROCKS = ("stone", "andesite", "tuff", "calcite", "diorite", "granite", "cobblestone", "deepslate", "smooth_basalt",
+         "basalt", "blackstone")
+FLOWERS = ("dandelion", "poppy", "cornflower", "oxeye_daisy", "allium", "azure_bluet")
+
+
+def beautify(w, seed=0, water_level=None, green_ledges=True, flowers=True):
+    rng = np.random.default_rng(seed + 991)
+    b = w.b
+    H, D, W = b.shape
+    rock_ids = np.array([B(r) for r in ROCKS])
+    occ = OCCLUDES[b]
+    stop = w.solid_top()
+    Yidx = np.arange(H)[:, None, None]
+    open_sky = Yidx >= stop[None]                       # Zelle liegt über allem Festen der Spalte
+    wl = -1 if water_level is None else water_level
+
+    # 1) grüne Simse: offene Felsoberseiten werden zu Gras/Moos
+    if green_ledges:
+        rock = np.isin(b[:-1], rock_ids)
+        ledge = rock & (b[1:] == 0) & (Yidx[:-1] == stop[None]) & (Yidx[:-1] > wl)
+        r = rng.random(ledge.shape)
+        sel = ledge & (r < 0.62)
+        b[:-1][sel] = np.where(r[sel] < 0.42, B("grass"), B("moss"))
+
+    # 2) Moosflecken an senkrechten Felswänden
+    rock = np.isin(b, rock_ids)
+    side_air = np.zeros_like(rock)
+    side_air[:, :, :-1] |= b[:, :, 1:] == 0
+    side_air[:, :, 1:] |= b[:, :, :-1] == 0
+    side_air[:, :-1] |= b[:, 1:] == 0
+    side_air[:, 1:] |= b[:, :-1] == 0
+    cand = rock & side_air & (Yidx > wl)
+    ys, zs, xs = np.nonzero(cand)
+    if len(ys):
+        n = noise3(xs / 9.0, ys / 6.0, zs / 9.0, seed + 5) + noise3(xs / 3.5, ys / 3.5, zs / 3.5, seed + 6) * 0.35
+        sel = n > 0.38
+        rr = rng.random(sel.sum())
+        b[ys[sel], zs[sel], xs[sel]] = np.where(rr < 0.7, B("moss"), B("mossy_cobblestone"))
+
+    # 3) Ranken, die von Felskanten herabhängen
+    vines = {(0, -1): "vine_n", (0, 1): "vine_s", (-1, 0): "vine_w", (1, 0): "vine_e"}
+    occ = OCCLUDES[b]
+    for (dx, dz), key in vines.items():
+        vb = B(key)
+        nb = np.zeros_like(occ)
+        if dx == 1:
+            nb[:, :, :-1] = occ[:, :, 1:]
+        elif dx == -1:
+            nb[:, :, 1:] = occ[:, :, :-1]
+        elif dz == 1:
+            nb[:, :-1] = occ[:, 1:]
+        else:
+            nb[:, 1:] = occ[:, :-1]
+        start = (b == 0) & nb & (Yidx > wl + 2)
+        start[:-1] &= nb[1:] & (b[1:] != 0)            # oben drüber ist Fels (Kante)
+        ys, zs, xs = np.nonzero(start)
+        pick = rng.random(len(ys)) < 0.05
+        for y, z, x in zip(ys[pick], zs[pick], xs[pick]):
+            L = int(rng.integers(3, 16))
+            for k in range(L):
+                yy = y - k
+                if yy <= wl + 1 or b[yy, z, x] != 0 or not nb[yy, z, x]:
+                    break
+                b[yy, z, x] = vb
+
+    # 4) Gras und Blumen auf offenem Grasboden
+    if flowers:
+        stop = w.column_top()
+        zz, xx = np.nonzero(stop >= 0)
+        tb = b[stop[zz, xx], zz, xx]
+        ok = (tb == B("grass")) & (stop[zz, xx] < H - 1)
+        zz, xx = zz[ok], xx[ok]
+        ys = stop[zz, xx] + 1
+        patch = noise2(xx / 16.0, zz / 16.0, seed + 7)
+        ftype = (np.floor((noise2(xx / 40.0, zz / 40.0, seed + 8) + 1) * 3.5)).astype(int) % len(FLOWERS)
+        ftype2 = (ftype + 2) % len(FLOWERS)
+        r = rng.random(len(zz))
+        fl = np.array([B(f) for f in FLOWERS])
+        out = np.zeros(len(zz), np.uint8)
+        in_patch = patch > 0.32
+        out[in_patch & (r < 0.22)] = fl[ftype[in_patch & (r < 0.22)]]
+        sel = in_patch & (r >= 0.22) & (r < 0.3)
+        out[sel] = fl[ftype2[sel]]
+        sel = (out == 0) & (r < 0.27)
+        out[sel] = B("short_grass")
+        sel = (out == 0) & (r > 0.97)
+        out[sel] = B("fern")
+        sel = (out == 0) & (patch < -0.45) & (r > 0.9)
+        out[sel] = B("pink_petals")
+        m = out > 0
+        b[ys[m], zz[m], xx[m]] = out[m]
+
+    # 5) Seerosen und Seegras in stillem Wasser
+    wtr = b == B("water")
+    still = wtr.copy()
+    still[:, 1:-1, 1:-1] &= wtr[:, :-2, 1:-1] & wtr[:, 2:, 1:-1] & wtr[:, 1:-1, :-2] & wtr[:, 1:-1, 2:]
+    still[1:] &= wtr[:-1]
+    top_w = still[:-1] & (b[1:] == 0)
+    ys, zs, xs = np.nonzero(top_w)
+    if len(ys):
+        n = noise2(xs / 11.0, zs / 11.0, seed + 9)
+        p = np.where(n > 0.35, 0.09, 0.004)
+        sel = rng.random(len(ys)) < p
+        b[ys[sel] + 1, zs[sel], xs[sel]] = B("lily_pad")
+    bed_ids = np.array([B(k) for k in ("sand", "gravel", "clay", "calcite", "dirt", "mud")])
+    sg = wtr[1:-1] & np.isin(b[:-2], bed_ids) & wtr[2:]
+    ys, zs, xs = np.nonzero(sg)
+    sel = rng.random(len(ys)) < 0.12
+    b[ys[sel] + 1, zs[sel], xs[sel]] = B("seagrass")

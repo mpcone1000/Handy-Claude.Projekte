@@ -16,12 +16,12 @@
  "sky_color": "#a7d2ec",
  "camera": {
   "target": [
-   164,
+   165,
    52,
    310
   ],
   "pos": [
-   234,
+   235,
    290,
    560
   ]
@@ -32,7 +32,7 @@
    "name": "Geheimer Eingang",
    "typ": "eingang",
    "pos": [
-    164,
+    165,
     61,
     518
    ],
@@ -42,7 +42,7 @@
    "name": "Shop-Platz",
    "typ": "shop",
    "pos": [
-    137,
+    138,
     58,
     524
    ],
@@ -52,7 +52,7 @@
    "name": "Türkiser See",
    "typ": "highlight",
    "pos": [
-    184,
+    185,
     54,
     340
    ],
@@ -63,7 +63,7 @@
    "typ": "wohnen",
    "innen": true,
    "pos": [
-    149,
+    150,
     59,
     287
    ],
@@ -75,7 +75,7 @@
    "typ": "lager",
    "innen": true,
    "pos": [
-    219,
+    220,
     56,
     384
    ],
@@ -86,7 +86,7 @@
    "name": "Farminsel",
    "typ": "farm",
    "pos": [
-    107,
+    108,
     57,
     402
    ],
@@ -97,7 +97,7 @@
    "typ": "farm",
    "innen": true,
    "pos": [
-    249,
+    250,
     57,
     160
    ],
@@ -109,7 +109,7 @@
    "typ": "werkstatt",
    "innen": true,
    "pos": [
-    69,
+    70,
     57,
     200
    ],
@@ -120,7 +120,7 @@
    "name": "Verzauberungsinsel",
    "typ": "werkstatt",
    "pos": [
-    201,
+    202,
     127,
     248
    ],
@@ -130,7 +130,7 @@
    "name": "Wasserfallinsel",
    "typ": "highlight",
    "pos": [
-    177,
+    178,
     111,
     432
    ],
@@ -140,7 +140,7 @@
    "name": "Aussichtsinsel",
    "typ": "highlight",
    "pos": [
-    125,
+    126,
     153,
     198
    ],
@@ -179,39 +179,39 @@
   "Den Tunnel erst zum Schluss öffnen, damit das Tal bis zur Enthüllung geheim bleibt."
  ],
  "size": [
-  323,
+  322,
   162,
-  540
+  539
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 202383,
-    "gesamt": 1884468
+    "sichtbar": 180443,
+    "gesamt": 1866779
    },
    "andesite": {
-    "sichtbar": 71653,
-    "gesamt": 1224139
+    "sichtbar": 78085,
+    "gesamt": 1643021
    },
    "granite": {
-    "sichtbar": 760,
-    "gesamt": 5347
-   },
-   "diorite": {
-    "sichtbar": 22764,
-    "gesamt": 439276
+    "sichtbar": 661,
+    "gesamt": 5248
    },
    "tuff": {
-    "sichtbar": 48365,
-    "gesamt": 930107
+    "sichtbar": 37546,
+    "gesamt": 919436
    },
    "calcite": {
-    "sichtbar": 10505,
-    "gesamt": 10505
+    "sichtbar": 10497,
+    "gesamt": 10497
    },
    "cobblestone": {
-    "sichtbar": 4202,
-    "gesamt": 73778
+    "sichtbar": 3154,
+    "gesamt": 72586
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 7314,
+    "gesamt": 7314
    },
    "mossy_stone_bricks": {
     "sichtbar": 159,
@@ -222,20 +222,20 @@
     "gesamt": 1721
    },
    "dirt": {
-    "sichtbar": 13919,
+    "sichtbar": 13934,
     "gesamt": 120220
    },
    "coarse_dirt": {
-    "sichtbar": 7419,
-    "gesamt": 7460
+    "sichtbar": 1806,
+    "gesamt": 1816
    },
    "grass": {
-    "sichtbar": 22936,
-    "gesamt": 23906
+    "sichtbar": 46646,
+    "gesamt": 47614
    },
    "moss": {
-    "sichtbar": 7265,
-    "gesamt": 7319
+    "sichtbar": 31993,
+    "gesamt": 32024
    },
    "clay": {
     "sichtbar": 8454,
@@ -246,67 +246,67 @@
     "gesamt": 154634
    },
    "dirt_path": {
-    "sichtbar": 499,
-    "gesamt": 499
+    "sichtbar": 468,
+    "gesamt": 468
    },
    "snow": {
     "sichtbar": 1,
     "gesamt": 1
    },
    "farmland": {
-    "sichtbar": 639,
-    "gesamt": 639
+    "sichtbar": 642,
+    "gesamt": 642
    },
    "spruce_log": {
-    "sichtbar": 1081,
-    "gesamt": 3897
+    "sichtbar": 1100,
+    "gesamt": 3916
    },
    "spruce_leaves": {
-    "sichtbar": 44166,
-    "gesamt": 59959
+    "sichtbar": 44494,
+    "gesamt": 60315
    },
    "birch_log": {
-    "sichtbar": 18,
-    "gesamt": 25
+    "sichtbar": 55,
+    "gesamt": 72
    },
    "birch_leaves": {
-    "sichtbar": 172,
-    "gesamt": 222
+    "sichtbar": 274,
+    "gesamt": 365
    },
    "jungle_log": {
-    "sichtbar": 279,
-    "gesamt": 282
+    "sichtbar": 272,
+    "gesamt": 272
    },
    "jungle_leaves": {
-    "sichtbar": 950,
-    "gesamt": 951
+    "sichtbar": 904,
+    "gesamt": 904
    },
    "cherry_log": {
-    "sichtbar": 578,
-    "gesamt": 790
+    "sichtbar": 534,
+    "gesamt": 727
    },
    "cherry_leaves": {
-    "sichtbar": 4235,
-    "gesamt": 6871
+    "sichtbar": 3962,
+    "gesamt": 6301
    },
    "dark_oak_log": {
-    "sichtbar": 3,
-    "gesamt": 5
+    "sichtbar": 11,
+    "gesamt": 14
    },
    "azalea_leaves": {
-    "sichtbar": 1656,
-    "gesamt": 1810
+    "sichtbar": 1699,
+    "gesamt": 1847
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 1019,
-    "gesamt": 1107
+    "sichtbar": 880,
+    "gesamt": 939
    },
    "mangrove_roots": {
     "sichtbar": 147,
     "gesamt": 147
    },
    "spruce_planks": {
-    "sichtbar": 2432,
+    "sichtbar": 2435,
     "gesamt": 2888
    },
    "stripped_spruce_log": {
@@ -338,8 +338,8 @@
     "gesamt": 106
    },
    "wheat": {
-    "sichtbar": 639,
-    "gesamt": 639
+    "sichtbar": 642,
+    "gesamt": 642
    },
    "crafting_table": {
     "sichtbar": 1,
@@ -362,9 +362,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 2129023,
-  "gesamt": 4973412,
-  "sichtbar": 508424
+  "wasser": 2124307,
+  "gesamt": 4990814,
+  "sichtbar": 508338
  },
- "bin_bytes": 1001310
+ "bin_bytes": 1118347
 }

@@ -11,7 +11,7 @@ import time
 import numpy as np
 
 import preview
-from mclib import BLOCKS, export_litematic, export_palette_json, export_schem, export_viewer, material_list
+from mclib import BLOCKS, beautify, export_litematic, export_palette_json, export_schem, export_viewer, material_list
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -115,6 +115,7 @@ def build(modname, previews_only=False):
     mod = importlib.import_module(modname)
     w, info = mod.generate()
     crop(w, info)
+    beautify(w, seed=info["nr"], green_ledges=info.get("green_ledges", True))
     fill_placeholders(w, info)
     slug = info["slug"]
     nr = info["nr"]

@@ -43,7 +43,7 @@ def generate():
     h = np.where(rd < 7, np.minimum(h, PLAT - 3 + smoothstep(3, 7, rd) * (h - PLAT + 3)), h)
     surf = np.full(h.shape, B("grass"), np.uint8)
     r = rng.random(h.shape)
-    surf[(fbm2(X, Z, 12, 2, 5) > 0.2) & (r < 0.6)] = B("podzol")
+    surf[(fbm2(X, Z, 12, 2, 5) > 0.35) & (r < 0.12)] = B("podzol")
     surf[rd < 4] = B("gravel")
     rock = w.strata(["stone", "calcite", "stone", "andesite", "stone", "diorite", "stone", "tuff", "andesite"],
                     band=3, seed=8, warp=9)
@@ -323,7 +323,7 @@ def generate():
         tree_jungle(w, xx, top[zz, xx] + 1, zz)
     for zz, xx in scatter_points(w, ground, 240, 7):
         tree_round(w, xx, top[zz, xx] + 1, zz, log="jungle_log", leaf="jungle_leaves", r=rng.uniform(2.4, 3.4))
-    for zz, xx in scatter_points(w, ground, 450, 4):
+    for zz, xx in scatter_points(w, ground, 900, 3):
         bush(w, xx, top[zz, xx] + 1, zz, leaf="azalea_leaves" if rng.random() < 0.5 else "jungle_leaves")
     isl_grass = (gb == B("grass")) & (top < PLAT - 8) & (top > WATER + 10)
     for zz, xx in scatter_points(w, isl_grass, 30, 6):
@@ -376,8 +376,8 @@ def generate():
         ground_y=PLAT, water_level=WATER, paste_y=63 - PLAT,
         paste_note="Dann liegt der Dschungel auf Y 63 und der türkise See auf Y {water_world}.",
         water_color="#38cfe0", sky_color="#a8cfe3",
-        surround=dict(kind="grass", color="#4a8a2c"),
-        camera=dict(target=(CX, 50, CZ + 10), pos=(CX + 100, 280, CZ + 220)),
+        surround=dict(kind="grass", color="#5f9a3c"),
+        camera=dict(target=(CX, 45, CZ + 5), pos=(CX + 60, 235, CZ + 160)),
         clip=None,
         zones=zones,
         phasen=[

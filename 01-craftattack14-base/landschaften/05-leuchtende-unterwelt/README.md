@@ -15,7 +15,7 @@ Die Base ist in die Höhlenwände gebaut, dazu kommen eine Werkstatt im Pilzhut 
 | | |
 |---|---|
 | Größe (B × L × H) | 320 × 439 × 130 Blöcke |
-| Sichtbare Blöcke | 596.279 (≈ 345 Shulker-Kisten) |
+| Sichtbare Blöcke | 595.442 (≈ 344 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y -49** |
 | Hinweis | Dann liegt die Wiese auf Y 63, und der Höhlensee liegt auf Y -29. |
 
@@ -56,45 +56,46 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Tiefenschiefer | 164.346 | 2.568 | 95.1 |
-| Grasblock | 106.457 | 1.664 | 61.6 |
-| Stein | 85.695 | 1.339 | 49.6 |
-| Andesit | 53.139 | 831 | 30.8 |
-| Moosblock | 50.607 | 791 | 29.3 |
+| Tiefenschiefer | 157.782 | 2.466 | 91.3 |
+| Grasblock | 106.496 | 1.664 | 61.6 |
+| Stein | 76.448 | 1.195 | 44.2 |
+| Moosblock | 67.648 | 1.057 | 39.1 |
+| Andesit | 47.664 | 745 | 27.6 |
 | Tropfsteinblock | 37.484 | 586 | 21.7 |
-| Tuffstein | 26.967 | 422 | 15.6 |
-| Fichtennadeln | 9.287 | 146 | 5.4 |
+| Tuffstein | 24.147 | 378 | 14.0 |
 | Höhlenranken mit Leuchtbeeren | 9.282 | 146 | 5.4 |
 | Wurzelerde | 9.253 | 145 | 5.4 |
+| Fichtennadeln | 9.168 | 144 | 5.3 |
+| Bemooster Bruchstein | 7.320 | 115 | 4.2 |
 | Sand | 4.363 | 69 | 2.5 |
 | Ton | 4.331 | 68 | 2.5 |
 | Wirrwarzenblock | 3.824 | 60 | 2.2 |
 | Pilzstiel | 3.801 | 60 | 2.2 |
-| Eichenlaub | 3.701 | 58 | 2.1 |
 | Fichtenholzbretter | 3.623 | 57 | 2.1 |
 | Erde | 3.421 | 54 | 2.0 |
 | Roter Pilzblock | 2.904 | 46 | 1.7 |
-| Azaleenlaub | 2.847 | 45 | 1.6 |
+| Azaleenlaub | 2.778 | 44 | 1.6 |
+| Eichenlaub | 2.728 | 43 | 1.6 |
 | Brauner Pilzblock | 2.020 | 32 | 1.2 |
 | Steinziegel | 1.850 | 29 | 1.1 |
-| Glatter Basalt | 1.284 | 21 | 0.7 |
 | Amethystblock | 1.167 | 19 | 0.7 |
 | Polierter Andesit | 1.070 | 17 | 0.6 |
+| Glatter Basalt | 1.034 | 17 | 0.6 |
 | Blühendes Azaleenlaub | 805 | 13 | 0.5 |
 | Fass | 616 | 10 | 0.4 |
+| Eichenstamm | 560 | 9 | 0.3 |
 | Glas | 279 | 5 | 0.2 |
 | Grünes Froschlicht | 277 | 5 | 0.2 |
-| Eichenstamm | 269 | 5 | 0.2 |
 | Ockernes Froschlicht | 259 | 5 | 0.1 |
 | Perlmutt-Froschlicht | 218 | 4 | 0.1 |
-| Fichtenstamm | 208 | 4 | 0.1 |
 | Bemooste Steinziegel | 205 | 4 | 0.1 |
+| Fichtenstamm | 202 | 4 | 0.1 |
 | Bücherregal | 112 | 2 | 0.1 |
 | Laterne | 95 | 2 | 0.1 |
 | Pilzlicht | 61 | 1 | 0.0 |
 | Fichtenholzzaun | 51 | 1 | 0.0 |
 | Schwarzeichenstamm | 45 | 1 | 0.0 |
-| Calcit | 30 | 1 | 0.0 |
+| Calcit | 25 | 1 | 0.0 |
 | Entrindeter Fichtenstamm | 22 | 1 | 0.0 |
 | Werkbank | 1 | 1 | 0.0 |
 | Schmiedetisch | 1 | 1 | 0.0 |

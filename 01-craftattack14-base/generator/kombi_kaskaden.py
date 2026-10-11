@@ -375,7 +375,7 @@ def generate():
         ground_y=GROUND, water_level=LV[0], paste_y=63 - GROUND,
         paste_note="Dann liegt die Hochebene auf Y 63, und die Seen liegen darunter in der Schlucht.",
         water_color="#38cfe0", sky_color="#a9d0e8",
-        surround=dict(kind="grass", color="#4f8a32"),
+        surround=dict(kind="grass", color="#5f9a3c"),
         camera=dict(target=(165, 62, 300), pos=(250, 230, 660)),
         clip=None,
         zones=zones,

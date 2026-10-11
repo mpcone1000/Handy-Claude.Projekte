@@ -101,8 +101,8 @@ def generate():
     sub = np.full(h.shape, B("dirt"), np.uint8)
     r = rng.random(h.shape)
     mid = (slope > 0.9) & (slope <= 1.7)
-    surf[mid & (r < 0.5)] = B("moss")
-    surf[mid & (r >= 0.5)] = B("coarse_dirt")
+    surf[mid & (r < 0.45)] = B("moss")
+    surf[mid & (r >= 0.88)] = B("coarse_dirt")
     steep = slope > 1.7
     surf[steep] = 255
     sub[steep] = 255
@@ -119,12 +119,11 @@ def generate():
     surf[(i2 < 1) & (h > LAKE + 3)] = 255
 
     rock = w.strata(["stone", "stone", "andesite", "stone", "tuff", "stone", "stone", "andesite", "stone",
-                     "diorite", "stone", "andesite", "tuff", "stone"], band=3, seed=9, warp=7)
+                     "andesite", "stone", "andesite", "tuff", "stone"], band=3, seed=9, warp=7)
     h_fill = np.where(foot, h, -1)
     w.fill_heightmap(h_fill, surf, sub, 3, rock_fn=rock, bottom=np.full(h.shape, 28.0))
     # Felswände sprenkeln, damit die Schichten nicht zu gleichmäßig wirken
     retexture(w, 0, 40, 0, W, H, D, ["stone"], [("andesite", 0.12), ("cobblestone", 0.04), ("tuff", 0.05)])
-    retexture(w, 0, 40, 0, W, H, D, ["diorite"], [("stone", 0.35), ("calcite", 0.2)])
     w.flood(LAKE, region=(lake | river | pool | pool_e | (ld < 1.02)) & (d < 0.95) & foot)
 
     # Terrassen: Stützmauern + Wasserrinnen + Weizen

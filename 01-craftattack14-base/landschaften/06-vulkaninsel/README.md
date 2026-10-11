@@ -15,7 +15,7 @@ Die Base nutzt die Insel: Wohnen in der Klippe an der Lagune, Schmiede mit Blick
 | | |
 |---|---|
 | Größe (B × L × H) | 323 × 473 × 160 Blöcke |
-| Sichtbare Blöcke | 346.753 (≈ 200 Shulker-Kisten) |
+| Sichtbare Blöcke | 345.010 (≈ 199 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y 23** |
 | Hinweis | Dann liegt der Meeresspiegel auf Y 63, und der Kraterrand reicht bis Y 176. |
 
@@ -56,25 +56,27 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Tropenbaumlaub | 63.472 | 992 | 36.7 |
-| Stein | 62.570 | 978 | 36.2 |
-| Sand | 48.488 | 758 | 28.1 |
-| Andesit | 44.412 | 694 | 25.7 |
-| Grasblock | 36.264 | 567 | 21.0 |
-| Schwarzstein | 20.128 | 315 | 11.6 |
-| Tropenbaumstamm | 15.450 | 242 | 8.9 |
-| Kies | 9.510 | 149 | 5.5 |
-| Basalt | 7.636 | 120 | 4.4 |
-| Tuffstein | 7.276 | 114 | 4.2 |
+| Stein | 61.635 | 964 | 35.7 |
+| Tropenbaumlaub | 60.407 | 944 | 35.0 |
+| Sand | 48.487 | 758 | 28.1 |
+| Andesit | 43.484 | 680 | 25.2 |
+| Grasblock | 41.095 | 643 | 23.8 |
+| Schwarzstein | 17.977 | 281 | 10.4 |
+| Tropenbaumstamm | 16.799 | 263 | 9.7 |
+| Kies | 9.502 | 149 | 5.5 |
+| Basalt | 5.220 | 82 | 3.0 |
+| Tuffstein | 4.814 | 76 | 2.8 |
 | Ton | 4.079 | 64 | 2.4 |
+| Moosblock | 4.049 | 64 | 2.3 |
 | Lava | 4.046 | 64 | 2.3 |
-| Glatter Basalt | 3.692 | 58 | 2.1 |
-| Azaleenlaub | 3.300 | 52 | 1.9 |
-| Grobe Erde | 2.909 | 46 | 1.7 |
-| Granit | 2.676 | 42 | 1.5 |
-| Tropenholzbretter | 2.352 | 37 | 1.4 |
-| Erde | 2.206 | 35 | 1.3 |
-| Schwarzer Trockenbeton (schwarzer Sand) | 1.480 | 24 | 0.9 |
+| Azaleenlaub | 3.223 | 51 | 1.9 |
+| Granit | 3.174 | 50 | 1.8 |
+| Grobe Erde | 2.908 | 46 | 1.7 |
+| Glatter Basalt | 2.483 | 39 | 1.4 |
+| Tropenholzbretter | 2.350 | 37 | 1.4 |
+| Erde | 2.215 | 35 | 1.3 |
+| Schwarzer Trockenbeton (schwarzer Sand) | 1.483 | 24 | 0.9 |
+| Bemooster Bruchstein | 773 | 13 | 0.4 |
 | Ackerboden | 720 | 12 | 0.4 |
 | Weizen | 720 | 12 | 0.4 |
 | Fichtenholzbretter | 687 | 11 | 0.4 |

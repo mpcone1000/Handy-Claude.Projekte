@@ -15,7 +15,7 @@ Die Base hängt an der Wand: Ein Spiralweg führt hinunter. Von ihm gehen Wohnbe
 | | |
 |---|---|
 | Größe (B × L × H) | 326 × 407 × 139 Blöcke |
-| Sichtbare Blöcke | 474.170 (≈ 274 Shulker-Kisten) |
+| Sichtbare Blöcke | 474.751 (≈ 274 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y -41** |
 | Hinweis | Dann liegt das Plateau auf Y 63 und der See unten auf Y -15. |
 
@@ -58,32 +58,32 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Stein | 111.281 | 1.739 | 64.4 |
-| Grasblock | 72.614 | 1.135 | 42.0 |
-| Tropenbaumlaub | 64.778 | 1.013 | 37.5 |
-| Andesit | 56.165 | 878 | 32.5 |
-| Diorit | 41.245 | 645 | 23.9 |
-| Calcit | 25.927 | 406 | 15.0 |
-| Tuffstein | 15.903 | 249 | 9.2 |
-| Tropenbaumstamm | 14.810 | 232 | 8.6 |
-| Podsol | 9.995 | 157 | 5.8 |
-| Moosblock | 8.848 | 139 | 5.1 |
-| Azaleenlaub | 7.556 | 119 | 4.4 |
+| Stein | 104.646 | 1.636 | 60.6 |
+| Grasblock | 80.306 | 1.255 | 46.5 |
+| Tropenbaumlaub | 63.784 | 997 | 36.9 |
+| Andesit | 52.071 | 814 | 30.1 |
+| Diorit | 37.771 | 591 | 21.9 |
+| Calcit | 24.715 | 387 | 14.3 |
+| Moosblock | 21.153 | 331 | 12.2 |
+| Tropenbaumstamm | 16.072 | 252 | 9.3 |
+| Tuffstein | 14.203 | 222 | 8.2 |
+| Azaleenlaub | 9.559 | 150 | 5.5 |
+| Bemooster Bruchstein | 9.062 | 142 | 5.2 |
 | Sand | 7.048 | 111 | 4.1 |
 | Fichtenholzbretter | 6.051 | 95 | 3.5 |
-| Erde | 6.005 | 94 | 3.5 |
-| Bruchstein | 5.393 | 85 | 3.1 |
+| Erde | 6.003 | 94 | 3.5 |
+| Bruchstein | 4.984 | 78 | 2.9 |
 | Ton | 4.853 | 76 | 2.8 |
-| Tropfsteinblock | 4.711 | 74 | 2.7 |
-| Bemooster Bruchstein | 3.861 | 61 | 2.2 |
-| Kies | 2.482 | 39 | 1.4 |
+| Tropfsteinblock | 4.719 | 74 | 2.7 |
+| Kies | 2.483 | 39 | 1.4 |
 | Steinziegel | 1.842 | 29 | 1.1 |
 | Fichtenholzzaun | 801 | 13 | 0.5 |
+| Podsol | 654 | 11 | 0.4 |
 | Höhlenranken mit Leuchtbeeren | 523 | 9 | 0.3 |
 | Hängende Wurzeln | 514 | 9 | 0.3 |
 | Kette | 267 | 5 | 0.2 |
 | Glas | 242 | 4 | 0.1 |
-| Trampelpfad | 222 | 4 | 0.1 |
+| Trampelpfad | 192 | 3 | 0.1 |
 | Blühendes Azaleenlaub | 125 | 2 | 0.1 |
 | Laterne | 93 | 2 | 0.1 |
 | Fass | 15 | 1 | 0.0 |

@@ -14,8 +14,8 @@ Ein Spiralweg führt an der Wand hinunter. Hängebrücken gehen von ihm zu den I
 
 | | |
 |---|---|
-| Größe (B × L × H) | 340 × 423 × 145 Blöcke |
-| Sichtbare Blöcke | 482.220 (≈ 279 Shulker-Kisten) |
+| Größe (B × L × H) | 339 × 423 × 145 Blöcke |
+| Sichtbare Blöcke | 483.274 (≈ 279 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y -47** |
 | Hinweis | Dann liegt der Dschungel auf Y 63 und der türkise See auf Y -17. |
 
@@ -25,17 +25,17 @@ Positionen sind Koordinaten innerhalb der Schematic (X, Y, Z ab der unteren Ecke
 
 | Nr. | Ort | Art | Position | Beschreibung |
 |---|---|---|---|---|
-| 1 | Einstieg zum Spiralweg | Eingang | 225 / 111 / 205 | Am Rand beginnt der Holzweg an der Wand. Von ihm zweigen Hängebrücken zu den schwebenden Inseln ab, unten endet er am türkisen See. |
-| 2 | Glasplattform und Shop | Shop | 172 / 112 / 362 | Eine Glasplattform ragt 22 Blöcke über den Abgrund. Dahinter liegt der Marktplatz für Besucher. |
-| 3 | Hauptinsel mit Kirschbaum | Highlight | 162 / 89 / 226 | Die größte Insel schwebt mitten im Loch, 38 Blöcke über dem See. Ein Kirschbaum wächst zur Öffnung hinauf, Wurzeln hängen nach unten, ein Teich läuft als Wasserfall in den See. |
-| 4 | Wohnraum in der Hauptinsel | Wohnen (im Fels) | 164 / 60 / 226 | Ein Raum im Inselkörper unter dem Kirschbaum, mit Glasfenstern zur Seite. Eine Leiter führt nach oben auf die Insel. |
-| 5 | Lagerinsel | Lager (im Fels) | 114 / 67 / 228 | Eine hohle Insel an der Westseite mit Fassregalen. Eine Brücke kommt vom Spiralweg, eine zweite führt zur Hauptinsel. |
-| 6 | Farminsel | Farm | 172 / 65 / 172 | Weizenfelder auf einer schwebenden Insel an der Nordseite, verbunden mit Wand und Hauptinsel. |
-| 7 | Verzauberungsinsel | Werkstatt | 172 / 95 / 279 | Eine kleine Insel mit Bücherregal-Ring an der Südseite, direkt unter der Glasplattform. |
-| 8 | Werkstatt in der Wand | Werkstatt (im Fels) | 145 / 90 / 315 | Eine Kammer am oberen Teil des Spiralwegs. |
-| 9 | Farmhöhle | Farm (im Fels) | 252 / 43 / 291 | Eine 13 Blöcke hohe Halle kurz über dem See, für Eisen- oder Mobfarmen. |
-| 10 | Türkiser See | Highlight | 206 / 32 / 258 | Ein flacher See mit weißem Sand- und Calcitgrund, eine Sandinsel mit Palmen. Hier landen alle Wasserfälle. |
-| 11 | Unterwasser-Raum | Wohnen (im Fels) | 151 / 20 / 316 | Am Ende des Spiralwegs geht es hinunter in einen Raum mit Glaswand zum türkisen See. |
+| 1 | Einstieg zum Spiralweg | Eingang | 224 / 111 / 205 | Am Rand beginnt der Holzweg an der Wand. Von ihm zweigen Hängebrücken zu den schwebenden Inseln ab, unten endet er am türkisen See. |
+| 2 | Glasplattform und Shop | Shop | 171 / 112 / 362 | Eine Glasplattform ragt 22 Blöcke über den Abgrund. Dahinter liegt der Marktplatz für Besucher. |
+| 3 | Hauptinsel mit Kirschbaum | Highlight | 161 / 89 / 226 | Die größte Insel schwebt mitten im Loch, 38 Blöcke über dem See. Ein Kirschbaum wächst zur Öffnung hinauf, Wurzeln hängen nach unten, ein Teich läuft als Wasserfall in den See. |
+| 4 | Wohnraum in der Hauptinsel | Wohnen (im Fels) | 163 / 60 / 226 | Ein Raum im Inselkörper unter dem Kirschbaum, mit Glasfenstern zur Seite. Eine Leiter führt nach oben auf die Insel. |
+| 5 | Lagerinsel | Lager (im Fels) | 113 / 67 / 228 | Eine hohle Insel an der Westseite mit Fassregalen. Eine Brücke kommt vom Spiralweg, eine zweite führt zur Hauptinsel. |
+| 6 | Farminsel | Farm | 171 / 65 / 172 | Weizenfelder auf einer schwebenden Insel an der Nordseite, verbunden mit Wand und Hauptinsel. |
+| 7 | Verzauberungsinsel | Werkstatt | 171 / 95 / 279 | Eine kleine Insel mit Bücherregal-Ring an der Südseite, direkt unter der Glasplattform. |
+| 8 | Werkstatt in der Wand | Werkstatt (im Fels) | 144 / 90 / 315 | Eine Kammer am oberen Teil des Spiralwegs. |
+| 9 | Farmhöhle | Farm (im Fels) | 251 / 43 / 291 | Eine 13 Blöcke hohe Halle kurz über dem See, für Eisen- oder Mobfarmen. |
+| 10 | Türkiser See | Highlight | 205 / 32 / 258 | Ein flacher See mit weißem Sand- und Calcitgrund, eine Sandinsel mit Palmen. Hier landen alle Wasserfälle. |
+| 11 | Unterwasser-Raum | Wohnen (im Fels) | 150 / 20 / 316 | Am Ende des Spiralwegs geht es hinunter in einen Raum mit Glaswand zum türkisen See. |
 
 ## Bau-Reihenfolge
 
@@ -58,40 +58,40 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Andesit | 92.253 | 1.442 | 53.4 |
-| Stein | 89.175 | 1.394 | 51.6 |
-| Grasblock | 82.750 | 1.293 | 47.9 |
-| Tropenbaumlaub | 57.569 | 900 | 33.3 |
-| Diorit | 30.318 | 474 | 17.5 |
-| Tuffstein | 19.679 | 308 | 11.4 |
-| Calcit | 17.686 | 277 | 10.2 |
+| Grasblock | 91.073 | 1.424 | 52.7 |
+| Andesit | 86.704 | 1.355 | 50.2 |
+| Stein | 83.553 | 1.306 | 48.4 |
+| Tropenbaumlaub | 56.764 | 887 | 32.8 |
+| Diorit | 28.637 | 448 | 16.6 |
+| Moosblock | 20.360 | 319 | 11.8 |
+| Tuffstein | 16.932 | 265 | 9.8 |
+| Calcit | 16.228 | 254 | 9.4 |
+| Tropenbaumstamm | 14.291 | 224 | 8.3 |
 | Sand | 14.008 | 219 | 8.1 |
-| Tropenbaumstamm | 13.150 | 206 | 7.6 |
-| Podsol | 11.060 | 173 | 6.4 |
-| Moosblock | 8.157 | 128 | 4.7 |
-| Erde | 7.647 | 120 | 4.4 |
+| Bemooster Bruchstein | 8.951 | 140 | 5.2 |
+| Erde | 7.643 | 120 | 4.4 |
+| Azaleenlaub | 6.759 | 106 | 3.9 |
 | Fichtenholzbretter | 6.141 | 96 | 3.6 |
-| Bruchstein | 4.779 | 75 | 2.8 |
-| Azaleenlaub | 4.133 | 65 | 2.4 |
-| Bemooster Bruchstein | 3.698 | 58 | 2.1 |
+| Bruchstein | 4.462 | 70 | 2.6 |
 | Ton | 3.197 | 50 | 1.9 |
 | Kirschblätter | 2.944 | 46 | 1.7 |
-| Tropfsteinblock | 2.783 | 44 | 1.6 |
-| Blühendes Azaleenlaub | 2.369 | 38 | 1.4 |
-| Kies | 1.802 | 29 | 1.0 |
-| Steinziegel | 1.586 | 25 | 0.9 |
+| Tropfsteinblock | 2.785 | 44 | 1.6 |
+| Blühendes Azaleenlaub | 2.430 | 38 | 1.4 |
+| Kies | 1.799 | 29 | 1.0 |
+| Steinziegel | 1.588 | 25 | 0.9 |
 | Fichtenholzzaun | 1.062 | 17 | 0.6 |
+| Podsol | 756 | 12 | 0.4 |
 | Kirschstamm | 680 | 11 | 0.4 |
-| Granit | 601 | 10 | 0.3 |
 | Höhlenranken mit Leuchtbeeren | 552 | 9 | 0.3 |
 | Glas | 520 | 9 | 0.3 |
+| Granit | 517 | 9 | 0.3 |
 | Hängende Wurzeln | 366 | 6 | 0.2 |
 | Dunkler Prismarin | 321 | 6 | 0.2 |
 | Ackerboden | 264 | 5 | 0.2 |
 | Weizen | 262 | 5 | 0.2 |
 | Fass | 240 | 4 | 0.1 |
 | Mangrovenwurzeln | 226 | 4 | 0.1 |
-| Trampelpfad | 120 | 2 | 0.1 |
+| Trampelpfad | 137 | 3 | 0.1 |
 | Laterne | 76 | 2 | 0.0 |
 | Bücherregal | 34 | 1 | 0.0 |
 | Entrindeter Fichtenstamm | 10 | 1 | 0.0 |

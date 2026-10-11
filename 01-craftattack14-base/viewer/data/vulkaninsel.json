@@ -171,20 +171,24 @@
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 62570,
-    "gesamt": 918167
+    "sichtbar": 61635,
+    "gesamt": 922206
    },
    "andesite": {
-    "sichtbar": 44412,
-    "gesamt": 361719
+    "sichtbar": 43484,
+    "gesamt": 356373
    },
    "granite": {
-    "sichtbar": 2676,
-    "gesamt": 204213
+    "sichtbar": 3174,
+    "gesamt": 204960
    },
    "tuff": {
-    "sichtbar": 7276,
-    "gesamt": 635794
+    "sichtbar": 4814,
+    "gesamt": 634002
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 773,
+    "gesamt": 773
    },
    "mossy_stone_bricks": {
     "sichtbar": 168,
@@ -199,20 +203,20 @@
     "gesamt": 529
    },
    "gravel": {
-    "sichtbar": 9510,
+    "sichtbar": 9502,
     "gesamt": 9525
    },
    "smooth_basalt": {
-    "sichtbar": 3692,
-    "gesamt": 375832
+    "sichtbar": 2483,
+    "gesamt": 374608
    },
    "basalt": {
-    "sichtbar": 7636,
-    "gesamt": 767090
+    "sichtbar": 5220,
+    "gesamt": 764272
    },
    "blackstone": {
-    "sichtbar": 20128,
-    "gesamt": 414785
+    "sichtbar": 17977,
+    "gesamt": 411592
    },
    "obsidian": {
     "sichtbar": 260,
@@ -223,27 +227,31 @@
     "gesamt": 1574
    },
    "black_sand": {
-    "sichtbar": 1480,
+    "sichtbar": 1483,
     "gesamt": 4878
    },
    "dirt": {
-    "sichtbar": 2206,
+    "sichtbar": 2215,
     "gesamt": 117975
    },
    "coarse_dirt": {
-    "sichtbar": 2909,
+    "sichtbar": 2908,
     "gesamt": 2930
    },
    "grass": {
-    "sichtbar": 36264,
-    "gesamt": 38560
+    "sichtbar": 41095,
+    "gesamt": 43324
+   },
+   "moss": {
+    "sichtbar": 4049,
+    "gesamt": 4049
    },
    "clay": {
     "sichtbar": 4079,
     "gesamt": 4080
    },
    "sand": {
-    "sichtbar": 48488,
+    "sichtbar": 48487,
     "gesamt": 202364
    },
    "farmland": {
@@ -259,23 +267,23 @@
     "gesamt": 125
    },
    "jungle_log": {
-    "sichtbar": 15450,
-    "gesamt": 17352
+    "sichtbar": 16799,
+    "gesamt": 18803
    },
    "jungle_leaves": {
-    "sichtbar": 63472,
-    "gesamt": 89888
+    "sichtbar": 60407,
+    "gesamt": 84545
    },
    "azalea_leaves": {
-    "sichtbar": 3300,
-    "gesamt": 3645
+    "sichtbar": 3223,
+    "gesamt": 3619
    },
    "spruce_planks": {
     "sichtbar": 687,
     "gesamt": 758
    },
    "jungle_planks": {
-    "sichtbar": 2352,
+    "sichtbar": 2350,
     "gesamt": 2632
    },
    "spruce_fence": {
@@ -327,9 +335,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 1564084,
-  "gesamt": 4189818,
-  "sichtbar": 346753
+  "wasser": 1559132,
+  "gesamt": 4200847,
+  "sichtbar": 345010
  },
- "bin_bytes": 462134
+ "bin_bytes": 591947
 }

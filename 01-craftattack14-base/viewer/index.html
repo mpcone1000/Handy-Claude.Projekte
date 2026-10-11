@@ -223,67 +223,342 @@ function mul(a, b) {
 const canvas = $('cv');
 const gl = canvas.getContext('webgl2', { antialias: true, alpha: false });
 if (!gl) { $('loadText').textContent = 'Dein Browser unterstützt kein WebGL 2. Bitte einen aktuellen Browser verwenden.'; return; }
+
+// ---------- Mathe ----------
+function ortho(l, r, b, t, n, f) {
+  return new Float32Array([2 / (r - l), 0, 0, 0, 0, 2 / (t - b), 0, 0, 0, 0, -2 / (f - n), 0,
+    -(r + l) / (r - l), -(t + b) / (t - b), -(f + n) / (f - n), 1]);
+}
+function invert(m) {
+  const a = m, o = new Float32Array(16);
+  const b00 = a[0] * a[5] - a[1] * a[4], b01 = a[0] * a[6] - a[2] * a[4], b02 = a[0] * a[7] - a[3] * a[4];
+  const b03 = a[1] * a[6] - a[2] * a[5], b04 = a[1] * a[7] - a[3] * a[5], b05 = a[2] * a[7] - a[3] * a[6];
+  const b06 = a[8] * a[13] - a[9] * a[12], b07 = a[8] * a[14] - a[10] * a[12], b08 = a[8] * a[15] - a[11] * a[12];
+  const b09 = a[9] * a[14] - a[10] * a[13], b10 = a[9] * a[15] - a[11] * a[13], b11 = a[10] * a[15] - a[11] * a[14];
+  let det = b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
+  det = 1 / det;
+  o[0] = (a[5] * b11 - a[6] * b10 + a[7] * b09) * det; o[1] = (a[2] * b10 - a[1] * b11 - a[3] * b09) * det;
+  o[2] = (a[13] * b05 - a[14] * b04 + a[15] * b03) * det; o[3] = (a[10] * b04 - a[9] * b05 - a[11] * b03) * det;
+  o[4] = (a[6] * b08 - a[4] * b11 - a[7] * b07) * det; o[5] = (a[0] * b11 - a[2] * b08 + a[3] * b07) * det;
+  o[6] = (a[14] * b02 - a[12] * b05 - a[15] * b01) * det; o[7] = (a[8] * b05 - a[10] * b02 + a[11] * b01) * det;
+  o[8] = (a[4] * b10 - a[5] * b08 + a[7] * b06) * det; o[9] = (a[1] * b08 - a[0] * b10 - a[3] * b06) * det;
+  o[10] = (a[12] * b04 - a[13] * b02 + a[15] * b00) * det; o[11] = (a[9] * b02 - a[8] * b04 - a[11] * b00) * det;
+  o[12] = (a[5] * b07 - a[4] * b09 - a[6] * b06) * det; o[13] = (a[0] * b09 - a[1] * b07 + a[2] * b06) * det;
+  o[14] = (a[13] * b01 - a[12] * b03 - a[14] * b00) * det; o[15] = (a[8] * b03 - a[9] * b01 + a[10] * b00) * det;
+  return o;
+}
+
+// ---------- Shader ----------
+const COMMON = `
+float hash12(vec2 p) { vec3 p3 = fract(vec3(p.xyx) * .1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
+float vnoise(vec2 p) { vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash12(i), hash12(i + vec2(1, 0)), f.x), mix(hash12(i + vec2(0, 1)), hash12(i + vec2(1, 1)), f.x), f.y); }
+vec3 aces(vec3 x) { return clamp((x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14), 0.0, 1.0); }
+vec3 skyColor(vec3 d, vec3 sun, float night) {
+  float h = clamp(d.y, -0.2, 1.0);
+  vec3 zen = mix(vec3(0.22, 0.45, 0.85), vec3(0.01, 0.015, 0.05), night);
+  vec3 hor = mix(vec3(0.72, 0.84, 0.95), vec3(0.05, 0.07, 0.14), night);
+  vec3 c = mix(hor, zen, pow(max(h, 0.0), 0.55));
+  float s = max(dot(d, sun), 0.0);
+  c += mix(vec3(1.0, 0.85, 0.6), vec3(0.3, 0.35, 0.5), night) * (pow(s, 8.0) * 0.25 + pow(s, 64.0) * 0.4);
+  return c;
+}`;
 const VS = `#version 300 es
-in vec3 aPos; in vec3 aNor; in vec3 aCol; in float aGlow;
-uniform mat4 uVP; uniform vec3 uCam; uniform float uLift;
-out vec3 vPos; out vec3 vNrm; out vec3 vCol; out float vGlow; out float vDist;
-void main() { vec3 p = aPos + vec3(0.0, uLift, 0.0); vPos = p; vNrm = aNor; vCol = aCol; vGlow = aGlow; vDist = length(p - uCam); gl_Position = uVP * vec4(p, 1.0); }`;
+in vec3 aPos; in vec3 aNor; in float aLayer; in float aAO; in float aGlow; in float aTint;
+uniform mat4 uVP; uniform mat4 uLVP; uniform vec3 uCam; uniform float uLift;
+out vec3 vPos; out vec3 vNrm; out float vLayer; out float vAO; out float vGlow; out float vTint; out vec4 vLight;
+void main() {
+  vec3 p = aPos + vec3(0.0, uLift, 0.0);
+  vPos = p; vNrm = aNor; vLayer = aLayer; vAO = aAO; vGlow = aGlow; vTint = aTint;
+  vLight = uLVP * vec4(p + aNor * 0.35, 1.0);
+  gl_Position = uVP * vec4(p, 1.0);
+}`;
 const FS = `#version 300 es
-precision highp float;
-in vec3 vPos; in vec3 vNrm; in vec3 vCol; in float vGlow; in float vDist;
-uniform vec3 uSun; uniform vec3 uSunCol; uniform vec3 uSky; uniform vec3 uGnd; uniform vec3 uFog;
-uniform float uFogNear; uniform float uFogFar; uniform float uGlow; uniform float uAlpha; uniform float uClip;
-uniform float uAO; uniform float uTex; uniform sampler2D uTop; uniform vec2 uDim;
+precision highp float; precision highp sampler2DArray; precision highp sampler2DShadow;
+in vec3 vPos; in vec3 vNrm; in float vLayer; in float vAO; in float vGlow; in float vTint; in vec4 vLight;
+uniform sampler2DArray uTex; uniform sampler2D uTop; uniform sampler2DShadow uShadow;
+uniform vec3 uSun; uniform vec3 uSunCol; uniform vec3 uCam; uniform vec2 uDim; uniform float uNight;
+uniform float uMode; uniform float uGlow; uniform float uAOStr; uniform float uTime; uniform vec3 uWater;
+uniform float uFogDen; uniform float uShadowOn; uniform float uSkyAO;
 out vec4 frag;
-float hsh(vec3 p) { p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+${COMMON}
+float shadow() {
+  vec3 p = vLight.xyz / vLight.w * 0.5 + 0.5;
+  if (p.x < 0.0 || p.x > 1.0 || p.y < 0.0 || p.y > 1.0 || p.z > 1.0) return 1.0;
+  float s = 0.0; float k = 1.0 / 2048.0;
+  for (int i = -1; i <= 1; i++) for (int j = -1; j <= 1; j++)
+    s += texture(uShadow, vec3(p.xy + vec2(float(i), float(j)) * k * 1.2, p.z - 0.0008));
+  return s / 9.0;
+}
 void main() {
   vec3 n = normalize(vNrm);
-  vec3 c = vCol;
-  if (uTex > 0.5) {
-    vec3 cell = floor(vPos - n * 0.5);
-    c *= 0.9 + 0.17 * hsh(cell);
-    vec3 f = fract(vPos);
-    vec3 ed = min(f, 1.0 - f) + abs(n);
-    float e = min(min(ed.x, ed.y), ed.z);
-    float fw = length(fwidth(vPos));
-    float grid = 1.0 - smoothstep(0.12, 0.45, fw);
-    c *= mix(1.0, mix(0.8, 1.0, smoothstep(0.0, 0.07, e)), grid);
+  vec3 V = normalize(uCam - vPos);
+  float sh = uShadowOn > 0.5 ? shadow() : 1.0;
+  float ndl = max(dot(n, uSun), 0.0);
+  float fogd = length(uCam - vPos);
+  float fog = 1.0 - exp(-pow(fogd * uFogDen, 1.6));
+  vec3 fogCol = skyColor(normalize(vPos - uCam), uSun, uNight);
+  if (uMode == 1.0) {
+    // Wasser: bewegte Wellen, Spiegelung, Glitzern
+    vec2 q = vPos.xz;
+    float t = uTime;
+    vec3 wn = normalize(vec3(
+      (vnoise(q * 0.35 + vec2(t * 0.6, t * 0.3)) - 0.5) * 0.35 + (vnoise(q * 1.1 - vec2(t * 0.9, 0.0)) - 0.5) * 0.18,
+      1.0,
+      (vnoise(q * 0.35 + vec2(-t * 0.4, t * 0.5) + 17.0) - 0.5) * 0.35 + (vnoise(q * 1.1 + vec2(0.0, t)) - 0.5) * 0.18));
+    if (abs(n.y) < 0.5) wn = n;
+    float fres = pow(1.0 - max(dot(wn, V), 0.0), 4.0);
+    vec3 R = reflect(-V, wn);
+    vec3 refl = skyColor(R, uSun, uNight);
+    vec3 base = pow(uWater, vec3(2.2));
+    vec3 lit = base * (0.45 + 0.55 * mix(1.0, sh, 0.6)) * mix(1.0, 0.18, uNight);
+    vec3 col = mix(lit, pow(refl, vec3(2.2)), 0.15 + 0.6 * fres);
+    col += pow(max(dot(R, uSun), 0.0), 220.0) * 3.0 * sh * (1.0 - uNight) * uSunCol;
+    col = mix(col, pow(fogCol, vec3(2.2)), fog);
+    frag = vec4(pow(aces(col * 0.95), vec3(1.0 / 2.2)), mix(0.72, 0.95, fres));
+    return;
   }
-  float sh = 1.0;
-  if (uAO > 0.0) {
+  vec2 uv;
+  if (abs(n.y) > 0.5) uv = fract(vPos.xz);
+  else if (abs(n.x) > 0.5) uv = vec2(fract(vPos.z * sign(n.x)), 1.0 - fract(vPos.y));
+  else uv = vec2(fract(-vPos.x * sign(n.z)), 1.0 - fract(vPos.y));
+  vec4 tx = texture(uTex, vec3(uv, vLayer));
+  if (uMode == 3.0 && tx.a < 0.5) discard;
+  vec3 alb = pow(tx.rgb, vec3(2.2));
+  if (vTint > 0.5) {
+    float bn = vnoise(vPos.xz / 70.0) * 0.7 + vnoise(vPos.xz / 23.0) * 0.3;
+    alb *= mix(vec3(0.86, 1.04, 0.78), vec3(1.12, 1.0, 0.82), bn);
+  }
+  float skyv = 1.0;
+  if (uSkyAO > 0.0) {
     vec3 q = vPos + n * 0.5;
     ivec2 tc = ivec2(clamp(floor(q.x), 0.0, uDim.x - 1.0), clamp(floor(q.z), 0.0, uDim.y - 1.0));
     float top = texelFetch(uTop, tc, 0).r * 255.0;
-    float depth = top - q.y;
-    sh = mix(1.0, 0.36, smoothstep(1.0, 20.0, depth) * uAO);
+    skyv = mix(1.0, 0.25, smoothstep(1.0, 22.0, top - q.y) * uSkyAO);
   }
-  vec3 amb = mix(uGnd, uSky, n.y * 0.5 + 0.5);
-  float ndl = max(dot(n, uSun), 0.0);
-  vec3 lit = c * (amb * sh + uSunCol * ndl * mix(sh, 1.0, 0.25));
-  lit = mix(lit, c * 1.15, vGlow * uGlow);
-  float fog = smoothstep(uFogNear, uFogFar, vDist);
-  frag = vec4(mix(lit, uFog, fog), uAlpha);
+  float ao = mix(1.0, vAO, uAOStr);
+  vec3 skyAmb = mix(vec3(0.62, 0.68, 0.78), vec3(0.05, 0.07, 0.13), uNight);
+  vec3 gndAmb = mix(vec3(0.38, 0.34, 0.28), vec3(0.02, 0.02, 0.04), uNight);
+  vec3 amb = mix(gndAmb, skyAmb, n.y * 0.5 + 0.5) * skyv * ao;
+  vec3 sunL = uSunCol * ndl * sh * mix(skyv, 1.0, 0.5) * mix(ao, 1.0, 0.5);
+  vec3 col = alb * (amb * 0.5 + sunL);
+  float g = vGlow * uGlow;
+  if (g > 0.0) {
+    float flick = 0.9 + 0.1 * sin(uTime * 3.0 + vPos.x * 0.7 + vPos.z * 1.3);
+    col += alb * g * 2.4 * flick;
+  }
+  col = mix(col, pow(fogCol, vec3(2.2)), fog);
+  float alpha = uMode == 2.0 ? max(tx.a, 0.25) : 1.0;
+  frag = vec4(pow(aces(col * 0.95), vec3(1.0 / 2.2)), alpha);
+}`;
+const SHADOW_VS = `#version 300 es
+in vec3 aPos; uniform mat4 uLVP; void main() { gl_Position = uLVP * vec4(aPos, 1.0); }`;
+const SHADOW_FS = `#version 300 es
+precision mediump float; void main() {}`;
+const SKY_VS = `#version 300 es
+out vec2 vNdc; void main() { vec2 p = vec2((gl_VertexID << 1) & 2, gl_VertexID & 2) * 2.0 - 1.0; vNdc = p; gl_Position = vec4(p, 0.9999, 1.0); }`;
+const SKY_FS = `#version 300 es
+precision highp float;
+in vec2 vNdc; uniform mat4 uInvVP; uniform vec3 uCam; uniform vec3 uSun; uniform float uNight; uniform float uTime;
+uniform float uCloudY;
+out vec4 frag;
+${COMMON}
+void main() {
+  vec4 a = uInvVP * vec4(vNdc, -1.0, 1.0), b = uInvVP * vec4(vNdc, 1.0, 1.0);
+  vec3 d = normalize(b.xyz / b.w - a.xyz / a.w);
+  vec3 c = skyColor(d, uSun, uNight);
+  if (uNight > 0.5) {
+    vec2 sp = vec2(atan(d.z, d.x) * 120.0, d.y * 240.0);
+    float st = step(0.995, hash12(floor(sp))) * smoothstep(0.0, 0.25, d.y);
+    c += vec3(st);
+    c += vec3(0.9, 0.92, 1.0) * smoothstep(0.9990, 0.9994, dot(d, normalize(vec3(-0.4, 0.55, -0.6))));
+  }
+  if (d.y > 0.01) {
+    float t = (uCloudY - uCam.y) / d.y;
+    if (t > 0.0) {
+      vec2 p = uCam.xz + d.xz * t + vec2(uTime * 2.5, 0.0);
+      vec2 cell = floor(p / 12.0);
+      float cl = step(0.56, vnoise(cell * 0.18) * 0.75 + hash12(cell) * 0.25);
+      float fade = exp(-t * 0.0012);
+      vec3 cc = mix(vec3(1.0), vec3(0.18, 0.2, 0.28), uNight);
+      c = mix(c, cc, cl * 0.85 * fade);
+    }
+  }
+  frag = vec4(c, 1.0);
 }`;
 function compile(type, src) {
   const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
   if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
   return s;
 }
-const prog = gl.createProgram();
-gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
-gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
-gl.bindAttribLocation(prog, 0, 'aPos'); gl.bindAttribLocation(prog, 1, 'aNor');
-gl.bindAttribLocation(prog, 2, 'aCol'); gl.bindAttribLocation(prog, 3, 'aGlow');
-gl.linkProgram(prog);
-if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-gl.useProgram(prog);
-const U = {};
-['uVP', 'uCam', 'uLift', 'uSun', 'uSunCol', 'uSky', 'uGnd', 'uFog', 'uFogNear', 'uFogFar', 'uGlow', 'uAlpha', 'uClip', 'uAO', 'uTex', 'uTop', 'uDim']
-  .forEach((n) => { U[n] = gl.getUniformLocation(prog, n); });
+function program(vs, fs, attrs) {
+  const p = gl.createProgram();
+  gl.attachShader(p, compile(gl.VERTEX_SHADER, vs)); gl.attachShader(p, compile(gl.FRAGMENT_SHADER, fs));
+  (attrs || []).forEach((a, i) => gl.bindAttribLocation(p, i, a));
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+  const u = {};
+  const n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+  for (let i = 0; i < n; i++) { const info = gl.getActiveUniform(p, i); u[info.name] = gl.getUniformLocation(p, info.name); }
+  return { p, u };
+}
+const ATTRS = ['aPos', 'aNor', 'aLayer', 'aAO', 'aGlow', 'aTint'];
+const P = program(VS, FS, ATTRS);
+const PS = program(SHADOW_VS, SHADOW_FS, ['aPos']);
+const PK = program(SKY_VS, SKY_FS, []);
 gl.enable(gl.DEPTH_TEST);
 gl.enable(gl.CULL_FACE);
 gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
+// ---------- Schattenkarte ----------
+const SHADOW_SIZE = 2048;
+const shadowTex = gl.createTexture();
+gl.bindTexture(gl.TEXTURE_2D, shadowTex);
+gl.texStorage2D(gl.TEXTURE_2D, 1, gl.DEPTH_COMPONENT24, SHADOW_SIZE, SHADOW_SIZE);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_COMPARE_MODE, gl.COMPARE_REF_TO_TEXTURE);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_COMPARE_FUNC, gl.LEQUAL);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+const shadowFB = gl.createFramebuffer();
+gl.bindFramebuffer(gl.FRAMEBUFFER, shadowFB);
+gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.TEXTURE_2D, shadowTex, 0);
+const shadowOK = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+let shadowDirty = true;
+
+// ================= Texturen (prozedural, 16×16 Pixel je Block) =================
+const TS = 16;
+function rnd(seed) { let s = seed >>> 0 || 1; return () => { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return ((s >>> 0) % 100000) / 100000; }; }
+function mixc(c, f) { return [Math.min(255, c[0] * f), Math.min(255, c[1] * f), Math.min(255, c[2] * f)]; }
+function lerpc(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+function painter(base, seed) {
+  const px = new Uint8ClampedArray(TS * TS * 4);
+  const r = rnd(seed * 7919 + 13);
+  const set = (x, y, c, a = 255) => { if (x < 0 || y < 0 || x >= TS || y >= TS) return; const o = (y * TS + x) * 4; px[o] = c[0]; px[o + 1] = c[1]; px[o + 2] = c[2]; px[o + 3] = a; };
+  const get = (x, y) => { const o = (y * TS + x) * 4; return [px[o], px[o + 1], px[o + 2]]; };
+  return { px, r, set, get, base };
+}
+function smoothNoise(P, amp, blob) {
+  // weiches Rauschen: grobe 4×4-Flecken + feines Pixelrauschen
+  const g = [];
+  for (let i = 0; i < 25; i++) g.push(P.r());
+  for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) {
+    const gx = x / 4, gy = y / 4, ix = Math.floor(gx), iy = Math.floor(gy), fx = gx - ix, fy = gy - iy;
+    const v = (g[iy * 5 + ix] * (1 - fx) + g[iy * 5 + ix + 1] * fx) * (1 - fy) + (g[(iy + 1) * 5 + ix] * (1 - fx) + g[(iy + 1) * 5 + ix + 1] * fx) * fy;
+    const f = 1 + (v - 0.5) * blob + (P.r() - 0.5) * amp;
+    P.set(x, y, mixc(P.base, f));
+  }
+}
+const TEX = {
+  noise: (P, o = {}) => smoothNoise(P, o.amp ?? 0.22, o.blob ?? 0.3),
+  speck: (P, o) => { smoothNoise(P, 0.12, 0.2); const n = o.n ?? 26; for (let i = 0; i < n; i++) { const c = P.r() < 0.5 ? o.c1 : o.c2; const x = (P.r() * TS) | 0, y = (P.r() * TS) | 0; P.set(x, y, c); if (P.r() < 0.4) P.set(x + 1, y, c); } },
+  stone: (P) => { smoothNoise(P, 0.14, 0.25); for (let i = 0; i < 7; i++) { const x = (P.r() * TS) | 0, y = (P.r() * TS) | 0, L = 2 + (P.r() * 4) | 0; for (let k = 0; k < L; k++) P.set(x + k, y + (k > 1 && P.r() < 0.4 ? 1 : 0), mixc(P.base, 0.78)); } },
+  dirt: (P) => { smoothNoise(P, 0.25, 0.3); for (let i = 0; i < 18; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, P.r() < 0.5 ? 0.72 : 1.18)); },
+  grass_top: (P) => { smoothNoise(P, 0.2, 0.25); for (let i = 0; i < 30; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, P.r() < 0.5 ? 0.82 : 1.14)); },
+  grass_side: (P, o) => {
+    const dirt = o.dirt; const g = P.base;
+    const D = painter(dirt, 77); TEX.dirt(D); P.px.set(D.px);
+    for (let x = 0; x < TS; x++) { const d = 3 + ((P.r() * 2.6) | 0); for (let y = 0; y < d; y++) P.set(x, y, mixc(g, 0.85 + P.r() * 0.3)); }
+  },
+  sand: (P) => { smoothNoise(P, 0.12, 0.12); for (let i = 0; i < 20; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, P.r() < 0.5 ? 0.9 : 1.08)); },
+  gravel: (P) => { smoothNoise(P, 0.1, 0.1); for (let i = 0; i < 22; i++) { const x = (P.r() * TS) | 0, y = (P.r() * TS) | 0, c = mixc(P.base, 0.65 + P.r() * 0.7); P.set(x, y, c); P.set(x + 1, y, c); P.set(x, y + 1, c); P.set(x + 1, y + 1, mixc(c, 0.85)); } },
+  planks: (P) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const row = y >> 2; const seam = (x === ((row * 5 + 3) % 16)); let f = 0.92 + P.r() * 0.12 + Math.sin((x + row * 7) * 0.9) * 0.03; if (y % 4 === 3 || seam) f = 0.68; P.set(x, y, mixc(P.base, f)); } },
+  log_side: (P) => { const cols = []; for (let x = 0; x < TS; x++) cols.push(0.8 + P.r() * 0.35); for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) P.set(x, y, mixc(P.base, cols[x] * (0.92 + P.r() * 0.12) * (P.r() < 0.06 ? 0.7 : 1))); },
+  log_top: (P, o) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const d = Math.hypot(x - 7.5, y - 7.5); let c = o.inner; if (d > 6.6) c = P.base; const ring = Math.sin(d * 2.2) * 0.07; P.set(x, y, mixc(c, 0.95 + ring + P.r() * 0.06)); } },
+  leaves: (P) => { smoothNoise(P, 0.28, 0.45); for (let i = 0; i < 26; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, 0.55)); for (let i = 0; i < 18; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, 1.25)); },
+  blossom: (P, o) => { TEX.leaves(P); for (let i = 0; i < 22; i++) { const x = (P.r() * TS) | 0, y = (P.r() * TS) | 0; P.set(x, y, o.c); if (P.r() < 0.5) P.set(x + 1, y, o.c); } },
+  bricks: (P) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const row = y >> 2; const off = row % 2 ? 4 : 0; let f = 0.92 + P.r() * 0.14; if (y % 4 === 3 || (x + off) % 8 === 7) f = 0.62; P.set(x, y, mixc(P.base, f)); } },
+  bigbricks: (P) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const row = y >> 3; const off = row % 2 ? 8 : 0; let f = 0.92 + P.r() * 0.14; if (y % 8 === 7 || (x + off) % 16 === 15) f = 0.62; if (y % 8 === 0 || (x + off) % 16 === 0) f = Math.max(f, 1.1); P.set(x, y, mixc(P.base, f)); } },
+  cobble: (P) => { const pts = []; for (let i = 0; i < 9; i++) pts.push([P.r() * TS, P.r() * TS, 0.8 + P.r() * 0.35]); for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { let d1 = 99, d2 = 99, f = 1; for (const p of pts) for (const ox of [-16, 0, 16]) for (const oy of [-16, 0, 16]) { const d = Math.hypot(x - p[0] - ox, y - p[1] - oy); if (d < d1) { d2 = d1; d1 = d; f = p[2]; } else if (d < d2) d2 = d; } P.set(x, y, mixc(P.base, d2 - d1 < 1.1 ? 0.6 : f * (0.94 + P.r() * 0.1))); } },
+  glass: (P) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const edge = x === 0 || y === 0 || x === 15 || y === 15; const streak = (x + y === 10 || x + y === 11 || x + y === 5) && x > 2 && y > 2; P.set(x, y, edge ? mixc(P.base, 1.1) : streak ? [255, 255, 255] : P.base, edge ? 230 : streak ? 140 : 45); } },
+  farmland: (P) => { smoothNoise(P, 0.18, 0.2); for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) if (y % 4 === 0) P.set(x, y, mixc(P.base, 0.7)); },
+  lava: (P) => { smoothNoise(P, 0.15, 0.7); for (let i = 0; i < 20; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, [255, 220, 90]); },
+  glowy: (P) => { smoothNoise(P, 0.18, 0.5); for (let i = 0; i < 14; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, mixc(P.base, 1.3)); },
+  bookshelf: (P) => { const pal = [[140, 40, 40], [50, 80, 140], [60, 120, 60], [160, 130, 50], [110, 60, 120]]; for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { let c = P.base; if (y === 0 || y === 15 || y === 7 || y === 8) c = mixc(P.base, 0.9); else c = mixc(pal[((x >> 1) * 3 + (y > 7 ? 2 : 0)) % 5], 0.85 + P.r() * 0.2); P.set(x, y, c); } },
+  barrel: (P) => { TEX.planks(P); for (let x = 0; x < TS; x++) for (const y of [2, 13]) P.set(x, y, [70, 70, 75]); },
+  mushroom_red: (P) => { smoothNoise(P, 0.12, 0.2); for (let i = 0; i < 5; i++) { const x = (P.r() * 13) | 0, y = (P.r() * 13) | 0; for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) if (a * b !== 4) P.set(x + a, y + b, [235, 230, 220]); } },
+  snow: (P) => { smoothNoise(P, 0.05, 0.08); for (let i = 0; i < 10; i++) P.set((P.r() * TS) | 0, (P.r() * TS) | 0, [205, 225, 240]); },
+  sprite_grass: (P) => { for (let i = 0; i < TS * TS; i++) P.px[i * 4 + 3] = 0; for (let k = 0; k < 9; k++) { let x = 1 + (P.r() * 14) | 0; const h = 6 + (P.r() * 9) | 0; for (let y = 15; y > 15 - h; y--) { P.set(x, y, mixc(P.base, 0.8 + P.r() * 0.4)); if (P.r() < 0.2) x += P.r() < 0.5 ? -1 : 1; } } },
+  sprite_flower: (P, o) => { for (let i = 0; i < TS * TS; i++) P.px[i * 4 + 3] = 0; for (let y = 8; y < 16; y++) P.set(7, y, [60, 120, 40]); P.set(6, 12, [70, 140, 45]); P.set(8, 11, [70, 140, 45]); for (let a = -2; a <= 2; a++) for (let b = -2; b <= 2; b++) if (Math.abs(a) + Math.abs(b) <= 2) P.set(7 + a, 6 + b, mixc(o.c, 0.85 + P.r() * 0.3)); P.set(7, 6, o.mid || [240, 200, 60]); },
+  sprite_lily: (P) => { for (let y = 0; y < TS; y++) for (let x = 0; x < TS; x++) { const d = Math.hypot(x - 7.5, y - 7.5); const notch = x > 7 && Math.abs(y - 7.5) < 1.2; P.set(x, y, mixc(P.base, 0.85 + P.r() * 0.3), d < 7.4 && !notch ? 255 : 0); } },
+  sprite_vine: (P) => { for (let i = 0; i < TS * TS; i++) P.px[i * 4 + 3] = 0; for (let k = 0; k < 7; k++) { let x = (P.r() * 16) | 0; for (let y = 0; y < 16; y++) { if (P.r() < 0.75) P.set(x, y, mixc(P.base, 0.75 + P.r() * 0.5)); if (P.r() < 0.35) P.set(x + 1, y, mixc(P.base, 0.9)); if (P.r() < 0.25) x += P.r() < 0.5 ? -1 : 1; } } },
+  sprite_petals: (P) => { for (let i = 0; i < TS * TS; i++) P.px[i * 4 + 3] = 0; for (let k = 0; k < 16; k++) { const x = (P.r() * 15) | 0, y = (P.r() * 15) | 0; const c = mixc(P.base, 0.85 + P.r() * 0.3); P.set(x, y, c); P.set(x + 1, y, c); P.set(x, y + 1, c); } for (let k = 0; k < 6; k++) P.set((P.r() * 16) | 0, (P.r() * 16) | 0, [90, 140, 60]); },
+  sprite_wheat: (P) => { for (let i = 0; i < TS * TS; i++) P.px[i * 4 + 3] = 0; for (const x of [2, 6, 10, 13]) { for (let y = 15; y > 3; y--) P.set(x, y, y < 8 ? [215, 185, 70] : [150, 160, 60]); } },
+};
+// Textur-Rezept je Block: [oben, Seite, unten], jeweils [muster, optionen]
+function recipe(key, color) {
+  const c = hexRGB(color);
+  const S = (m, o = {}, col = c) => [m, o, col];
+  const R = {
+    stone: S('stone'), andesite: S('speck', { c1: [150, 150, 152], c2: [110, 110, 112] }), granite: S('speck', { c1: [170, 120, 100], c2: [120, 80, 70], n: 40 }),
+    diorite: S('speck', { c1: [230, 230, 232], c2: [140, 140, 142], n: 40 }), tuff: S('speck', { c1: [90, 92, 86], c2: [130, 132, 120] }),
+    calcite: S('speck', { c1: [240, 242, 240], c2: [200, 205, 200] }), deepslate: S('stone'), cobblestone: S('cobble'), cobbled_deepslate: S('cobble'),
+    mossy_cobblestone: S('cobble', {}, [100, 118, 84]), stone_bricks: S('bigbricks'), mossy_stone_bricks: S('bigbricks', {}, [110, 122, 92]),
+    polished_andesite: S('noise', { amp: 0.06, blob: 0.1 }), dripstone_block: S('speck', { c1: [150, 120, 100], c2: [110, 88, 75] }),
+    gravel: S('gravel'), sand: S('sand'), dirt: S('dirt'), coarse_dirt: S('dirt'), rooted_dirt: S('dirt'), mud: S('dirt'), packed_mud: S('bricks'),
+    podzol: S('dirt'), moss: S('grass_top'), clay: S('noise', { amp: 0.08, blob: 0.15 }), snow: S('snow'), black_sand: S('sand'),
+    farmland: S('farmland'), dirt_path: S('dirt'), lava: S('lava'), magma_block: S('lava'), obsidian: S('noise', { amp: 0.3, blob: 0.4 }),
+    sea_lantern: S('glowy'), shroomlight: S('glowy'), glowstone: S('glowy'), ochre_froglight: S('glowy'), verdant_froglight: S('glowy'),
+    pearlescent_froglight: S('glowy'), amethyst: S('glowy'), glass: S('glass'), blue_glass: S('glass'),
+    oak_planks: S('planks'), spruce_planks: S('planks'), dark_oak_planks: S('planks'), jungle_planks: S('planks'),
+    bookshelf: S('bookshelf', {}, [160, 130, 80]), barrel: S('barrel'), red_mushroom_block: S('mushroom_red'),
+    oak_leaves: S('leaves'), spruce_leaves: S('leaves'), birch_leaves: S('leaves'), jungle_leaves: S('leaves'), dark_oak_leaves: S('leaves'),
+    azalea_leaves: S('leaves'), mangrove_leaves: S('leaves'),
+    flowering_azalea_leaves: S('blossom', { c: [220, 120, 200] }, [92, 128, 52]), cherry_leaves: S('blossom', { c: [255, 210, 230] }),
+    pink_petals: S('sprite_petals'), vine_n: S('sprite_vine'), vine_s: S('sprite_vine'), vine_w: S('sprite_vine'), vine_e: S('sprite_vine'),
+    short_grass: S('sprite_grass'), fern: S('sprite_grass'), wheat: S('sprite_wheat'), lily_pad: S('sprite_lily'), seagrass: S('sprite_grass'),
+  };
+  const logs = { oak_log: [176, 140, 86], spruce_log: [120, 90, 55], birch_log: [210, 195, 150], jungle_log: [170, 130, 80],
+    cherry_log: [225, 170, 170], dark_oak_log: [95, 70, 40], stripped_spruce_log: [130, 100, 60], mangrove_log: [120, 60, 50] };
+  const flowers = { dandelion: [250, 220, 40], poppy: [220, 40, 40], cornflower: [80, 110, 230], oxeye_daisy: [245, 245, 240],
+    allium: [190, 110, 230], azure_bluet: [230, 235, 245], lily_of_the_valley: [250, 250, 250], pink_petals: [250, 170, 210] };
+  if (key === 'grass') return [S('grass_top'), S('grass_side', { dirt: [134, 96, 67] }), S('dirt', {}, [134, 96, 67])];
+  if (key === 'podzol') return [S('dirt', {}, [100, 70, 30]), S('grass_side', { dirt: [134, 96, 67] }, [100, 70, 30]), S('dirt', {}, [134, 96, 67])];
+  if (key === 'mycelium') return [S('dirt'), S('dirt'), S('dirt')];
+  if (logs[key]) return [S('log_top', { inner: logs[key] }), S('log_side'), S('log_top', { inner: logs[key] })];
+  if (flowers[key]) { const f = S('sprite_flower', { c: flowers[key], mid: key === 'oxeye_daisy' ? [240, 200, 40] : null }); return [f, f, f]; }
+  if (key === 'barrel') return [S('log_top', { inner: [150, 110, 60] }), S('barrel'), S('log_top', { inner: [150, 110, 60] })];
+  if (key === 'bookshelf') return [S('planks', {}, [162, 130, 80]), S('bookshelf', {}, [162, 130, 80]), S('planks', {}, [162, 130, 80])];
+  if (key === 'hay') return [S('noise', { amp: 0.15 }), S('log_side'), S('noise')];
+  if (key === 'crafting_table') return [S('planks', {}, [150, 110, 70]), S('planks'), S('planks')];
+  if (key === 'basalt') return [S('stone'), S('log_side'), S('stone')];
+  const t = R[key] || S('noise');
+  return [t, t, t];
+}
+const TINT = new Set(['vine_n', 'vine_s', 'vine_w', 'vine_e', 'lily_pad', 'grass', 'moss', 'oak_leaves', 'jungle_leaves', 'azalea_leaves', 'dark_oak_leaves', 'birch_leaves', 'short_grass', 'fern', 'spruce_leaves', 'flowering_azalea_leaves']);
+let atlas = null, layerOf = null;
+function buildAtlas() {
+  const layers = [];
+  const key2layer = new Map();
+  const addLayer = (rec, seed) => {
+    const id = JSON.stringify(rec) + '|' + seed;
+    if (key2layer.has(id)) return key2layer.get(id);
+    const [m, o, col] = rec;
+    const Pt = painter(col, seed);
+    TEX[m](Pt, o);
+    layers.push(Pt.px);
+    key2layer.set(id, layers.length - 1);
+    return layers.length - 1;
+  };
+  layerOf = palette.map((p, i) => {
+    const rec = recipe(p.key, p.color);
+    return { top: addLayer(rec[0], i * 3 + 1), side: addLayer(rec[1], i * 3 + 2), bot: addLayer(rec[2], i * 3 + 3), tint: TINT.has(p.key) ? 1 : 0 };
+  });
+  const tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D_ARRAY, tex);
+  gl.texImage3D(gl.TEXTURE_2D_ARRAY, 0, gl.RGBA8, TS, TS, layers.length, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  layers.forEach((px, i) => gl.texSubImage3D(gl.TEXTURE_2D_ARRAY, 0, 0, 0, i, TS, TS, 1, gl.RGBA, gl.UNSIGNED_BYTE, px));
+  gl.generateMipmap(gl.TEXTURE_2D_ARRAY);
+  gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_MIN_FILTER, gl.NEAREST_MIPMAP_LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_WRAP_S, gl.REPEAT);
+  gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_WRAP_T, gl.REPEAT);
+  atlas = tex;
+}
+
+// ================= Geometrie =================
 class Buf {
   constructor(T, n = 4096) { this.T = T; this.a = new T(n); this.n = 0; }
   push3(a, b, c) { if (this.n + 3 > this.a.length) this.grow(); this.a[this.n++] = a; this.a[this.n++] = b; this.a[this.n++] = c; }
@@ -291,19 +566,34 @@ class Buf {
   grow() { const b = new this.T(this.a.length * 2); b.set(this.a); this.a = b; }
   view() { return this.a.subarray(0, this.n); }
 }
-function newGeo() { return { pos: new Buf(Float32Array), nor: new Buf(Int8Array), col: new Buf(Uint8Array), glo: new Buf(Uint8Array), idx: new Buf(Uint32Array), v: 0 }; }
-function quad(g, p0, p1, p2, p3, n, c, glow) {
-  g.pos.push3(p0[0], p0[1], p0[2]); g.pos.push3(p1[0], p1[1], p1[2]); g.pos.push3(p2[0], p2[1], p2[2]); g.pos.push3(p3[0], p3[1], p3[2]);
-  for (let i = 0; i < 4; i++) { g.nor.push3(n[0] * 127, n[1] * 127, n[2] * 127); g.col.push3(c[0], c[1], c[2]); g.glo.push1(glow); }
-  const v = g.v; g.idx.push3(v, v + 1, v + 2); g.idx.push3(v, v + 2, v + 3); g.v += 4;
+function newGeo() { return { pos: new Buf(Float32Array), nor: new Buf(Int8Array), lay: new Buf(Uint16Array), ao: new Buf(Uint8Array), glo: new Buf(Uint8Array), tin: new Buf(Uint8Array), idx: new Buf(Uint32Array), v: 0 }; }
+const AOV = [0.42, 0.62, 0.82, 1.0];
+function quad(g, p0, p1, p2, p3, n, layer, glow, tint, ao) {
+  const ps = [p0, p1, p2, p3];
+  const a = ao || [3, 3, 3, 3];
+  for (let i = 0; i < 4; i++) {
+    g.pos.push3(ps[i][0], ps[i][1], ps[i][2]); g.nor.push3(n[0] * 127, n[1] * 127, n[2] * 127);
+    g.lay.push1(layer); g.ao.push1(Math.round(AOV[a[i]] * 255)); g.glo.push1(glow); g.tin.push1(tint);
+  }
+  const v = g.v;
+  if (a[0] + a[2] < a[1] + a[3]) { g.idx.push3(v + 1, v + 2, v + 3); g.idx.push3(v + 1, v + 3, v); }
+  else { g.idx.push3(v, v + 1, v + 2); g.idx.push3(v, v + 2, v + 3); }
+  g.v += 4;
 }
-function cuboid(g, x0, y0, z0, x1, y1, z1, c, gl_) {
-  quad(g, [x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1], [1, 0, 0], c, gl_);
-  quad(g, [x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0], [-1, 0, 0], c, gl_);
-  quad(g, [x0, y1, z0], [x0, y1, z1], [x1, y1, z1], [x1, y1, z0], [0, 1, 0], c, gl_);
-  quad(g, [x0, y0, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1], [0, -1, 0], c, gl_);
-  quad(g, [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1], [0, 0, 1], c, gl_);
-  quad(g, [x0, y0, z0], [x0, y1, z0], [x1, y1, z0], [x1, y0, z0], [0, 0, -1], c, gl_);
+function cuboid(g, x0, y0, z0, x1, y1, z1, lay, gl_, tint) {
+  quad(g, [x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1], [1, 0, 0], lay.side, gl_, tint);
+  quad(g, [x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0], [-1, 0, 0], lay.side, gl_, tint);
+  quad(g, [x0, y1, z0], [x0, y1, z1], [x1, y1, z1], [x1, y1, z0], [0, 1, 0], lay.top, gl_, tint);
+  quad(g, [x0, y0, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1], [0, -1, 0], lay.bot, gl_, tint);
+  quad(g, [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1], [0, 0, 1], lay.side, gl_, tint);
+  quad(g, [x0, y0, z0], [x0, y1, z0], [x1, y1, z0], [x1, y0, z0], [0, 0, -1], lay.side, gl_, tint);
+}
+function cross(g, x, y, z, lay, tint, s = 0.45, h = 1) {
+  const c = [x + 0.5, z + 0.5];
+  const A = [[c[0] - s, c[1] - s], [c[0] + s, c[1] + s]], Bq = [[c[0] - s, c[1] + s], [c[0] + s, c[1] - s]];
+  for (const [a, b] of [A, Bq]) {
+    quad(g, [a[0], y, a[1]], [b[0], y, b[1]], [b[0], y + h, b[1]], [a[0], y + h, a[1]], [0, 1, 0], lay, 0, tint);
+  }
 }
 function upload(g) {
   if (!g || g.v === 0) return null;
@@ -316,8 +606,10 @@ function upload(g) {
   };
   attr(0, g.pos.view(), 3, gl.FLOAT, false);
   attr(1, g.nor.view(), 3, gl.BYTE, true);
-  attr(2, g.col.view(), 3, gl.UNSIGNED_BYTE, true);
-  attr(3, g.glo.view(), 1, gl.UNSIGNED_BYTE, true);
+  attr(2, g.lay.view(), 1, gl.UNSIGNED_SHORT, false);
+  attr(3, g.ao.view(), 1, gl.UNSIGNED_BYTE, true);
+  attr(4, g.glo.view(), 1, gl.UNSIGNED_BYTE, true);
+  attr(5, g.tin.view(), 1, gl.UNSIGNED_BYTE, false);
   const ib = gl.createBuffer(); bufs.push(ib);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, g.idx.view(), gl.STATIC_DRAW);
   gl.bindVertexArray(null);
@@ -335,7 +627,7 @@ async function inflate(buf) {
 }
 async function loadLand(slug) {
   if (cache.has(slug)) return cache.get(slug);
-  if (!palette) palette = await (await fetch('data/palette.json')).json();
+  if (!palette) { palette = await (await fetch('data/palette.json')).json(); buildAtlas(); }
   const [meta, bin] = await Promise.all([
     fetch(`data/${slug}.json`).then((r) => { if (!r.ok) throw new Error('Daten fehlen'); return r.json(); }),
     fetch(`data/${slug}.txt`).then((r) => { if (!r.ok) throw new Error('Daten fehlen'); return r.text(); }),
@@ -347,26 +639,21 @@ async function loadLand(slug) {
   cache.set(slug, d);
   return d;
 }
-function makeTables(meta) {
-  const kind = new Uint8Array(256), col = new Uint8Array(256 * 3), glow = new Uint8Array(256), small = new Array(256).fill(null);
+function makeTables() {
+  const kind = new Uint8Array(256), glow = new Uint8Array(256), small = new Array(256).fill(null);
   kind[255] = 1;
-  const over = meta.colors || {};
   palette.forEach((p, i) => {
     kind[i] = p.kind;
-    let hex = over[p.key] || p.color;
-    if (p.key === 'water' && meta.water_color) hex = meta.water_color;
-    const c = hexRGB(hex);
-    col[i * 3] = c[0]; col[i * 3 + 1] = c[1]; col[i * 3 + 2] = c[2];
     glow[i] = Math.round(p.glow * 255);
     if (p.kind === 4) small[i] = SMALL[p.key] || [0.6, 0.8, 0];
   });
-  return { kind, col, glow, small };
+  return { kind, glow, small };
 }
 
-// ================= Greedy-Meshing =================
+// ================= Greedy-Meshing mit Umgebungsverdeckung =================
 function buildSlab(L, y0, clipY) {
   const { vol, W, H, D, tab } = L;
-  const { kind, col, glow, small } = tab;
+  const { kind, glow, small } = tab;
   const y1 = Math.min(H, y0 + SY, clipY);
   if (y1 <= y0) return null;
   const seaY = L.seaY, wid = L.wid;
@@ -375,23 +662,28 @@ function buildSlab(L, y0, clipY) {
     if (y >= H || y >= clipY) return 0;
     if (x < 0 || x >= W || z < 0 || z >= D) return y <= seaY ? wid : 0;
     const v = vol[x + W * (z + D * y)];
-    return (v === 0 && y <= seaY) ? wid : v;
+    if (v === 0) return y <= seaY ? wid : 0;
+    return kind[v] === 8 ? wid : v;   // Seegras zählt als Wasser
   };
+  const occ = (x, y, z) => { const k = kind[get(x, y, z)]; return (k === 1 || k === 5) ? 1 : 0; };
+  const real = (x, y, z) => (x >= 0 && x < W && z >= 0 && z < D && y >= 0 && y < H && vol[x + W * (z + D * y)] !== 0);
   const vis = (kc, kn) => {
     if (kc === 1 || kc === 5) return !(kn === 1 || kn === 5);
-    if (kc === 2) return kn === 0 || kn === 4;
-    if (kc === 3) return kn === 0 || kn === 2 || kn === 4;
+    if (kc === 2) return kn === 0 || kn === 4 || kn === 6 || kn === 7 || kn === 9;
+    if (kc === 3) return kn === 0 || kn === 2 || kn === 4 || kn === 6 || kn === 7 || kn === 9;
     return false;
   };
-  const geos = { o: newGeo(), w: newGeo(), g: newGeo() };
+  const geos = { o: newGeo(), w: newGeo(), g: newGeo(), p: newGeo() };
   const sh = y1 - y0;
   const dims = [W, sh, D];
   const mask = new Int32Array(Math.max(W * D, sh * D, W * sh));
-  const q = [0, 0, 0];
+  const q = [0, 0, 0], e = [0, 0, 0], cr = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
   for (let d = 0; d < 3; d++) {
     const u = (d + 1) % 3, v = (d + 2) % 3;
     const nu = dims[u], nv = dims[v];
     const dx = d === 0 ? 1 : 0, dy = d === 1 ? 1 : 0, dz = d === 2 ? 1 : 0;
+    const ux = u === 0 ? 1 : 0, uy = u === 1 ? 1 : 0, uz = u === 2 ? 1 : 0;
+    const vx = v === 0 ? 1 : 0, vy = v === 1 ? 1 : 0, vz = v === 2 ? 1 : 0;
     for (let p = 0; p <= dims[d]; p++) {
       const aIn = !(d === 1 && p === 0), bIn = !(d === 1 && p === sh);
       let any = false;
@@ -401,11 +693,29 @@ function buildSlab(L, y0, clipY) {
           const ax = q[0], ay = q[1] + y0, az = q[2];
           const a = get(ax, ay, az), b = get(ax + dx, ay + dy, az + dz);
           const ka = kind[a], kb = kind[b];
-          let m = 0;
-          if (aIn && a && a !== 255 && ka !== 4 && vis(ka, kb)) m = a * 2 + 1;
-          else if (bIn && b && b !== 255 && kb !== 4 && vis(kb, ka)) m = b * 2;
+          let m = 0, side = -1;
+          if (aIn && a && a !== 255 && (ka === 1 || ka === 2 || ka === 3 || ka === 5) && vis(ka, kb) && real(ax, ay, az)) { m = a; side = 1; }
+          else if (bIn && b && b !== 255 && (kb === 1 || kb === 2 || kb === 3 || kb === 5) && vis(kb, ka) && real(ax + dx, ay + dy, az + dz)) { m = b; side = 0; }
+          if (m) {
+            let aoBits = 255;
+            const km = kind[m];
+            if (km === 1 || km === 5) {
+              // Luftzelle vor der Fläche
+              const fx = side ? ax + dx : ax, fy = side ? ay + dy : ay, fz = side ? az + dz : az;
+              aoBits = 0;
+              for (let c = 0; c < 4; c++) {
+                const su = cr[c][0], sv = cr[c][1];
+                const s1 = occ(fx + su * ux, fy + su * uy, fz + su * uz);
+                const s2 = occ(fx + sv * vx, fy + sv * vy, fz + sv * vz);
+                const s3 = occ(fx + su * ux + sv * vx, fy + su * uy + sv * vy, fz + su * uz + sv * vz);
+                const ao = (s1 && s2) ? 0 : 3 - (s1 + s2 + s3);
+                aoBits |= ao << (c * 2);
+              }
+            }
+            m = (m << 10) | (side << 8) | aoBits;
+            any = true;
+          }
           mask[i + j * nu] = m;
-          if (m) any = true;
         }
       }
       if (!any) continue;
@@ -421,32 +731,50 @@ function buildSlab(L, y0, clipY) {
             h++;
           }
           for (let jj = 0; jj < h; jj++) for (let k = 0; k < w; k++) mask[i + k + (j + jj) * nu] = 0;
-          const id = m >> 1, pos = m & 1, k = kind[id];
+          const id = m >> 10, pos = (m >> 8) & 1, ab = m & 255, k = kind[id];
           const g = k === 2 ? geos.w : (k === 3 ? geos.g : geos.o);
-          const c = [col[id * 3], col[id * 3 + 1], col[id * 3 + 2]];
-          const P = (uu, vv) => { const r = [0, 0, 0]; r[d] = p; r[u] = uu; r[v] = vv; r[1] += y0; return r; };
+          const lo = layerOf[id];
+          const layer = d === 1 ? (pos ? lo.top : lo.bot) : lo.side;
+          const ao = ab === 255 ? null : [ab & 3, (ab >> 2) & 3, (ab >> 4) & 3, (ab >> 6) & 3];
+          const Pq = (uu, vv) => { const r = [0, 0, 0]; r[d] = p; r[u] = uu; r[v] = vv; r[1] += y0; return r; };
           const n = [0, 0, 0]; n[d] = pos ? 1 : -1;
-          const a0 = P(i, j), a1 = P(i + w, j), a2 = P(i + w, j + h), a3 = P(i, j + h);
-          if (pos) quad(g, a0, a1, a2, a3, n, c, glow[id]); else quad(g, a0, a3, a2, a1, n, c, glow[id]);
+          const a0 = Pq(i, j), a1 = Pq(i + w, j), a2 = Pq(i + w, j + h), a3 = Pq(i, j + h);
+          if (pos) quad(g, a0, a1, a2, a3, n, layer, glow[id], lo.tint, ao);
+          else quad(g, a0, a3, a2, a1, n, layer, glow[id], lo.tint, ao && [ao[0], ao[3], ao[2], ao[1]]);
           i += w;
         }
       }
     }
   }
+  // kleine Blöcke und Pflanzen
   for (let y = y0; y < y1; y++) {
     const base = W * D * y;
     for (let z = 0; z < D; z++) for (let x = 0; x < W; x++) {
       const id = vol[base + x + W * z];
-      const s = small[id];
-      if (!s) continue;
-      const c = [col[id * 3], col[id * 3 + 1], col[id * 3 + 2]];
-      const hw = s[0] / 2;
-      cuboid(geos.o, x + 0.5 - hw, y + s[2], z + 0.5 - hw, x + 0.5 + hw, y + s[2] + s[1], z + 0.5 + hw, c, glow[id]);
+      if (!id) continue;
+      const k = kind[id];
+      if (k === 4) {
+        const s = small[id], hw = s[0] / 2;
+        const lo = layerOf[id];
+        if (palette[id].key === 'wheat') { cross(geos.p, x, y, z, lo.side, 0, 0.45, 0.9); continue; }
+        cuboid(geos.o, x + 0.5 - hw, y + s[2], z + 0.5 - hw, x + 0.5 + hw, y + s[2] + s[1], z + 0.5 + hw, lo, glow[id], lo.tint);
+      } else if (k === 6 || k === 8) {
+        cross(geos.p, x, y, z, layerOf[id].side, layerOf[id].tint, 0.45, k === 8 ? 0.95 : 0.9);
+      } else if (k === 9) {
+        const lo = layerOf[id], key = palette[id].key, o = 0.06;
+        if (key === 'vine_n') quad(geos.p, [x, y, z + o], [x + 1, y, z + o], [x + 1, y + 1, z + o], [x, y + 1, z + o], [0, 0, 1], lo.side, 0, 1);
+        else if (key === 'vine_s') quad(geos.p, [x + 1, y, z + 1 - o], [x, y, z + 1 - o], [x, y + 1, z + 1 - o], [x + 1, y + 1, z + 1 - o], [0, 0, -1], lo.side, 0, 1);
+        else if (key === 'vine_w') quad(geos.p, [x + o, y, z + 1], [x + o, y, z], [x + o, y + 1, z], [x + o, y + 1, z + 1], [1, 0, 0], lo.side, 0, 1);
+        else quad(geos.p, [x + 1 - o, y, z], [x + 1 - o, y, z + 1], [x + 1 - o, y + 1, z + 1], [x + 1 - o, y + 1, z], [-1, 0, 0], lo.side, 0, 1);
+      } else if (k === 7) {
+        const lo = layerOf[id], yy = y + 0.04;
+        quad(geos.p, [x, yy, z], [x, yy, z + 1], [x + 1, yy, z + 1], [x + 1, yy, z], [0, 1, 0], lo.top, 0, 1);
+      }
     }
   }
-  return { o: upload(geos.o), w: upload(geos.w), g: upload(geos.g) };
+  return { o: upload(geos.o), w: upload(geos.w), g: upload(geos.g), p: upload(geos.p) };
 }
-function freeSlab(s) { if (s) { free(s.o); free(s.w); free(s.g); } }
+function freeSlab(s) { if (s) { free(s.o); free(s.w); free(s.g); free(s.p); } }
 
 // Umgebungsfläche: Spalten ohne Blöcke werden zu Flächen zusammengefasst
 function buildSurround(L) {
@@ -454,7 +782,8 @@ function buildSurround(L) {
   const sr = meta.surround || { kind: 'grass', color: '#6a9a3e' };
   if (sr.kind === 'none') return null;
   const y = sr.y != null ? sr.y : meta.ground_y + 1;
-  const c = hexRGB(sr.color);
+  const isWater = sr.kind === 'water';
+  const lay = isWater ? layerOf[L.wid].top : layerOf[palette.findIndex((p) => p.key === 'grass')].top;
   const foot = new Uint8Array(W * D);
   if (!sr.full) for (let z = 0; z < D; z++) for (let x = 0; x < W; x++) {
     for (let yy = 0; yy < H; yy++) if (vol[x + W * (z + D * yy)]) { foot[x + z * W] = 1; break; }
@@ -468,19 +797,20 @@ function buildSurround(L) {
       let h = 1;
       grow: while (z + h < D) { for (let k = 0; k < w; k++) if (foot[x + k + (z + h) * W]) break grow; h++; }
       for (let jj = 0; jj < h; jj++) for (let k = 0; k < w; k++) foot[x + k + (z + jj) * W] = 1;
-      quad(g, [x, y, z], [x, y, z + h], [x + w, y, z + h], [x + w, y, z], up, c, 0);
+      quad(g, [x, y, z], [x, y, z + h], [x + w, y, z + h], [x + w, y, z], up, lay, 0, 1);
       x += w;
     }
   }
   const R = Math.max(W, D) * 8;
-  quad(g, [-R, y, -R], [-R, y, 0], [W + R, y, 0], [W + R, y, -R], up, c, 0);
-  quad(g, [-R, y, D], [-R, y, D + R], [W + R, y, D + R], [W + R, y, D], up, c, 0);
-  quad(g, [-R, y, 0], [-R, y, D], [0, y, D], [0, y, 0], up, c, 0);
-  quad(g, [W, y, 0], [W, y, D], [W + R, y, D], [W + R, y, 0], up, c, 0);
-  const out = { surf: upload(g), water: sr.kind === 'water', y };
-  if (sr.kind === 'water') {
-    const f = newGeo(); const fc = hexRGB(sr.floor || '#c2b48a'); const fy = sr.floor_y != null ? sr.floor_y : y - 12;
-    quad(f, [-R, fy, -R], [-R, fy, D + R], [W + R, fy, D + R], [W + R, fy, -R], up, fc, 0);
+  quad(g, [-R, y, -R], [-R, y, 0], [W + R, y, 0], [W + R, y, -R], up, lay, 0, 1);
+  quad(g, [-R, y, D], [-R, y, D + R], [W + R, y, D + R], [W + R, y, D], up, lay, 0, 1);
+  quad(g, [-R, y, 0], [-R, y, D], [0, y, D], [0, y, 0], up, lay, 0, 1);
+  quad(g, [W, y, 0], [W, y, D], [W + R, y, D], [W + R, y, 0], up, lay, 0, 1);
+  const out = { surf: upload(g), water: isWater, y };
+  if (isWater) {
+    const f = newGeo(); const fy = sr.floor_y != null ? sr.floor_y : y - 12;
+    const sl = layerOf[palette.findIndex((p) => p.key === 'sand')].top;
+    quad(f, [-R, fy, -R], [-R, fy, D + R], [W + R, fy, D + R], [W + R, fy, -R], up, sl, 0, 0);
     out.floor = upload(f);
   }
   return out;
@@ -572,7 +902,7 @@ async function show(idx) {
   if (current) { current.slabs.forEach(freeSlab); if (current.sur) { free(current.sur.surf); free(current.sur.floor); } gl.deleteTexture(current.top); }
   const { meta, vol } = data;
   const [W, H, D] = meta.size;
-  const L = { meta, vol, W, H, D, tab: makeTables(meta), slabs: [] };
+  const L = { meta, vol, W, H, D, tab: makeTables(), slabs: [] };
   L.wid = palette.findIndex((p) => p.key === 'water');
   L.seaY = (meta.surround && meta.surround.kind === 'water') ? meta.water_level : -1;
   current = L;
@@ -592,6 +922,7 @@ async function show(idx) {
     await new Promise((r) => setTimeout(r, 0));
   }
   L.clipBuilt = clipY;
+  shadowDirty = true;
   setLoading(false);
   makePins(meta);
 }
@@ -627,13 +958,10 @@ function applyClip() {
   }
   L.clipBuilt = c;
   L.top = buildTop(L, c);
+  shadowDirty = true;
 }
 
 // ---- Tag/Nacht ----
-function sky() {
-  const m = current && current.meta;
-  return night ? [0.043, 0.07, 0.14] : hexRGB((m && m.sky_color) || '#9cc4e6').map((v) => v / 255);
-}
 $('btnNight').addEventListener('click', (e) => { night = !night; e.currentTarget.setAttribute('aria-pressed', String(night)); });
 $('btnSpin').addEventListener('click', (e) => { cam.autoRotate = !cam.autoRotate; e.currentTarget.setAttribute('aria-pressed', String(cam.autoRotate)); });
 $('btnReset').addEventListener('click', () => current && resetView());
@@ -743,10 +1071,13 @@ function resize() {
   const w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
   if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
 }
-function draw(m, alpha) { if (!m) return; gl.uniform1f(U.uAlpha, alpha); gl.bindVertexArray(m.vao); gl.drawElements(gl.TRIANGLES, m.count, gl.UNSIGNED_INT, 0); }
+function draw(m) { if (!m) return; gl.bindVertexArray(m.vao); gl.drawElements(gl.TRIANGLES, m.count, gl.UNSIGNED_INT, 0); }
+const emptyVAO = gl.createVertexArray();
 let lastT = performance.now();
+function norm3(v) { const l = Math.hypot(v[0], v[1], v[2]); return [v[0] / l, v[1] / l, v[2] / l]; }
 function frame(now) {
   const dt = Math.min(0.1, (now - lastT) / 1000); lastT = now;
+  const time = now / 1000;
   resize();
   if (cam.fly) {
     const f = cam.fly, k = Math.min(1, (now - f.start) / f.dur), e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
@@ -756,49 +1087,97 @@ function frame(now) {
     if (k >= 1) cam.fly = null;
   }
   if (cam.autoRotate && pointers.size === 0) cam.theta += dt * 0.12;
-  const s = sky();
+  const L = current && current.slabs ? current : null;
+  const W = L ? L.W : 300, H = L ? L.H : 150, D = L ? L.D : 300;
+  const maxDim = Math.max(W, D, H);
+  const eye = camPos();
+  const near = Math.max(0.3, cam.r * 0.004), far = cam.r + maxDim * 9;
+  const proj = perspective(0.8, canvas.width / Math.max(1, canvas.height), near, far);
+  VP = mul(proj, lookAt(eye, cam.target, [0, 1, 0]));
+  const sun = norm3((L && L.meta.sun) || [0.45, 0.62, 0.35]);
+  const nightF = night ? 1 : 0;
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
   gl.viewport(0, 0, canvas.width, canvas.height);
-  gl.clearColor(s[0], s[1], s[2], 1);
+  gl.depthMask(true);
+  gl.clearColor(0.6, 0.75, 0.9, 1);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  if (current && current.slabs) {
-    const L = current, maxDim = Math.max(L.W, L.D, L.H);
-    const eye = camPos();
-    const near = Math.max(0.3, cam.r * 0.004), far = cam.r + maxDim * 6;
-    VP = mul(perspective(0.8, canvas.width / Math.max(1, canvas.height), near, far), lookAt(eye, cam.target, [0, 1, 0]));
-    gl.uniformMatrix4fv(U.uVP, false, VP);
-    gl.uniform3fv(U.uCam, eye);
-    const sun = night ? [0.3, 0.8, -0.5] : [0.5, 0.78, 0.37];
-    const sl = Math.hypot(...sun);
-    gl.uniform3f(U.uSun, sun[0] / sl, sun[1] / sl, sun[2] / sl);
-    gl.uniform3fv(U.uSunCol, night ? [0.1, 0.12, 0.2] : [0.55, 0.51, 0.44]);
-    gl.uniform3fv(U.uSky, night ? [0.12, 0.15, 0.27] : [0.74, 0.79, 0.86]);
-    gl.uniform3fv(U.uGnd, night ? [0.06, 0.06, 0.09] : [0.5, 0.48, 0.44]);
-    gl.uniform3fv(U.uFog, s);
-    gl.uniform1f(U.uFogNear, maxDim * 1.2);
-    gl.uniform1f(U.uFogFar, maxDim * 4.5);
-    gl.uniform1f(U.uGlow, night ? 1.0 : 0.25);
-    gl.uniform1f(U.uClip, currentClip());
-    gl.uniform2f(U.uDim, L.W, L.D);
-    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, L.top); gl.uniform1i(U.uTop, 0);
+  // Himmel
+  gl.useProgram(PK.p);
+  gl.disable(gl.DEPTH_TEST); gl.disable(gl.BLEND);
+  gl.uniformMatrix4fv(PK.u.uInvVP, false, invert(VP));
+  gl.uniform3fv(PK.u.uCam, eye); gl.uniform3fv(PK.u.uSun, sun);
+  gl.uniform1f(PK.u.uNight, nightF); gl.uniform1f(PK.u.uTime, time);
+  gl.uniform1f(PK.u.uCloudY, H + 70);
+  gl.bindVertexArray(emptyVAO); gl.drawArrays(gl.TRIANGLES, 0, 3);
+  gl.enable(gl.DEPTH_TEST);
+
+  if (L) {
+    // Schattenkarte (nur neu, wenn sich die Szene ändert)
+    const c = [W / 2, H / 2, D / 2], R = 0.5 * Math.hypot(W, H, D) + 4;
+    const lp = [c[0] + sun[0] * R * 2, c[1] + sun[1] * R * 2, c[2] + sun[2] * R * 2];
+    const LVP = mul(ortho(-R, R, -R, R, 0.5, R * 4), lookAt(lp, c, [0, 1, 0]));
+    if (shadowDirty && shadowOK) {
+      gl.bindFramebuffer(gl.FRAMEBUFFER, shadowFB);
+      gl.viewport(0, 0, SHADOW_SIZE, SHADOW_SIZE);
+      gl.clear(gl.DEPTH_BUFFER_BIT);
+      gl.useProgram(PS.p);
+      gl.uniformMatrix4fv(PS.u.uLVP, false, LVP);
+      gl.enable(gl.POLYGON_OFFSET_FILL); gl.polygonOffset(1.5, 3.0);
+      gl.disable(gl.CULL_FACE);
+      for (const s_ of L.slabs) if (s_) { draw(s_.o); draw(s_.p); }
+      gl.enable(gl.CULL_FACE); gl.disable(gl.POLYGON_OFFSET_FILL);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      shadowDirty = false;
+    }
+    const u = P.u;
+    gl.useProgram(P.p);
+    gl.uniformMatrix4fv(u.uVP, false, VP);
+    gl.uniformMatrix4fv(u.uLVP, false, LVP);
+    gl.uniform3fv(u.uCam, eye);
+    gl.uniform3fv(u.uSun, sun);
+    gl.uniform3fv(u.uSunCol, night ? [0.1, 0.13, 0.25] : [1.25, 1.12, 0.95]);
+    gl.uniform2f(u.uDim, W, D);
+    gl.uniform1f(u.uNight, nightF);
+    gl.uniform1f(u.uGlow, night ? 1.0 : 0.35);
+    gl.uniform1f(u.uTime, time);
+    gl.uniform1f(u.uFogDen, 1 / (maxDim * 2.7));
+    gl.uniform1f(u.uShadowOn, shadowOK ? 1 : 0);
+    gl.uniform1f(u.uAOStr, 1);
+    gl.uniform1f(u.uLift, 0);
+    gl.uniform3fv(u.uWater, hexRGB(L.meta.water_color || '#3f76e4').map((v) => v / 255));
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D_ARRAY, atlas); gl.uniform1i(u.uTex, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, L.top); gl.uniform1i(u.uTop, 1);
+    gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, shadowTex); gl.uniform1i(u.uShadow, 2);
+    const skyAO = L.meta.ao != null ? L.meta.ao : 1;
     // Opak
     gl.disable(gl.BLEND); gl.depthMask(true);
-    gl.uniform1f(U.uTex, 1); gl.uniform1f(U.uAO, L.meta.ao != null ? L.meta.ao : 1);
-    for (const sl_ of L.slabs) if (sl_) draw(sl_.o, 1);
-    gl.uniform1f(U.uTex, 0); gl.uniform1f(U.uAO, 0);
-    gl.uniform1f(U.uLift, L.sur ? Math.min(0, currentClip() - L.sur.y) : 0);
-    if (L.sur) { if (L.sur.floor) draw(L.sur.floor, 1); if (!L.sur.water) draw(L.sur.surf, 1); }
-    // Transparent
+    gl.uniform1f(u.uMode, 0); gl.uniform1f(u.uSkyAO, skyAO);
+    for (const s_ of L.slabs) if (s_) draw(s_.o);
+    gl.uniform1f(u.uSkyAO, 0);
+    gl.uniform1f(u.uLift, L.sur ? Math.min(0, currentClip() - L.sur.y) : 0);
+    if (L.sur) { if (L.sur.floor) draw(L.sur.floor); if (!L.sur.water) draw(L.sur.surf); }
+    gl.uniform1f(u.uLift, 0);
+    // Pflanzen (beidseitig, ausgeschnitten)
+    gl.uniform1f(u.uMode, 3); gl.uniform1f(u.uSkyAO, skyAO);
+    gl.disable(gl.CULL_FACE);
+    for (const s_ of L.slabs) if (s_) draw(s_.p);
+    gl.enable(gl.CULL_FACE);
+    // Wasser
     gl.enable(gl.BLEND); gl.depthMask(false);
-    if (L.sur && L.sur.water) draw(L.sur.surf, 0.82);
-    gl.uniform1f(U.uLift, 0);
-    for (const sl_ of L.slabs) if (sl_) draw(sl_.w, 0.74);
-    gl.uniform1f(U.uTex, 1);
-    for (const sl_ of L.slabs) if (sl_) draw(sl_.g, 0.4);
-    gl.depthMask(true);
+    gl.uniform1f(u.uMode, 1); gl.uniform1f(u.uSkyAO, 0);
+    gl.uniform1f(u.uLift, L.sur ? Math.min(0, currentClip() - L.sur.y) : 0);
+    if (L.sur && L.sur.water) draw(L.sur.surf);
+    gl.uniform1f(u.uLift, 0);
+    for (const s_ of L.slabs) if (s_) draw(s_.w);
+    // Glas
+    gl.uniform1f(u.uMode, 2);
+    for (const s_ of L.slabs) if (s_) draw(s_.g);
+    gl.depthMask(true); gl.disable(gl.BLEND);
     gl.bindVertexArray(null);
     if (pinsOn && pins.length) updatePins();
   }
-  $('stage').style.background = `rgb(${s.map((v) => Math.round(v * 255)).join(',')})`;
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);

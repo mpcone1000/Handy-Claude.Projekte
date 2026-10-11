@@ -22,12 +22,12 @@
  },
  "camera": {
   "target": [
-   158,
+   159,
    118,
    244
   ],
   "pos": [
-   408,
+   409,
    220,
    574
   ]
@@ -38,7 +38,7 @@
    "name": "Blasen-Aufzug",
    "typ": "eingang",
    "pos": [
-    186,
+    187,
     4,
     424
    ],
@@ -48,7 +48,7 @@
    "name": "Shopinsel",
    "typ": "shop",
    "pos": [
-    164,
+    165,
     126,
     424
    ],
@@ -58,7 +58,7 @@
    "name": "Weltenbaum",
    "typ": "highlight",
    "pos": [
-    140,
+    141,
     181,
     246
    ],
@@ -69,7 +69,7 @@
    "typ": "wohnen",
    "innen": true,
    "pos": [
-    144,
+    145,
     160,
     182
    ],
@@ -80,7 +80,7 @@
    "name": "See mit Wasserfall ins Leere",
    "typ": "highlight",
    "pos": [
-    182,
+    183,
     152,
     246
    ],
@@ -90,7 +90,7 @@
    "name": "Farminsel",
    "typ": "farm",
    "pos": [
-    286,
+    287,
     139,
     112
    ],
@@ -101,7 +101,7 @@
    "typ": "lager",
    "innen": true,
    "pos": [
-    32,
+    33,
     145,
     134
    ],
@@ -113,7 +113,7 @@
    "typ": "werkstatt",
    "innen": true,
    "pos": [
-    292,
+    293,
     161,
     324
    ],
@@ -124,7 +124,7 @@
    "name": "Verzauberungsinsel",
    "typ": "werkstatt",
    "pos": [
-    26,
+    27,
     187,
     324
    ],
@@ -134,7 +134,7 @@
    "name": "Sprungpfad und Aussichtsinsel",
    "typ": "highlight",
    "pos": [
-    204,
+    205,
     208,
     48
    ],
@@ -173,30 +173,34 @@
   "Unterseiten aus Stein, Andesit und Tuff in Schichten bauen. Hängende Wurzeln und Ketten verstärken den Schwebe-Effekt."
  ],
  "size": [
-  331,
+  332,
   227,
   454
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 38764,
-    "gesamt": 420444
+    "sichtbar": 34357,
+    "gesamt": 416034
    },
    "andesite": {
-    "sichtbar": 18239,
-    "gesamt": 193553
+    "sichtbar": 16325,
+    "gesamt": 191629
    },
    "granite": {
-    "sichtbar": 14555,
-    "gesamt": 150075
+    "sichtbar": 12877,
+    "gesamt": 148406
    },
    "tuff": {
-    "sichtbar": 18672,
-    "gesamt": 207521
+    "sichtbar": 16264,
+    "gesamt": 205112
+   },
+   "mossy_cobblestone": {
+    "sichtbar": 3151,
+    "gesamt": 3151
    },
    "stone_bricks": {
-    "sichtbar": 1758,
+    "sichtbar": 1757,
     "gesamt": 1800
    },
    "gravel": {
@@ -204,12 +208,16 @@
     "gesamt": 158
    },
    "dirt": {
-    "sichtbar": 8474,
+    "sichtbar": 8480,
     "gesamt": 112965
    },
    "grass": {
-    "sichtbar": 32953,
-    "gesamt": 33782
+    "sichtbar": 32954,
+    "gesamt": 33798
+   },
+   "moss": {
+    "sichtbar": 7245,
+    "gesamt": 7245
    },
    "sand": {
     "sichtbar": 708,
@@ -220,43 +228,43 @@
     "gesamt": 858
    },
    "oak_log": {
-    "sichtbar": 45,
-    "gesamt": 62
+    "sichtbar": 92,
+    "gesamt": 111
    },
    "oak_leaves": {
-    "sichtbar": 446,
-    "gesamt": 624
+    "sichtbar": 267,
+    "gesamt": 321
    },
    "birch_log": {
-    "sichtbar": 36,
-    "gesamt": 52
+    "sichtbar": 77,
+    "gesamt": 94
    },
    "birch_leaves": {
-    "sichtbar": 552,
-    "gesamt": 737
+    "sichtbar": 400,
+    "gesamt": 488
    },
    "cherry_log": {
-    "sichtbar": 2370,
-    "gesamt": 5893
+    "sichtbar": 2377,
+    "gesamt": 5894
    },
    "cherry_leaves": {
-    "sichtbar": 30423,
-    "gesamt": 67871
+    "sichtbar": 30326,
+    "gesamt": 67747
    },
    "azalea_leaves": {
-    "sichtbar": 1767,
-    "gesamt": 1838
+    "sichtbar": 1689,
+    "gesamt": 1736
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 6053,
-    "gesamt": 11000
+    "sichtbar": 6066,
+    "gesamt": 11008
    },
    "mangrove_roots": {
     "sichtbar": 1615,
     "gesamt": 1615
    },
    "spruce_planks": {
-    "sichtbar": 2538,
+    "sichtbar": 2537,
     "gesamt": 2814
    },
    "stripped_spruce_log": {
@@ -268,8 +276,8 @@
     "gesamt": 396
    },
    "chain": {
-    "sichtbar": 345,
-    "gesamt": 345
+    "sichtbar": 349,
+    "gesamt": 349
    },
    "lantern": {
     "sichtbar": 85,
@@ -320,9 +328,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 5227,
-  "gesamt": 1220648,
-  "sichtbar": 187262
+  "wasser": 5132,
+  "gesamt": 1235903,
+  "sichtbar": 186862
  },
- "bin_bytes": 246515
+ "bin_bytes": 281139
 }

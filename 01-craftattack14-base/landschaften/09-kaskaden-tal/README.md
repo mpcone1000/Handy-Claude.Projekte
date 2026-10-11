@@ -14,8 +14,8 @@ Holzstege führen im Zickzack über die Seen. Der Wohnbereich liegt hinter dem g
 
 | | |
 |---|---|
-| Größe (B × L × H) | 320 × 580 × 138 Blöcke |
-| Sichtbare Blöcke | 525.746 (≈ 304 Shulker-Kisten) |
+| Größe (B × L × H) | 320 × 580 × 139 Blöcke |
+| Sichtbare Blöcke | 524.000 (≈ 303 Shulker-Kisten) |
 | Einfügehöhe | Unterkante der Schematic auf **Y -49** |
 | Hinweis | Dann liegt die Hochebene auf Y 63, und die Seen liegen darunter in der Schlucht. |
 
@@ -59,41 +59,42 @@ Gezählt sind nur Blöcke, die man sieht. Das Innere von Bergen und Inseln kann 
 
 | Block | Anzahl | Stacks | Shulker |
 |---|---:|---:|---:|
-| Stein | 141.321 | 2.209 | 81.8 |
-| Calcit | 93.229 | 1.457 | 54.0 |
-| Grasblock | 80.236 | 1.254 | 46.4 |
-| Andesit | 33.201 | 519 | 19.2 |
-| Fichtennadeln | 31.202 | 488 | 18.1 |
-| Diorit | 24.862 | 389 | 14.4 |
-| Tuffstein | 22.207 | 347 | 12.9 |
+| Stein | 130.603 | 2.041 | 75.6 |
+| Calcit | 89.443 | 1.398 | 51.8 |
+| Grasblock | 83.779 | 1.310 | 48.5 |
+| Fichtennadeln | 33.512 | 524 | 19.4 |
+| Andesit | 28.359 | 444 | 16.4 |
+| Moosblock | 25.532 | 399 | 14.8 |
 | Sand | 21.848 | 342 | 12.6 |
-| Eichenlaub | 15.791 | 247 | 9.1 |
-| Moosblock | 9.353 | 147 | 5.4 |
-| Birkenlaub | 9.178 | 144 | 5.3 |
-| Tropfsteinblock | 7.621 | 120 | 4.4 |
+| Diorit | 20.995 | 329 | 12.1 |
+| Tuffstein | 20.096 | 314 | 11.6 |
+| Eichenlaub | 11.208 | 176 | 6.5 |
+| Tropfsteinblock | 7.576 | 119 | 4.4 |
+| Birkenlaub | 7.548 | 118 | 4.4 |
 | Ton | 7.503 | 118 | 4.3 |
-| Erde | 6.724 | 106 | 3.9 |
-| Azaleenlaub | 3.950 | 62 | 2.3 |
-| Fichtenholzbretter | 3.513 | 55 | 2.0 |
-| Bruchstein | 3.336 | 53 | 1.9 |
-| Blühendes Azaleenlaub | 1.864 | 30 | 1.1 |
+| Erde | 6.731 | 106 | 3.9 |
+| Bemooster Bruchstein | 6.130 | 96 | 3.5 |
+| Azaleenlaub | 3.973 | 63 | 2.3 |
+| Fichtenholzbretter | 3.511 | 55 | 2.0 |
+| Bruchstein | 2.850 | 45 | 1.6 |
+| Eichenstamm | 2.074 | 33 | 1.2 |
+| Blühendes Azaleenlaub | 2.056 | 33 | 1.2 |
+| Birkenstamm | 1.545 | 25 | 0.9 |
 | Steinziegel | 1.438 | 23 | 0.8 |
 | Kies | 1.370 | 22 | 0.8 |
-| Eichenstamm | 1.051 | 17 | 0.6 |
-| Fichtenstamm | 992 | 16 | 0.6 |
+| Fichtenstamm | 1.041 | 17 | 0.6 |
 | Ackerboden | 812 | 13 | 0.5 |
 | Weizen | 812 | 13 | 0.5 |
-| Birkenstamm | 683 | 11 | 0.4 |
 | Tropenbaumlaub | 427 | 7 | 0.2 |
 | Fass | 307 | 5 | 0.2 |
 | Fichtenholzzaun | 271 | 5 | 0.2 |
 | Kirschblätter | 229 | 4 | 0.1 |
-| Bücherregal | 137 | 3 | 0.1 |
+| Bücherregal | 138 | 3 | 0.1 |
 | Glas | 135 | 3 | 0.1 |
 | Laterne | 55 | 1 | 0.0 |
 | Bemooste Steinziegel | 49 | 1 | 0.0 |
 | Kirschstamm | 29 | 1 | 0.0 |
-| Trampelpfad | 6 | 1 | 0.0 |
+| Trampelpfad | 11 | 1 | 0.0 |
 | Werkbank | 1 | 1 | 0.0 |
 | Schmiedetisch | 1 | 1 | 0.0 |
 | Schmelzofen | 1 | 1 | 0.0 |

@@ -16,18 +16,18 @@
  "sky_color": "#a8cfe3",
  "surround": {
   "kind": "grass",
-  "color": "#4a8a2c"
+  "color": "#5f9a3c"
  },
  "camera": {
   "target": [
-   172,
-   50,
-   238
+   171,
+   45,
+   233
   ],
   "pos": [
-   272,
-   280,
-   448
+   231,
+   235,
+   388
   ]
  },
  "clip": null,
@@ -36,7 +36,7 @@
    "name": "Einstieg zum Spiralweg",
    "typ": "eingang",
    "pos": [
-    225,
+    224,
     111,
     205
    ],
@@ -46,7 +46,7 @@
    "name": "Glasplattform und Shop",
    "typ": "shop",
    "pos": [
-    172,
+    171,
     112,
     362
    ],
@@ -56,7 +56,7 @@
    "name": "Hauptinsel mit Kirschbaum",
    "typ": "highlight",
    "pos": [
-    162,
+    161,
     89,
     226
    ],
@@ -67,7 +67,7 @@
    "typ": "wohnen",
    "innen": true,
    "pos": [
-    164,
+    163,
     60,
     226
    ],
@@ -79,7 +79,7 @@
    "typ": "lager",
    "innen": true,
    "pos": [
-    114,
+    113,
     67,
     228
    ],
@@ -90,7 +90,7 @@
    "name": "Farminsel",
    "typ": "farm",
    "pos": [
-    172,
+    171,
     65,
     172
    ],
@@ -100,7 +100,7 @@
    "name": "Verzauberungsinsel",
    "typ": "werkstatt",
    "pos": [
-    172,
+    171,
     95,
     279
    ],
@@ -111,7 +111,7 @@
    "typ": "werkstatt",
    "innen": true,
    "pos": [
-    145,
+    144,
     90,
     315
    ],
@@ -123,7 +123,7 @@
    "typ": "farm",
    "innen": true,
    "pos": [
-    252,
+    251,
     43,
     291
    ],
@@ -134,7 +134,7 @@
    "name": "Türkiser See",
    "typ": "highlight",
    "pos": [
-    206,
+    205,
     32,
     258
    ],
@@ -145,7 +145,7 @@
    "typ": "wohnen",
    "innen": true,
    "pos": [
-    151,
+    150,
     20,
     316
    ],
@@ -185,71 +185,71 @@
   "Beim Bau der Inseln über dem Abgrund: Gerüst nutzen und Feder-Fall-Stiefel anziehen."
  ],
  "size": [
-  340,
+  339,
   145,
   423
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 89175,
-    "gesamt": 2459392
+    "sichtbar": 83553,
+    "gesamt": 2454091
    },
    "andesite": {
-    "sichtbar": 92253,
-    "gesamt": 2023312
+    "sichtbar": 86704,
+    "gesamt": 2019054
    },
    "granite": {
-    "sichtbar": 601,
-    "gesamt": 2296
+    "sichtbar": 517,
+    "gesamt": 2212
    },
    "diorite": {
-    "sichtbar": 30318,
-    "gesamt": 1174359
+    "sichtbar": 28637,
+    "gesamt": 1170983
    },
    "tuff": {
-    "sichtbar": 19679,
-    "gesamt": 1004110
+    "sichtbar": 16932,
+    "gesamt": 999569
    },
    "calcite": {
-    "sichtbar": 17686,
-    "gesamt": 619237
+    "sichtbar": 16228,
+    "gesamt": 619434
    },
    "cobblestone": {
-    "sichtbar": 4779,
-    "gesamt": 143147
+    "sichtbar": 4462,
+    "gesamt": 143065
    },
    "mossy_cobblestone": {
-    "sichtbar": 3698,
-    "gesamt": 181336
+    "sichtbar": 8951,
+    "gesamt": 186571
    },
    "stone_bricks": {
-    "sichtbar": 1586,
+    "sichtbar": 1588,
     "gesamt": 1603
    },
    "gravel": {
-    "sichtbar": 1802,
+    "sichtbar": 1799,
     "gesamt": 1804
    },
    "dripstone_block": {
-    "sichtbar": 2783,
-    "gesamt": 136295
+    "sichtbar": 2785,
+    "gesamt": 136356
    },
    "dirt": {
-    "sichtbar": 7647,
+    "sichtbar": 7643,
     "gesamt": 296786
    },
    "podzol": {
-    "sichtbar": 11060,
-    "gesamt": 11434
+    "sichtbar": 756,
+    "gesamt": 797
    },
    "grass": {
-    "sichtbar": 82750,
-    "gesamt": 85807
+    "sichtbar": 91073,
+    "gesamt": 96427
    },
    "moss": {
-    "sichtbar": 8157,
-    "gesamt": 407953
+    "sichtbar": 20360,
+    "gesamt": 420102
    },
    "clay": {
     "sichtbar": 3197,
@@ -260,20 +260,20 @@
     "gesamt": 23558
    },
    "dirt_path": {
-    "sichtbar": 120,
-    "gesamt": 120
+    "sichtbar": 137,
+    "gesamt": 137
    },
    "farmland": {
     "sichtbar": 264,
     "gesamt": 264
    },
    "jungle_log": {
-    "sichtbar": 13150,
-    "gesamt": 14435
+    "sichtbar": 14291,
+    "gesamt": 15740
    },
    "jungle_leaves": {
-    "sichtbar": 57569,
-    "gesamt": 80893
+    "sichtbar": 56764,
+    "gesamt": 77884
    },
    "cherry_log": {
     "sichtbar": 680,
@@ -284,12 +284,12 @@
     "gesamt": 5884
    },
    "azalea_leaves": {
-    "sichtbar": 4133,
-    "gesamt": 4349
+    "sichtbar": 6759,
+    "gesamt": 7226
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 2369,
-    "gesamt": 4833
+    "sichtbar": 2430,
+    "gesamt": 4911
    },
    "mangrove_roots": {
     "sichtbar": 226,
@@ -344,9 +344,9 @@
     "gesamt": 262
    }
   },
-  "wasser": 261630,
-  "gesamt": 8697665,
-  "sichtbar": 482220
+  "wasser": 258726,
+  "gesamt": 8727725,
+  "sichtbar": 483274
  },
- "bin_bytes": 1862498
+ "bin_bytes": 2033846
 }

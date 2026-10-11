@@ -197,47 +197,39 @@
   "Den Tunnel-Eingang erst ganz zum Schluss öffnen. So bleibt das Tal bis zur Enthüllung geheim."
  ],
  "size": [
-  300,
+  297,
   175,
   599
  ],
  "materials": {
   "bloecke": {
    "stone": {
-    "sichtbar": 164054,
-    "gesamt": 2477632
+    "sichtbar": 136930,
+    "gesamt": 2395424
    },
    "andesite": {
-    "sichtbar": 73485,
-    "gesamt": 1392506
-   },
-   "diorite": {
-    "sichtbar": 91742,
-    "gesamt": 350047
+    "sichtbar": 151014,
+    "gesamt": 1817108
    },
    "tuff": {
-    "sichtbar": 39676,
-    "gesamt": 904152
-   },
-   "calcite": {
-    "sichtbar": 3132,
-    "gesamt": 36238
+    "sichtbar": 31463,
+    "gesamt": 895627
    },
    "cobblestone": {
-    "sichtbar": 5277,
-    "gesamt": 96146
+    "sichtbar": 4212,
+    "gesamt": 94841
    },
    "mossy_cobblestone": {
-    "sichtbar": 129,
-    "gesamt": 766
+    "sichtbar": 8533,
+    "gesamt": 9149
    },
    "mossy_stone_bricks": {
-    "sichtbar": 518,
-    "gesamt": 1071
+    "sichtbar": 546,
+    "gesamt": 1093
    },
    "stone_bricks": {
-    "sichtbar": 2737,
-    "gesamt": 3123
+    "sichtbar": 2699,
+    "gesamt": 3091
    },
    "polished_andesite": {
     "sichtbar": 49,
@@ -248,32 +240,32 @@
     "gesamt": 7184
    },
    "dirt": {
-    "sichtbar": 13162,
+    "sichtbar": 13146,
     "gesamt": 223175
    },
    "coarse_dirt": {
-    "sichtbar": 7700,
-    "gesamt": 7741
+    "sichtbar": 1876,
+    "gesamt": 1889
    },
    "grass": {
-    "sichtbar": 34747,
-    "gesamt": 35583
+    "sichtbar": 58758,
+    "gesamt": 59628
    },
    "moss": {
-    "sichtbar": 7733,
-    "gesamt": 7797
+    "sichtbar": 34887,
+    "gesamt": 34951
    },
    "clay": {
     "sichtbar": 4010,
     "gesamt": 4012
    },
    "sand": {
-    "sichtbar": 13496,
+    "sichtbar": 13488,
     "gesamt": 26820
    },
    "dirt_path": {
-    "sichtbar": 1259,
-    "gesamt": 1260
+    "sichtbar": 1255,
+    "gesamt": 1261
    },
    "snow": {
     "sichtbar": 1,
@@ -284,44 +276,44 @@
     "gesamt": 2949
    },
    "oak_log": {
-    "sichtbar": 78,
-    "gesamt": 117
+    "sichtbar": 174,
+    "gesamt": 216
    },
    "oak_leaves": {
-    "sichtbar": 1046,
-    "gesamt": 1465
+    "sichtbar": 681,
+    "gesamt": 849
    },
    "spruce_log": {
-    "sichtbar": 1143,
-    "gesamt": 4026
+    "sichtbar": 1117,
+    "gesamt": 4021
    },
    "spruce_leaves": {
-    "sichtbar": 44351,
-    "gesamt": 61510
+    "sichtbar": 45206,
+    "gesamt": 61432
    },
    "birch_log": {
-    "sichtbar": 111,
-    "gesamt": 160
+    "sichtbar": 242,
+    "gesamt": 317
    },
    "birch_leaves": {
-    "sichtbar": 1242,
-    "gesamt": 1681
+    "sichtbar": 1031,
+    "gesamt": 1290
    },
    "cherry_log": {
-    "sichtbar": 654,
-    "gesamt": 778
+    "sichtbar": 680,
+    "gesamt": 785
    },
    "cherry_leaves": {
-    "sichtbar": 6008,
-    "gesamt": 8715
+    "sichtbar": 5917,
+    "gesamt": 8631
    },
    "azalea_leaves": {
-    "sichtbar": 1507,
-    "gesamt": 1657
+    "sichtbar": 1601,
+    "gesamt": 1761
    },
    "flowering_azalea_leaves": {
-    "sichtbar": 808,
-    "gesamt": 871
+    "sichtbar": 694,
+    "gesamt": 759
    },
    "spruce_planks": {
     "sichtbar": 2605,
@@ -372,9 +364,9 @@
     "gesamt": 1
    }
   },
-  "wasser": 737033,
-  "gesamt": 5666852,
-  "sichtbar": 537375
+  "wasser": 734868,
+  "gesamt": 5684062,
+  "sichtbar": 537730
  },
- "bin_bytes": 1168546
+ "bin_bytes": 1270846
 }
